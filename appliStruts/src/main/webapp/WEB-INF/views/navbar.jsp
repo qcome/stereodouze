@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: Quentin
@@ -26,35 +27,45 @@
             <s:a href="%{urlRegister}"><b>Register</b></s:a>
         </li>
         <li><p class="navbar-text">Already have an account?</p></li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b><span class="caret"></span></a>
-            <ul id="login-dp" class="dropdown-menu">
-                <li>
-                    <div class="row" >
-                        <div class="col-md-10 col-md-offset-1">
-                            <s:form cssClass="formLogin" id="formLogin" theme="bootstrap" accept-charset="UTF-8">
-                                <s:textfield
-                                        name="username"
-                                        type="text"
-                                        cssClass="loginFromForm"
-                                        placeholder="Username"
-                                        required="true"/>
-                                <s:textfield
-                                        name="password"
-                                        type="password"
-                                        cssClass="passwordFromForm"
-                                        placeholder="Password"
-                                        required="true"/>
-                                <s:submit cssClass="btn btn-primary pull-right" value="Sign In"/>
-                            </s:form>
+
+        <s:if test="%{#session.idUser == null}">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b><span class="caret"></span></a>
+                <ul id="login-dp" class="dropdown-menu">
+                    <li>
+                        <div class="row" >
+                            <div class="col-md-10 col-md-offset-1">
+                                <s:form cssClass="formLogin" id="formLogin" theme="bootstrap" accept-charset="UTF-8">
+                                    <s:textfield
+                                            name="username"
+                                            type="text"
+                                            cssClass="loginFromForm"
+                                            placeholder="Username"
+                                            required="true"/>
+                                    <s:textfield
+                                            name="password"
+                                            type="password"
+                                            cssClass="passwordFromForm"
+                                            placeholder="Password"
+                                            required="true"/>
+                                    <s:submit cssClass="btn btn-primary pull-right" value="Sign In"/>
+                                </s:form>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li class="divider" id="dividerLoginForm"></li>
-                <li>
-                    <div class="text-right bottom" id="forgotPasswordLink"><a href="#">Forgot your password ?</a></div>
-                </li>
-            </ul>
-        </li>
+                    </li>
+                    <li class="divider" id="dividerLoginForm"></li>
+                    <li>
+                        <div class="text-right bottom" id="forgotPasswordLink"><a href="#">Forgot your password ?</a></div>
+                    </li>
+                </ul>
+            </li>
+        </s:if>
+        <s:else>
+            <li>
+                <s:url action="diconnection" var="urlDisconnection"/>
+                <s:a href="%{urlDisconnection}"><b>Logout</b></s:a>
+            </li>
+        </s:else>
+
     </ul>
 </div>

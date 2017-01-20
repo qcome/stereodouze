@@ -30,5 +30,7 @@ public class MyCommonEnvironnement extends ActionSupport implements ApplicationA
     @Override
     public void setSession(Map<String, Object> map) {this.mapSession = map;}
 
+
+
     public GestionApplication getMyFacade() {return myFacade;}
 }

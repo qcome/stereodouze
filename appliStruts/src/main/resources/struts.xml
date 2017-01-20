@@ -21,15 +21,15 @@
 
         <default-action-ref name="default"/>
 
-        <action name="default">
+        <action name="default" class="myactions.Default">
             <result>/WEB-INF/views/home.jsp</result>
         </action>
 
-        <action name="register">
+        <action name="register" class="myactions.Default">
             <result>/WEB-INF/views/registration.jsp</result>
         </action>
 
-        <action name="home">
+        <action name="home" class="myactions.Default">
             <result>/WEB-INF/views/home.jsp</result>
         </action>
 
