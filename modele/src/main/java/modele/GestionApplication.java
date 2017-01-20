@@ -1,6 +1,7 @@
 package modele;
 
 import modele.exceptions.ExceptionCoupleLoginPasswordInvalid;
+import modele.exceptions.ExceptionUserNotConnected;
 import modele.exceptions.ExceptionLoginAlreadyTaken;
 import modele.exceptions.ExceptionUserNotRegistered;
 
@@ -50,6 +51,13 @@ public class GestionApplication implements IGestionApplication{
         } catch (ExceptionUserNotRegistered exceptionUserNotRegistered) {
         }
         return getIdUser(username);
+    }
+
+    public void disconnection(int idUser) throws ExceptionUserNotConnected {
+        if(usersOnline.containsKey(idUser))
+            usersOnline.remove(idUser);
+        else
+            throw new ExceptionUserNotConnected();
     }
 
     public void createPlaylist(int id, String drug, String mood){

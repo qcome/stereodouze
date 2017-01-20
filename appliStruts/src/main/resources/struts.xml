@@ -10,9 +10,10 @@
     <package name="json" namespace="/" extends="json-default">
 
           <action name="userLogin" class="myactions.Login">
-              <result name="success" type="json"/>
-              <result name="input" type="json"/>
+              <result type="json"/>
           </action>
+
+
 
     </package>
 
@@ -32,8 +33,12 @@
             <result>/WEB-INF/views/home.jsp</result>
         </action>
 
+        <action name="disconnection" class="myactions.Disconnection">
+            <result type="redirect">home</result>
+        </action>
+
         <action name="registerAction" class="myactions.Registration">
-            <result name="success">/WEB-INF/views/home.jsp</result>
+            <result name="success" type="redirect">home</result>
             <result name="input">/WEB-INF/views/registration.jsp</result>
         </action>
 

@@ -22,10 +22,12 @@ $(document).ready(function() {
             dataType: "json",
             success: function(result)
             {
-                alert(result.validConnection);
                 if(result.validConnection){
                     $('.dropdown.open .dropdown-toggle').dropdown('toggle');
-                    $('#login-logout').html('<li><s:url action="disconnection" var="urlDisconnection"/> <s:a href="%{urlDisconnection}"><b>Disconnect</b></s:a></li>');
+                    $(".nav li.dropdown").remove();
+                    var urlDisconnection = "disconnection.action";
+                    $(".nav").append('<li><a href=' + urlDisconnection + '><b>Logout</b></a></li>');
+                    //$('#login-logout').html('<li><s:url action="disconnection" var="urlDisconnection"/> <s:a href="%{urlDisconnection}"><b>Disconnect</b></s:a></li>');
                 }
 
             },

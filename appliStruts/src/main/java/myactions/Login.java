@@ -20,6 +20,8 @@ public class Login extends MyCommonEnvironnement{
     public String execute(){
         try {
             this.idUser = this.getMyFacade().connection(username, password);
+            mapSession.put("idUser", this.idUser);
+            mapSession.put("userName", this.username);
             validConnection = true;
         } catch (ExceptionUserNotRegistered exceptionUserNotRegistered) {
             return SUCCESS;
