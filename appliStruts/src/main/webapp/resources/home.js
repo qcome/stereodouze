@@ -11,7 +11,6 @@ $(document).ready(function() {
     });
     $('#formLogin').submit(function(e)
     {
-
         e.preventDefault();
 
         var data = $(this).serialize();
@@ -23,10 +22,15 @@ $(document).ready(function() {
             dataType: "json",
             success: function(result)
             {
-                $('.dropdown.open .dropdown-toggle').dropdown('toggle');
-            },
-            error: function () {
+                alert(result.validConnection);
+                if(result.validConnection){
+                    $('.dropdown.open .dropdown-toggle').dropdown('toggle');
+                    $('#login-logout').html('<li><s:url action="disconnection" var="urlDisconnection"/> <s:a href="%{urlDisconnection}"><b>Disconnect</b></s:a></li>');
+                }
 
+            },
+            error: function(result){
+                alert("Erreur connexion");
             }
         });
     });

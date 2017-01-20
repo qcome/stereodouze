@@ -34,6 +34,10 @@ public class User {
 
     public int getIdUser() {return idUser;}
 
+    public boolean coupleConnectionValid(String username, String password){
+        return this.username.equals(username) && this.passwordUser.equals(password);
+    }
+
     public Date getDateRegister(){
         return dateRegister;
     }

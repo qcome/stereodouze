@@ -15,7 +15,7 @@ public class Registration extends MyCommonEnvironnement{
         try {
             this.getMyFacade().registration(username, password);
         } catch (ExceptionLoginAlreadyTaken exceptionLoginAlreadyTaken) {
-            addFieldError("username",getText("Erreur.pseudoalreadytaken"));
+            addFieldError("username",getText("Error.pseudoalreadytaken"));
             return INPUT;
         }
         return SUCCESS;

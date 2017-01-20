@@ -1,6 +1,8 @@
 package modele;
 
+import modele.exceptions.ExceptionCoupleLoginPasswordInvalid;
 import modele.exceptions.ExceptionLoginAlreadyTaken;
+import modele.exceptions.ExceptionUserNotRegistered;
 
 import java.util.*;
 
@@ -37,10 +39,17 @@ public class GestionApplication implements IGestionApplication{
         return user.getIdUser();
     }
 
-    public int connection(String username){
-        int idUser = getIdUser(username);
-        usersOnline.put(idUser, users.get(idUser));
-        return idUser;
+    public int connection(String username, String password) throws ExceptionUserNotRegistered, ExceptionCoupleLoginPasswordInvalid {
+        try {
+            int idUser = getIdUser(username);
+            User user = this.users.get(idUser);
+            if (user.coupleConnectionValid(username, password))
+                usersOnline.put(idUser, users.get(idUser));
+            else
+                throw new ExceptionCoupleLoginPasswordInvalid();
+        } catch (ExceptionUserNotRegistered exceptionUserNotRegistered) {
+        }
+        return getIdUser(username);
     }
 
     public void createPlaylist(int id, String drug, String mood){
@@ -63,8 +72,11 @@ public class GestionApplication implements IGestionApplication{
         return list;
     }
 
-    public int getIdUser(String username){
-        return idUsers.get(username);
+    public int getIdUser(String username) throws ExceptionUserNotRegistered {
+        if(idUsers.containsKey(username))
+            return idUsers.get(username);
+        else
+            throw new ExceptionUserNotRegistered();
     }
 
     public Map<Integer, Playlist> getUsersPlaylists() {return usersPlaylists;}

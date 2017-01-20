@@ -19,7 +19,9 @@
     <link href="${pageContext.request.contextPath}/resources/style.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/javascript.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/soundcloud.js"></script>
+    <!--<script type="text/javascript" src="/resources/librairies/Widget-JS-API-master/soundcloud.player.api.js"></script>-->
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/home.js"></script>
+
     <script src="http://connect.soundcloud.com/sdk.js"></script>
 </head>
 <body>
@@ -45,34 +47,38 @@
                     <s:a href="%{urlRegister}"><b>Register</b></s:a>
                 </li>
                 <li><p class="navbar-text">Already have an account?</p></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b><span class="caret"></span></a>
-                    <ul id="login-dp" class="dropdown-menu">
-                        <li>
-                            <div class="row" >
-                                <div class="col-md-10 col-md-offset-1">
-                                    <form class="form" role="form" method="post" id="formLogin" accept-charset="UTF-8">
-                                        <div class="form-group">
-                                            <label class="sr-only" for="loginFromForm">Login</label>
-                                            <input name="username" type="text" class="form-control" id="loginFromForm" placeholder="Username" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="passwordFromForm">Password</label>
-                                            <input name="password" type="password" class="form-control" id="passwordFromForm" placeholder="Password" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary pull-right">Sign In</button>
-                                        </div>
-                                    </form>
+                <div id="login-logout">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b><span class="caret"></span></a>
+                        <ul id="login-dp" class="dropdown-menu">
+                            <li>
+                                <div class="row" >
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <s:form cssClass="formLogin" id="formLogin" theme="bootstrap" accept-charset="UTF-8">
+                                            <s:textfield
+                                                    name="username"
+                                                    type="text"
+                                                    cssClass="loginFromForm"
+                                                    placeholder="Username"
+                                                    required="true"/>
+                                            <s:textfield
+                                                    name="password"
+                                                    type="password"
+                                                    cssClass="passwordFromForm"
+                                                    placeholder="Password"
+                                                    required="true"/>
+                                            <s:submit cssClass="btn btn-primary pull-right" value="Sign In"/>
+                                        </s:form>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="divider" id="dividerLoginForm"></li>
-                        <li>
-                            <div class="text-right bottom" id="forgotPasswordLink"><a href="#">Forgot your password ?</a></div>
-                        </li>
-                    </ul>
-                </li>
+                            </li>
+                            <li class="divider" id="dividerLoginForm"></li>
+                            <li>
+                                <div class="text-right bottom" id="forgotPasswordLink"><a href="#">Forgot your password ?</a></div>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
             </ul>
         </div>
     </div>
@@ -97,9 +103,14 @@
     </div>
 </div>
 
+
+<!--<object height="81" width="100%" id="myPlayer" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
+    <param name="movie" value="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fsoundcloud.com%2Fmatas%2Fhobnotropic&enable_api=true&object_id=myPlayer"/>
+    <param name="allowscriptaccess" value="always"/>
+    <embed allowscriptaccess="always" height="81" src="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fsoundcloud.com%2Fmatas%2Fhobnotropic&enable_api=true&object_id=myPlayer" type="application/x-shockwave-flash" width="100%" name="myPlayer"></embed>
+</object>-->
 <div id="target">
     <iframe width="100%" height="280" scrolling="yes" frameborder="no"></iframe>
 </div>
-
 </body>
 </html>

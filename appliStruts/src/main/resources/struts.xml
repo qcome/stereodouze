@@ -10,7 +10,8 @@
     <package name="json" namespace="/" extends="json-default">
 
           <action name="userLogin" class="myactions.Login">
-              <result type="json"/>
+              <result name="success" type="json"/>
+              <result name="input" type="json"/>
           </action>
 
     </package>
