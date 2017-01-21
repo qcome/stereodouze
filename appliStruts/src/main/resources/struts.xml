@@ -13,15 +13,13 @@
               <result type="json"/>
           </action>
 
-
-
     </package>
 
     <package name="default" namespace="/" extends="struts-default">
 
-        <default-action-ref name="default"/>
+        <default-action-ref name="douze"/>
 
-        <action name="default" class="myactions.Default">
+        <action name="douze" class="myactions.Default">
             <result>/WEB-INF/views/home.jsp</result>
         </action>
 

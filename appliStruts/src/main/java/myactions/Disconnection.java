@@ -14,6 +14,7 @@ public class Disconnection extends MyCommonEnvironnement{
     public String execute(){
         int idUser = (Integer) mapSession.get("idUser");
         try {
+            System.out.println("begin disconnection");
             getMyFacade().disconnection(idUser);
             mapSession.remove("userName");
             mapSession.remove("idUser");

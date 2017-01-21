@@ -62,8 +62,7 @@
         </s:if>
         <s:else>
             <li>
-                <s:url action="diconnection" var="urlDisconnection"/>
-                <s:a href="%{urlDisconnection}"><b>Logout</b></s:a>
+                <s:a href="disconnection.action"><b>Logout</b></s:a>
             </li>
         </s:else>
 
