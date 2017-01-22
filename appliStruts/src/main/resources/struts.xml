@@ -32,7 +32,8 @@
         </action>
 
         <action name="disconnection" class="myactions.Disconnection">
-            <result type="redirect">home</result>
+            <result name="success" type="redirect">home</result>
+            <result name="error" type="redirect">home</result>
         </action>
 
         <action name="registerAction" class="myactions.Registration">

@@ -12,7 +12,11 @@ public class Disconnection extends MyCommonEnvironnement{
 
     @Override
     public String execute(){
-        int idUser = (Integer) mapSession.get("idUser");
+        int idUser;
+        if(mapSession.get("idUser") == null)
+            return ERROR;
+        else
+            idUser= (Integer) mapSession.get("idUser");
         try {
             System.out.println("begin disconnection");
             getMyFacade().disconnection(idUser);
