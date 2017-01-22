@@ -1,13 +1,13 @@
 /**
  * Created by Quentin on 17/01/2017.
  */
-$(document).ready(function() {
+$( window ).load(function() {
     $('#formFindId').submit(function(e)
     {
-
         e.preventDefault();
         var link = $('#link').val();
-        resolveSCPlaylist(link);
+        getIdPlaylistAndUpdatePlayer(link);
+
     });
     $('#formLogin').submit(function(e)
     {
@@ -27,6 +27,8 @@ $(document).ready(function() {
                     $(".nav li.dropdown").remove();
                     var urlDisconnection = "disconnection.action";
                     $(".nav").append('<li><a href=' + urlDisconnection + '><b>Logout</b></a></li>');
+                    var urlCreatePlaylist = "createPlaylist.action";
+                    $(".nav li:nth-child(4)").html('<a href=' + urlCreatePlaylist + '><b>Create Playlist</b></a>');
                     //$('#login-logout').html('<li><s:url action="disconnection" var="urlDisconnection"/> <s:a href="%{urlDisconnection}"><b>Disconnect</b></s:a></li>');
                 }
 

@@ -68,9 +68,15 @@ a:hover, a:focus{
 #dividerLoginForm{
     background-color: #777;
 }
-#target{
+/*#target{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}*/
+#containerPlayer{
     position: fixed;
     bottom: 0;
     width: 100%;
 }
+
 

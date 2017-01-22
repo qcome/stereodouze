@@ -23,8 +23,14 @@
         <li><a href="#">Something else here</a></li>
         <li role="separator" class="divider"></li>
         <li>
-            <s:url action="register" var="urlRegister"/>
-            <s:a href="%{urlRegister}"><b>Register</b></s:a>
+            <s:if test="%{#session.idUser == null}">
+                <s:url action="register" var="urlRegister"/>
+                <s:a href="%{urlRegister}"><b>Register</b></s:a>
+            </s:if>
+            <s:else>
+                <s:url action="createPlaylist" var="urlCreatePlaylist"/>
+                <s:a href="%{urlCreatePlaylist}"><b>Create Playlist</b></s:a>
+            </s:else>
         </li>
         <li><p class="navbar-text">Already have an account?</p></li>
 
