@@ -36,6 +36,16 @@ $(document).ready(function() {
             }
         });
     });
+
+    //var CLIENT_ID = '?client_id=6dca7c6a3dbbf44a7a30c5a2954f9d03';
+    //var SOUNDCLOUD_API = 'http://api.soundcloud.com';
+
+
+
+
+
+
+
     //resolveSCPlaylist("https://soundcloud.com/samuel-salgado-6/sets/chill-trap-hip-hop");
 });
 
