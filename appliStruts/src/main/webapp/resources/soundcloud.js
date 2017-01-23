@@ -2,6 +2,7 @@
  * Created by Quentin on 17/01/2017.
  */
 var myjPlayerPlaylist;
+var KEY_API = '6dca7c6a3dbbf44a7a30c5a2954f9d03';
 
 /*------------EXEMPLES--------------
  *
@@ -12,9 +13,9 @@ var myjPlayerPlaylist;
 
 
 $( window ).load('ready',function() {
-    SC.initialize({
-        client_id: '6dca7c6a3dbbf44a7a30c5a2954f9d03'
-    });
+    /*SC.initialize({
+        client_id: KEY_API
+    });*/
     var cssSelector = {
         jPlayer: "#jquery_jplayer_1",
         cssSelectorAncestor: "#jp_container_1"
@@ -58,7 +59,7 @@ function getIdPlaylistAndUpdatePlayer(url) {
 
 function updtatePlayerPlaylist(idPlaylist){
     var playlist=[];
-    var CLIENT_ID = '?client_id=6dca7c6a3dbbf44a7a30c5a2954f9d03';
+    var CLIENT_ID = '?client_id=' + KEY_API;
     SC.get('/playlists/' + idPlaylist, function(result) {
         for (i = 0; i < result.tracks.length; i++) {
             var titleTrack=result.tracks[i].title;
