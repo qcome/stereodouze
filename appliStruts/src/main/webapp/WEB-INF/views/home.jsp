@@ -60,12 +60,12 @@
 <button class="btn-primary" id="testbuttton">testbutton</button>
 <div class="row">
     <div class="container-fluid" id="containerPlayer">
-        <div id="{{JPLAYER}}" class="jp-jplayer"></div>
-        <div id="{{WRAPPER}}" class="jp-audio" role="application" aria-label="media player">
+        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+        <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
             <div class="jp-type-playlist">
                 <div class="jp-playlist">
                     <ul>
-                        <li>&nbsp;</li>
+                        <li></li>
                     </ul>
                 </div>
                 <div class="jp-gui jp-interface">

@@ -38,6 +38,21 @@ $( window ).load(function() {
             }
         });
     });
+    $('#testbuttton').click(function () {
+        $.get( "http://api.soundcloud.com/tracks/?q=lentourloop&client_id=d3bb97412667a7812924715ea66498af", function( data ) {
+            alert( "Data Loaded: " + data[0].stream_url );
+        });
+        /*$.post( "http://api.soundcloud.com/tracks/",
+            {
+                q: "lentourloop",
+                client_id: "d3bb97412667a7812924715ea66498af"
+            },
+            function(data, status){
+
+            alert( "Data Loaded: " + data[0].stream_url +  "\nStatus: " + status);
+        });*/
+
+    });
 
     //var CLIENT_ID = '?client_id=6dca7c6a3dbbf44a7a30c5a2954f9d03';
     //var SOUNDCLOUD_API = 'http://api.soundcloud.com';

@@ -2,17 +2,18 @@
  * Created by Quentin on 17/01/2017.
  */
 var myjPlayerPlaylist;
-var KEY_API = '6dca7c6a3dbbf44a7a30c5a2954f9d03';
+var KEY_API = 'd3bb97412667a7812924715ea66498af';
 
 /*------------EXEMPLES--------------
  *
  * Requete recherche tracks
- * http://api.soundcloud.com/tracks/?q=lentourloop&client_id=6dca7c6a3dbbf44a7a30c5a2954f9d03
+ * http://api.soundcloud.com/tracks/?q=lentourloop&client_id=d3bb97412667a7812924715ea66498af
  *
  */
 
 
-$( window ).load('ready',function() {
+$(document).ready(function() {
+
     /*SC.initialize({
         client_id: KEY_API
     });*/
@@ -34,7 +35,6 @@ $( window ).load('ready',function() {
         keyEnabled: true
     };
     myjPlayerPlaylist = new jPlayerPlaylist(cssSelector,[], options);
-
     $('#testbuttton').click(function () {
 
     });
@@ -46,13 +46,17 @@ function getIdPlaylistAndUpdatePlayer(url) {
     if (!url) {
         alert('you have to fill the playlist URL input');
     }else{
-        SC.get('/resolve/?url=' + url, { limit: 1 }, function(result) {
+        /*SC.get('/resolve/?url=' + url, { limit: 1 }, function(result) {
             if (result && result.id) {
                 idPlaylist = result.id;
                 updtatePlayerPlaylist(idPlaylist);
             } else {
                 alert('playlist not found');
             }
+        });*/
+        $.get( "http://api.soundcloud.com/resolve/?url="+ url +"&client_id=d3bb97412667a7812924715ea66498af", function( result ) {
+            idPlaylist = result.id;
+            updtatePlayerPlaylist(idPlaylist);
         });
     }
 }
@@ -60,7 +64,17 @@ function getIdPlaylistAndUpdatePlayer(url) {
 function updtatePlayerPlaylist(idPlaylist){
     var playlist=[];
     var CLIENT_ID = '?client_id=' + KEY_API;
-    SC.get('/playlists/' + idPlaylist, function(result) {
+    /*SC.get('/playlists/' + idPlaylist, function(result) {
+        for (i = 0; i < result.tracks.length; i++) {
+            var titleTrack=result.tracks[i].title;
+            var mp3Track=result.tracks[i].stream_url + CLIENT_ID;
+            playlist.push({
+                title:titleTrack,
+                mp3:mp3Track
+            });
+        }
+    });*/
+    $.get( "http://api.soundcloud.com/playlists/"+ idPlaylist + CLIENT_ID, function( result ) {
         for (i = 0; i < result.tracks.length; i++) {
             var titleTrack=result.tracks[i].title;
             var mp3Track=result.tracks[i].stream_url + CLIENT_ID;
@@ -72,13 +86,9 @@ function updtatePlayerPlaylist(idPlaylist){
     });
 
     setTimeout( function() { myjPlayerPlaylist.setPlaylist(playlist); }, 100);
-}
-function sleep(miliseconds) {
-    var currentTime = new Date().getTime();
 
-    while (currentTime + miliseconds >= new Date().getTime()) {
-    }
 }
+
 
 
 /*function resolveSCPlaylist(url) {
