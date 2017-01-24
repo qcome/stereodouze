@@ -63,6 +63,11 @@
         <div id="{{JPLAYER}}" class="jp-jplayer"></div>
         <div id="{{WRAPPER}}" class="jp-audio" role="application" aria-label="media player">
             <div class="jp-type-playlist">
+                <div class="jp-playlist">
+                    <ul>
+                        <li>&nbsp;</li>
+                    </ul>
+                </div>
                 <div class="jp-gui jp-interface">
                     <div class="jp-controls">
                         <button class="jp-previous" role="button" tabindex="0">previous</button>
@@ -91,11 +96,7 @@
                         <button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
                     </div>
                 </div>
-                <div class="jp-playlist">
-                    <ul>
-                        <li>&nbsp;</li>
-                    </ul>
-                </div>
+                <!--playlist initialy placed -->
                 <div class="jp-no-solution">
                     <span>Update Required</span>
                     To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
