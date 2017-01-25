@@ -61,6 +61,13 @@ a:hover, a:focus{
     border-radius: 5px;
     background-color: rgba(30, 30, 30, 0.52);
 }
+.labelForm{
+    font-size: 17px;
+    color: white;
+}
+#containerCreatePlaylist{
+    max-width: 900px;
+}
 #containerRegistration{
     max-width: 400px;
 }
@@ -80,6 +87,9 @@ a:hover, a:focus{
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+#inputUser, #resultsResearch{
+    width: 400px;
 }
 
 

@@ -54,7 +54,7 @@ function getIdPlaylistAndUpdatePlayer(url) {
                 alert('playlist not found');
             }
         });*/
-        $.get( "http://api.soundcloud.com/resolve/?url="+ url +"&client_id=d3bb97412667a7812924715ea66498af", function( result ) {
+        $.get( "http://api.soundcloud.com/resolve/?url="+ url +"&client_id=" + KEY_API, function( result ) {
             idPlaylist = result.id;
             updtatePlayerPlaylist(idPlaylist);
         });
@@ -88,6 +88,9 @@ function updtatePlayerPlaylist(idPlaylist){
     setTimeout( function() { myjPlayerPlaylist.setPlaylist(playlist); }, 100);
 
 }
+
+
+
 
 
 

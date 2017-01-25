@@ -45,6 +45,9 @@
             <result name="input">/WEB-INF/views/registration.jsp</result>
         </action>
 
+        <action name="createPlaylistAction" class="myactions.CreatePlaylist">
+            <result type="redirect">home</result>
+        </action>
 
 
 

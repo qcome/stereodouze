@@ -41,6 +41,7 @@
                     name="username"
                     cssClass="form-control"
                     placeholder="Username"
+                    type="text"
                     required="true"/>
             <s:password
                     name="password"

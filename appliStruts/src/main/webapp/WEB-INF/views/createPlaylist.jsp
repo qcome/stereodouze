@@ -25,5 +25,52 @@
         <jsp:include page="navbar.jsp"/>
     </div>
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<%--<s:text name="createPlaylistLabel"/>--%>
+<div class="container" id="containerCreatePlaylist">
+    <div class="row">
+        <div class="col-xs-4 col-sm-4">
+            <s:label cssClass="labelForm" for="selectPlayer" value="Added songs:"/>
+            <select multiple id="selectPlayer" name="selectPlayer" class="form-control">
+               <%-- <s:set var="counter" value="0"/>
+                <s:iterator var="player" value="#session.playersOnline" status="k">
+                    <s:if test="%{#player.key != #session.login}">
+                        <s:set var="counter" value="%{#counter+1}"/>
+                        <option id="<s:property value="%{#counter}"/>-playerSelect" value="<s:property value="%{#player.key}"/>"><s:property value="%{#player.key}"/></option>
+                    </s:if>
+                </s:iterator>--%>
+            </select>
+        </div>
+        <div class="col-xs-8 col-sm-8">
+            <form class="form-group" id="searchForSong" accept-charset="UTF-8">
+
+                <div class="form-group">
+                    <label class="labelForm" for="inputUser">First step:</label>
+                    <div class="form-inline">
+                        <input type="text" class="form-control" id="inputUser" placeholder="Type the desired song" required>
+                        <button type="submit" class="btn btn-primary pull-right">Research</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="labelForm" for="resultsResearch">Results</label>
+                    <select class="selectpicker" id="resultsResearch">
+                        <option></option>
+                    </select>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
