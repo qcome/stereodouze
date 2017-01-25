@@ -12,7 +12,7 @@ public class main {
 
             int user1 = application.registration("daaaouze", "douze");
             int user2 = application.registration("aaa", "douze");
-            application.createPlaylist(user1, "WEED", "RASTA");
+            //application.createPlaylist(user1, "WEED", "RASTA");
 
         } catch (ExceptionLoginAlreadyTaken exceptionLoginAlreadyTaken) {
             exceptionLoginAlreadyTaken.printStackTrace();

@@ -10,20 +10,19 @@ import java.util.Map;
 public class CreatePlaylist extends MyCommonEnvironnement {
 
 
-
-    public ArrayList<Integer> idSongsList;
+    private ArrayList<Integer> idSongsList;
 
 
     @Override
     public String execute(){
         idSongsList = new ArrayList<Integer>();
         //mapSession.put("idSongsList", idSongsList);
-        System.out.println("in execute" + idSongsList);
         return SUCCESS;
     }
 
     public String createPlaylist(){
-        System.out.println("in createPlaylist" + idSongsList);
+        int idUser = (Integer) this.mapSession.get("idUser");
+        this.getMyFacade().createPlaylist(idUser, "WEED", "RASTA", idSongsList);
         return SUCCESS;
     }
 

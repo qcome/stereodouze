@@ -5,6 +5,7 @@ import modele.exceptions.ExceptionUserNotConnected;
 import modele.exceptions.ExceptionLoginAlreadyTaken;
 import modele.exceptions.ExceptionUserNotRegistered;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.*;
 
 /**
@@ -20,11 +21,15 @@ public class GestionApplication implements IGestionApplication{
     private List<Drug> drugsList;
     private Map<Integer, Playlist> usersPlaylists;
 
+    private ArrayList<Playlist> playlists;
+
+
     public GestionApplication(){
         this.users = new HashMap<>();
         this.usersPlaylists = new HashMap<>();
         this.idUsers = new HashMap<>();
         this.usersOnline = new HashMap<>();
+        this.playlists = new ArrayList<>();
         this.drugsList = Arrays.asList(Drug.values());
     }
 
@@ -60,9 +65,11 @@ public class GestionApplication implements IGestionApplication{
             throw new ExceptionUserNotConnected();
     }
 
-    public void createPlaylist(int id, String drug, String mood){
-        Playlist playlist = new Playlist(id, drug, mood);
-        usersPlaylists.put(id, playlist);
+    public void createPlaylist(int idUser, String drug, String mood, ArrayList<Integer> songs){
+        Playlist playlist = new Playlist(idUser, drug, mood, songs);
+        User user = usersOnline.get(idUser);
+        user.getUserPlaylists().add(playlist);
+        this.playlists.add(playlist);
     }
 
     public List<Drug> getDrugsList(){
@@ -89,5 +96,8 @@ public class GestionApplication implements IGestionApplication{
 
     public Map<Integer, Playlist> getUsersPlaylists() {return usersPlaylists;}
 
-    public Map<Integer, User> getUsers() {return users;}
+    public ArrayList<Playlist> getPlaylists() {return playlists;}
+
+
+
 }

@@ -58,6 +58,13 @@
     </div>
 </div>
 <button class="btn-primary" id="testbuttton">testbutton</button>
+<table id="tablePlaylists">
+    <s:iterator var="playlist" value="#application.playlists" status="i">
+        <tr id="<s:property value="%{#i.index}"/>-playlist">
+            <td><s:property value="#playlist.name"/></td>
+        </tr>
+    </s:iterator>
+</table>
 <div class="row">
     <div class="container-fluid" id="containerPlayer">
         <div id="jquery_jplayer_1" class="jp-jplayer"></div>

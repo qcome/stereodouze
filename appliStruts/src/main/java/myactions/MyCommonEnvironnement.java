@@ -25,6 +25,9 @@ public class MyCommonEnvironnement extends ActionSupport implements ApplicationA
             this.myFacade = new GestionApplication();
             map.put(MYFACADE, myFacade);
         }
+        //actualisation playlists
+        map.put("playlists", myFacade.getPlaylists());
+        System.out.println(myFacade.getPlaylists());
     }
 
     @Override

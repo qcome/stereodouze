@@ -15,6 +15,9 @@ public class User {
     private String passwordUser;
     private Date dateRegister;
     private DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+
+
     private List<Playlist> userPlaylists;
 
     private static int identifiant = 0;
@@ -45,6 +48,10 @@ public class User {
     public String getStringDateRegister(){
         return dateFormat.format(dateRegister);
     }
+
+    public List<Playlist> getUserPlaylists() {return userPlaylists;}
+
+    public void setUserPlaylists(List<Playlist> userPlaylists) {this.userPlaylists = userPlaylists;}
 
     @Override
     public String toString() {
