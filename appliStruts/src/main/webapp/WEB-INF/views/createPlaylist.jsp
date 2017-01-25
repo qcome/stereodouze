@@ -18,6 +18,10 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/javascript.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/home.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/createPlaylist.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/soundcloud.js"></script>
+
+    <script src="http://connect.soundcloud.com/sdk.js"></script>
+
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navigationbar">
@@ -38,38 +42,43 @@
 <%--<s:text name="createPlaylistLabel"/>--%>
 <div class="container" id="containerCreatePlaylist">
     <div class="row">
-        <div class="col-xs-4 col-sm-4">
-            <s:label cssClass="labelForm" for="selectPlayer" value="Added songs:"/>
-            <select multiple id="selectPlayer" name="selectPlayer" class="form-control">
-               <%-- <s:set var="counter" value="0"/>
-                <s:iterator var="player" value="#session.playersOnline" status="k">
-                    <s:if test="%{#player.key != #session.login}">
-                        <s:set var="counter" value="%{#counter+1}"/>
-                        <option id="<s:property value="%{#counter}"/>-playerSelect" value="<s:property value="%{#player.key}"/>"><s:property value="%{#player.key}"/></option>
-                    </s:if>
-                </s:iterator>--%>
-            </select>
-        </div>
-        <div class="col-xs-8 col-sm-8">
-            <form class="form-group" id="searchForSong" accept-charset="UTF-8">
-
-                <div class="form-group">
-                    <label class="labelForm" for="inputUser">First step:</label>
-                    <div class="form-inline">
-                        <input type="text" class="form-control" id="inputUser" placeholder="Type the desired song" required>
-                        <button type="submit" class="btn btn-primary pull-right">Research</button>
+        <s:form cssClass="formCreatePlaylist" id="formCreatePlaylist" theme="bootstrap" action="createPlaylistAction" accept-charset="UTF-8">
+            <div class="col-xs-4 col-sm-4">
+                <form id="formAddedSongs" accept-charset="UTF-8">
+                    <s:label cssClass="labelForm" for="addedSongs" value="Added songs:"/>
+                    <s:select multiple="true"
+                              list="idSongsList"
+                              value="idSongsList"
+                              id="addedSongs"
+                              cssClass="form-control"
+                              name="idSongsList">
+                    </s:select>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+            </div>
+            <div class="col-xs-8 col-sm-8">
+                <form id="searchForSong" accept-charset="UTF-8">
+                    <div class="form-group">
+                        <label class="labelForm" for="inputUser">First step: Search for a song</label>
+                        <div class="form-inline">
+                            <input type="text" class="form-control" id="inputUser" placeholder="Type the desired song" required>
+                            <button type="submit" class="btn btn-primary pull-right">Research</button>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="labelForm" for="resultsResearch">Results</label>
-                    <select class="selectpicker" id="resultsResearch">
-                        <option></option>
-                    </select>
-                </div>
-            </form>
-
-        </div>
-
+                </form>
+                <form id="addSongToPlaylist" accept-charset="UTF-8">
+                    <div class="form-group">
+                        <label class="labelForm" for="resultsResearch">Second step: Add the song you want</label>
+                        <div class="form-inline">
+                            <select class="form-control" id="resultsResearch"></select>
+                            <button type="submit" class="btn btn-primary pull-right">Add</button>
+                        </div>
+                    </div>
+                </form>
+                    <s:label cssClass="labelForm" for="buttonSubmit" value="Last step: Confirm your playlist!"/>
+                    <s:submit cssClass="btn btn-primary pull-right" id="buttonSubmit" value="Validate"/>
+            </div>
+        </s:form>
     </div>
 </div>
 </body>

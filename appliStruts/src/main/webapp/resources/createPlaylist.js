@@ -1,8 +1,8 @@
 /**
  * Created by Quentin on 23/01/2017.
  */
-var KEY_API = 'd3bb97412667a7812924715ea66498af';
-var tabResults=[];
+var KEY_API = 'j5dOQqQeUHPVHQGdVHRyu4hFrOTfR837';
+
 var html = '';
 
 $(document).ready(function(){
@@ -20,16 +20,15 @@ $(document).ready(function(){
         //$('#resultsResearch').html(html)
 
     });
+    $('#addSongToPlaylist').submit(function (e) {
+        e.preventDefault();
+        var idSong = $(this).find('option:selected').attr('id');
+        var titleSong = $(this).find('option:selected').val();
+        $('#addedSongs').append('<option value='+ idSong +' id='+ idSong + '>' + titleSong + '</option>')
+    });
+
+    $('#formCreatePlaylist').submit(function (e) {
+        $("#addedSongs option").prop('selected',true);
+    })
 });
 
-function researchForSong(inputUser){
-    html = '';
-    $.get( "http://api.soundcloud.com/tracks/?q=" + inputUser + "&client_id=" + KEY_API, function( result ) {
-        for (i = 0; i < result.length; i++) {
-            var titleTrack=result[i].title;
-            var idTrack=result[i].id;
-            html+= '<option>' + titleTrack + '</option>';
-        }
-        $('#resultsResearch').html(html)
-    });
-}

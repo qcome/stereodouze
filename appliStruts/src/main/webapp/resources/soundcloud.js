@@ -2,7 +2,8 @@
  * Created by Quentin on 17/01/2017.
  */
 var myjPlayerPlaylist;
-var KEY_API = 'd3bb97412667a7812924715ea66498af';
+var KEY_API = 'j5dOQqQeUHPVHQGdVHRyu4hFrOTfR837';
+
 
 /*------------EXEMPLES--------------
  *
@@ -14,9 +15,9 @@ var KEY_API = 'd3bb97412667a7812924715ea66498af';
 
 $(document).ready(function() {
 
-    /*SC.initialize({
+    SC.initialize({
         client_id: KEY_API
-    });*/
+    });
     var cssSelector = {
         jPlayer: "#jquery_jplayer_1",
         cssSelectorAncestor: "#jp_container_1"
@@ -46,38 +47,24 @@ function getIdPlaylistAndUpdatePlayer(url) {
     if (!url) {
         alert('you have to fill the playlist URL input');
     }else{
-        /*SC.get('/resolve/?url=' + url, { limit: 1 }, function(result) {
+        SC.get('/resolve/?url=' + url, { limit: 1 }, function(result) {
             if (result && result.id) {
                 idPlaylist = result.id;
                 updtatePlayerPlaylist(idPlaylist);
             } else {
                 alert('playlist not found');
             }
-        });*/
-        $.get( "http://api.soundcloud.com/resolve/?url="+ url +"&client_id=" + KEY_API, function( result ) {
-            idPlaylist = result.id;
-            updtatePlayerPlaylist(idPlaylist);
         });
+
     }
 }
 
 function updtatePlayerPlaylist(idPlaylist){
     var playlist=[];
-    var CLIENT_ID = '?client_id=' + KEY_API;
-    /*SC.get('/playlists/' + idPlaylist, function(result) {
+    SC.get('/playlists/' + idPlaylist, function(result) {
         for (i = 0; i < result.tracks.length; i++) {
             var titleTrack=result.tracks[i].title;
-            var mp3Track=result.tracks[i].stream_url + CLIENT_ID;
-            playlist.push({
-                title:titleTrack,
-                mp3:mp3Track
-            });
-        }
-    });*/
-    $.get( "http://api.soundcloud.com/playlists/"+ idPlaylist + CLIENT_ID, function( result ) {
-        for (i = 0; i < result.tracks.length; i++) {
-            var titleTrack=result.tracks[i].title;
-            var mp3Track=result.tracks[i].stream_url + CLIENT_ID;
+            var mp3Track=result.tracks[i].stream_url + '/?client_id=' + KEY_API;
             playlist.push({
                 title:titleTrack,
                 mp3:mp3Track
@@ -89,6 +76,22 @@ function updtatePlayerPlaylist(idPlaylist){
 
 }
 
+/*************************************************
+ *              CREATE PLAYLIST                  *
+ *************************************************/
+
+var html = '';
+function researchForSong(inputUser){
+    html = '';
+    SC.get('/tracks/?q=' + inputUser, function(result) {
+        for (i = 0; i < result.length; i++) {
+            var titleTrack=result[i].title;
+            var idTrack=result[i].id;
+            html+= '<option id=' + idTrack + '>' + titleTrack + '</option>';
+        }
+        $('#resultsResearch').html(html)
+    });
+}
 
 
 
