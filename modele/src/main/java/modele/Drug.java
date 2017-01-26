@@ -1,5 +1,6 @@
 package modele;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,6 +19,11 @@ public enum Drug {
 
     public String toString(){
         return name;
+    }
+
+    public static String[] names() {
+        String valuesStr = Arrays.toString(Drug.values());
+        return valuesStr.substring(1, valuesStr.length()-1).replace(" ", "").split(",");
     }
 
 }

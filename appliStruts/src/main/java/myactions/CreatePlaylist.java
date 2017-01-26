@@ -13,9 +13,17 @@ public class CreatePlaylist extends MyCommonEnvironnement {
     private ArrayList<Integer> idSongsList;
 
 
+
+
+    private List<String> drugsList;
+
+
     @Override
     public String execute(){
         idSongsList = new ArrayList<Integer>();
+        drugsList = new ArrayList<String>();
+        drugsList = new ArrayList<String>();
+        drugsList = getMyFacade().getDrugsList();
         //mapSession.put("idSongsList", idSongsList);
         return SUCCESS;
     }
@@ -29,6 +37,14 @@ public class CreatePlaylist extends MyCommonEnvironnement {
     public ArrayList<Integer> getIdSongsList() {return idSongsList;}
 
     public void setIdSongsList(ArrayList<Integer> idSongsList) {this.idSongsList = idSongsList;}
+
+    public List<String> getDrugsList() {return drugsList;}
+
+    public void setDrugsList(List<String> drugsList) {this.drugsList = drugsList;}
+
+
+
+
 
 
 

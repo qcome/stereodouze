@@ -5,7 +5,6 @@ import modele.exceptions.ExceptionUserNotConnected;
 import modele.exceptions.ExceptionLoginAlreadyTaken;
 import modele.exceptions.ExceptionUserNotRegistered;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.*;
 
 /**
@@ -18,7 +17,7 @@ public class GestionApplication implements IGestionApplication{
     private Map<String, Integer> idUsers;
 
 
-    private List<Drug> drugsList;
+    private List<String> drugsList;
     private Map<Integer, Playlist> usersPlaylists;
 
     private ArrayList<Playlist> playlists;
@@ -30,7 +29,8 @@ public class GestionApplication implements IGestionApplication{
         this.idUsers = new HashMap<>();
         this.usersOnline = new HashMap<>();
         this.playlists = new ArrayList<>();
-        this.drugsList = Arrays.asList(Drug.values());
+        this.drugsList = Arrays.asList(Drug.names());
+        System.out.println(drugsList.get(0));
     }
 
     public int registration(String login, String password) throws ExceptionLoginAlreadyTaken {
@@ -72,7 +72,7 @@ public class GestionApplication implements IGestionApplication{
         this.playlists.add(playlist);
     }
 
-    public List<Drug> getDrugsList(){
+    public List<String> getDrugsList(){
         return drugsList;
     }
 

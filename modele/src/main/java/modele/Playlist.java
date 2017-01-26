@@ -8,14 +8,14 @@ import java.util.ArrayList;
 public class Playlist {
     private int idUser;
     private int idPlaylist;
-    private String name;
+    private String name = "douze";
     private Drug drug;
     private Mood mood;
     private ArrayList<Integer> songs;
 
     private static int identifiant_playlist = 0;
 
-    public Playlist(int idUser, String name, String drug, String mood, ArrayList<Integer>songs){
+    public Playlist(int idUser, String drug, String mood, ArrayList<Integer>songs){
         this.drug = Drug.valueOf(drug);
         this.mood = Mood.valueOf(mood);
         this.idUser = idUser;

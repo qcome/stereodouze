@@ -91,5 +91,13 @@ a:hover, a:focus{
 #inputUser, #resultsResearch{
     width: 400px;
 }
+.titleCreationPlaylist{
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+.radio-inline{
+    color: white;
+}
 
 
