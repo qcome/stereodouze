@@ -39,41 +39,40 @@
 <br/>
 <%--<s:text name="createPlaylistLabel"/>--%>
 <div class="container" id="containerCreatePlaylist">
-    <s:form cssClass="form-group" id="formCreatePlaylist" theme="bootstrap" action="createPlaylistAction" accept-charset="UTF-8">
-    <div class="show" id="firstPartCreatePlaylist">
-        <div class="row">
-            <p class="titleCreationPlaylist"> Welcome to playlist creation</p>
-            <br>
-            <p class="titleCreationPlaylist" style="font-size: 18px">Let's choose your playlist properties</p>
-            <br>
-            <br>
-        </div>
-
+    <s:form cssClass="form-group" id="formCreatePlaylist" theme="bootstrap" action="createPlaylistAction" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
+        <div class="show" id="firstPartCreatePlaylist">
             <div class="row">
-                <div class="col-xs-4 col-sm-4">
-                    <p class="labelForm">Select your drug:</p>
-                    <div id="labelSelectMood">
-
-                    </div>
-                </div>
-                <div class="col-xs-8 col-sm-8">
-
-                    <s:radio cssClass="radio-inline" name="drugs" id="radioDrugs" list="drugsList"/>
-
-                    <div id="radioMoods" class="hidden">
-                        <s:radio name="moods" id="radioMoods" list="moodsList"/>
-                    </div>
-                </div>
-
-                <div class="col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-1" id="divBtnValidateFirstPart">
-
-                </div>
+                <p class="titleCreationPlaylist"> Welcome to playlist creation</p>
+                <br>
+                <p class="titleCreationPlaylist" style="font-size: 18px">Let's choose your playlist properties</p>
+                <br>
+                <br>
             </div>
 
-    </div>
-    <div class="hidden" id="secondPartCreatePlaylist">
-        <div class="row">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4">
+                        <p class="labelForm">Select your drug:</p>
+                        <div id="labelSelectMood">
 
+                        </div>
+                    </div>
+                    <div class="col-xs-8 col-sm-8">
+
+                        <s:radio cssClass="radio-inline" name="drugs" id="radioDrugs" list="drugsList"/>
+
+                        <div id="radioMoods" class="hidden">
+                            <s:radio name="moods" id="radioMoods" list="moodsList"/>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-1" id="divBtnValidateFirstPart">
+
+                    </div>
+                </div>
+
+        </div>
+        <div class="hidden" id="secondPartCreatePlaylist">
+            <div class="row">
                 <div class="col-xs-4 col-sm-4">
                     <form id="formAddedSongs" accept-charset="UTF-8">
                         <s:label cssClass="labelForm" for="addedSongs" value="Added songs:"/>
@@ -106,12 +105,19 @@
                             </div>
                         </div>
                     </form>
-                        <s:label cssClass="labelForm" for="buttonSubmit" value="Last step: Confirm your playlist!"/>
-                        <s:submit cssClass="btn btn-primary pull-right" id="buttonSubmit" value="Validate"/>
+                    <label class="labelForm" for="btnValidateSecondPart">Last step: Confirm your playlist!</label>
+                    <button type="button" class="btn btn-primary pull-right" id="btnValidateSecondPart">Validate</button>
                 </div>
-
+            </div>
         </div>
-    </div>
+        <div class="hidden" id="thirdPartCreatePlaylist">
+            <div class="row">
+                    <%--<label for="uploadImage" class="labelForm">Upload the playlist image!</label>
+                    <s:file cssClass="file-loading" id="uploadImage" name="file"/>--%>
+
+                <s:submit cssClass="btn btn-primary pull-right" id="buttonSubmit" value="Validate"/>
+            </div>
+        </div>
     </s:form>
 </div>
 </body>

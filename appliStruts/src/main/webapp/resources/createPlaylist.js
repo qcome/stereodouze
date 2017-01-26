@@ -65,6 +65,11 @@ $(document).ready(function(){
             }
         });
     });
+    $("#btnValidateSecondPart").click(function () {
+        $('#secondPartCreatePlaylist').removeClass().addClass('hidden');
+        $('#thirdPartCreatePlaylist').removeClass().addClass('show');
+    });
+
 
 
 });
