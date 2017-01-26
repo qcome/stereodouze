@@ -15,19 +15,21 @@ public class CreatePlaylist extends MyCommonEnvironnement {
     private List<String> moodsList;
     private List<String> drugsList;
 
+    private String drugs;
+    private String moods;
+
 
     @Override
     public String execute(){
         idSongsList = new ArrayList<Integer>();
         drugsList = getMyFacade().getDrugsList();
-
-        //mapSession.put("idSongsList", idSongsList);
+        moodsList = new ArrayList<String>();
         return SUCCESS;
     }
 
     public String createPlaylist(){
         int idUser = (Integer) this.mapSession.get("idUser");
-        this.getMyFacade().createPlaylist(idUser, "WEED", "RASTA", idSongsList);
+        this.getMyFacade().createPlaylist(idUser, drugs, moods, idSongsList);
         return SUCCESS;
     }
 
@@ -51,6 +53,14 @@ public class CreatePlaylist extends MyCommonEnvironnement {
     public String getDrugSelected() {return drugSelected;}
 
     public void setDrugSelected(String drugSelected) {this.drugSelected = drugSelected;}
+
+    public String getDrugs() {return drugs;}
+
+    public void setDrugs(String drugs) {this.drugs = drugs;}
+
+    public String getMoods() {return moods;}
+
+    public void setMoods(String moods) {this.moods = moods;}
 
 
 

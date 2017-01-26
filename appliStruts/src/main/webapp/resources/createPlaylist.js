@@ -40,6 +40,7 @@ $(document).ready(function(){
             dataType: "json",
             success: function(result)
             {
+
                 var html = '<p>';
                 var moodsList = result.moodsList;
                 for(i = 0; i<moodsList.length; i++){
@@ -48,21 +49,23 @@ $(document).ready(function(){
                 }
                 html+= '</p>';
                 $("#labelSelectMood").html('<p class="labelForm">Select the associated mood:</p>');
-                $("#radioMoods").html(html);
+                $("#radioMoods").html(html).removeClass().addClass('show');
                 $("input[name=moods]:radio").change(function(){
-                    $("#divBtnValidateFirstPart").html('<button class="btn btn-primary btn-block" id="btnValidateFirstPart">Validate</button>')
+                    $("#divBtnValidateFirstPart").html('<button type="button" class="btn btn-primary btn-block" id="btnValidateFirstPart">Validate</button>');
+                    $("#btnValidateFirstPart").click(function () {
+                        $('#firstPartCreatePlaylist').removeClass().addClass('hidden');
+                        $('#secondPartCreatePlaylist').removeClass().addClass('show')
+                    })
                 });
+
+
             },
             error: function(result){
                 alert("Error connexion");
             }
         });
     });
-    $("#formPlaylistProperties").submit(function (e) {
-        e.preventDefault();
-        $('#firstPartCreatePlaylist').removeClass().addClass('hidden');
-        $('#secondPartCreatePlaylist').removeClass().addClass('show')
-    })
+
 
 });
 

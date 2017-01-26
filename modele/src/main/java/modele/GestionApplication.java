@@ -30,7 +30,6 @@ public class GestionApplication implements IGestionApplication{
         this.usersOnline = new HashMap<>();
         this.playlists = new ArrayList<>();
         this.drugsList = Arrays.asList(Drug.names());
-        System.out.println(getMoodsListOfDrug("WEED"));
     }
 
     public int registration(String login, String password) throws ExceptionLoginAlreadyTaken {
@@ -66,6 +65,9 @@ public class GestionApplication implements IGestionApplication{
     }
 
     public void createPlaylist(int idUser, String drug, String mood, ArrayList<Integer> songs){
+        System.out.println("idUser = " + idUser);
+        System.out.println("drug = " + drug);
+        System.out.println("mood = " + mood);
         Playlist playlist = new Playlist(idUser, drug, mood, songs);
         User user = usersOnline.get(idUser);
         user.getUserPlaylists().add(playlist);

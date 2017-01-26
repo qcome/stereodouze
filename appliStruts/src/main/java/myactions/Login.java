@@ -11,9 +11,6 @@ public class Login extends MyCommonEnvironnement{
     private int idUser;
     private String username;
     private String password;
-
-
-
     private boolean validConnection = false;
 
     @Override

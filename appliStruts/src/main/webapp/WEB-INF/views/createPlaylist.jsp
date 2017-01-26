@@ -39,6 +39,7 @@
 <br/>
 <%--<s:text name="createPlaylistLabel"/>--%>
 <div class="container" id="containerCreatePlaylist">
+    <s:form cssClass="form-group" id="formCreatePlaylist" theme="bootstrap" action="createPlaylistAction" accept-charset="UTF-8">
     <div class="show" id="firstPartCreatePlaylist">
         <div class="row">
             <p class="titleCreationPlaylist"> Welcome to playlist creation</p>
@@ -47,7 +48,7 @@
             <br>
             <br>
         </div>
-        <form id="formPlaylistProperties" accept-charset="UTF-8">
+
             <div class="row">
                 <div class="col-xs-4 col-sm-4">
                     <p class="labelForm">Select your drug:</p>
@@ -56,20 +57,23 @@
                     </div>
                 </div>
                 <div class="col-xs-8 col-sm-8">
-                    <p><s:radio cssClass="radio-inline" name="drugs" id="radioDrugs" list="drugsList" /></p>
-                    <div id="radioMoods">
 
+                    <s:radio cssClass="radio-inline" name="drugs" id="radioDrugs" list="drugsList"/>
+
+                    <div id="radioMoods" class="hidden">
+                        <s:radio name="moods" id="radioMoods" list="moodsList"/>
                     </div>
                 </div>
+
                 <div class="col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-1" id="divBtnValidateFirstPart">
 
                 </div>
             </div>
-        </form>
+
     </div>
     <div class="hidden" id="secondPartCreatePlaylist">
         <div class="row">
-            <s:form cssClass="formCreatePlaylist" id="formCreatePlaylist" theme="bootstrap" action="createPlaylistAction" accept-charset="UTF-8">
+
                 <div class="col-xs-4 col-sm-4">
                     <form id="formAddedSongs" accept-charset="UTF-8">
                         <s:label cssClass="labelForm" for="addedSongs" value="Added songs:"/>
@@ -105,9 +109,10 @@
                         <s:label cssClass="labelForm" for="buttonSubmit" value="Last step: Confirm your playlist!"/>
                         <s:submit cssClass="btn btn-primary pull-right" id="buttonSubmit" value="Validate"/>
                 </div>
-            </s:form>
+
         </div>
     </div>
+    </s:form>
 </div>
 </body>
 </html>
