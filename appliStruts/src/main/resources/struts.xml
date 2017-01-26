@@ -9,9 +9,13 @@
 
     <package name="json" namespace="/" extends="json-default">
 
-          <action name="userLogin" class="myactions.Login">
-              <result type="json"/>
-          </action>
+        <action name="userLogin" class="myactions.Login">
+            <result type="json"/>
+        </action>
+
+        <action name="updateMood" class="myactions.CreatePlaylist" method="updateMood">
+            <result type="json"/>
+        </action>
 
     </package>
 

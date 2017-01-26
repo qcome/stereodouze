@@ -39,7 +39,7 @@
 <br/>
 <%--<s:text name="createPlaylistLabel"/>--%>
 <div class="container" id="containerCreatePlaylist">
-    <div class="show">
+    <div class="show" id="firstPartCreatePlaylist">
         <div class="row">
             <p class="titleCreationPlaylist"> Welcome to playlist creation</p>
             <br>
@@ -51,14 +51,23 @@
             <div class="row">
                 <div class="col-xs-4 col-sm-4">
                     <p class="labelForm">Select your drug:</p>
+                    <div id="labelSelectMood">
+
+                    </div>
                 </div>
                 <div class="col-xs-8 col-sm-8">
-                    <s:radio cssClass="radio-inline" name="drugs" list="drugsList" />
+                    <p><s:radio cssClass="radio-inline" name="drugs" id="radioDrugs" list="drugsList" /></p>
+                    <div id="radioMoods">
+
+                    </div>
+                </div>
+                <div class="col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-1" id="divBtnValidateFirstPart">
+
                 </div>
             </div>
         </form>
     </div>
-    <div class="hidden">
+    <div class="hidden" id="secondPartCreatePlaylist">
         <div class="row">
             <s:form cssClass="formCreatePlaylist" id="formCreatePlaylist" theme="bootstrap" action="createPlaylistAction" accept-charset="UTF-8">
                 <div class="col-xs-4 col-sm-4">

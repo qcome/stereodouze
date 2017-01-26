@@ -99,5 +99,8 @@ a:hover, a:focus{
 .radio-inline{
     color: white;
 }
+#btnValidateFirstPart{
+    margin-top: 25px;
+}
 
 

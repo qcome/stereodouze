@@ -6,7 +6,8 @@ package modele;
 public enum Mood {
     RASTA ("RASTA", Drug.WEED),
     THUGLIFE ("THUG LIFE", Drug.WEED),
-    GANGSTA ("GANGSTA", Drug.COCAINE);
+    GANGSTA ("GANGSTA", Drug.COCAINE),
+    DANCE ("DANCE", Drug.EXTASY);
 
     private String name;
     private Drug drug;
@@ -18,6 +19,10 @@ public enum Mood {
 
     public Drug getDrug(){
         return this.drug;
+    }
+
+    public String getDrugString(){
+        return this.drug.toString();
     }
 
 

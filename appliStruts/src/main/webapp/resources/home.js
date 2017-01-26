@@ -34,7 +34,7 @@ $( window ).load(function() {
 
             },
             error: function(result){
-                alert("Erreur connexion");
+                alert("Error connexion");
             }
         });
     });
