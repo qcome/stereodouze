@@ -62,6 +62,7 @@
     <s:iterator var="playlist" value="#application.playlists" status="i">
         <tr id="<s:property value="%{#i.index}"/>-playlist">
             <td><s:property value="#playlist.name"/></td>
+            <td><img src="resources/images/<s:property value="#playlist.imageName"/>" width="100" height="100" /></td>
         </tr>
     </s:iterator>
 </table>

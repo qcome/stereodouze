@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public interface IGestionApplication {
     int registration(String login, String password) throws ExceptionLoginAlreadyTaken;
-    void createPlaylist(int idUser, String drug, String mood, ArrayList<Integer> songs);
+    void createPlaylist(int idUser, String drug, String mood, ArrayList<Integer> songs, String imageName);
     int connection(String username, String password) throws ExceptionUserNotRegistered, ExceptionCoupleLoginPasswordInvalid;
     void disconnection(int idUser) throws ExceptionUserNotConnected;
 }

@@ -50,6 +50,13 @@
         </action>
 
         <action name="createPlaylistAction" class="myactions.CreatePlaylist" method="createPlaylist">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="fileUpload">
+                <param name="maximumSize">1000000</param>
+                <param name="allowedTypes">
+                    image/png,image/gif,image/jpeg
+                </param>
+            </interceptor-ref>
             <result type="redirect">home</result>
         </action>
 

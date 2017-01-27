@@ -2,8 +2,11 @@ package myactions;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.ServletRequestAware;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,8 +16,8 @@ import java.util.Map;
 /**
  * Created by Quentin on 24/01/2017.
  */
-public class CreatePlaylist extends MyCommonEnvironnement {
-
+public class CreatePlaylist extends MyCommonEnvironnement{
+    private HttpServletRequest servletRequest;
 
     private ArrayList<Integer> idSongsList;
     private String drugSelected;
@@ -28,8 +31,8 @@ public class CreatePlaylist extends MyCommonEnvironnement {
 
 
 
-    private String uploadContentType; //The content type of the file
-    private String uploadFileName; //The uploaded file name
+    private String contentType; //The content type of the file
+    private String fileName; //The uploaded file name
 
     @Override
     public String execute(){
@@ -40,12 +43,15 @@ public class CreatePlaylist extends MyCommonEnvironnement {
     }
 
     public String createPlaylist(){
-        ServletContext context = ServletActionContext.getServletContext();
+        //ServletContext context = ServletActionContext.getServletContext();
         //Permet de récupérer le chemin jusqu'au dossier WebContent/
-        String userDir = context.getRealPath("/");
+        System.out.println("File : " + upload);
+        String userDir = ServletActionContext.getServletContext().getRealPath("/");
+        System.out.println("DOUZE : " + userDir);
         userDir = userDir.replaceAll("\\\\", "/");
-        uploadFileName = "resources/images/"+this.getUploadFileName();
-        String fullFileName = userDir + uploadFileName;
+        System.out.println(fileName);
+        String newFileName = "resources/images/"+ this.getUploadFileName();
+        String fullFileName = userDir + newFileName;
         System.out.println("fullFileName : " + fullFileName);
         File theFile = new File(fullFileName);
         try {
@@ -54,7 +60,7 @@ public class CreatePlaylist extends MyCommonEnvironnement {
             e.printStackTrace();
         }
         int idUser = (Integer) this.mapSession.get("idUser");
-        this.getMyFacade().createPlaylist(idUser, drugs, moods, idSongsList);
+        this.getMyFacade().createPlaylist(idUser, drugs, moods, idSongsList, fileName);
         return SUCCESS;
     }
 
@@ -86,6 +92,7 @@ public class CreatePlaylist extends MyCommonEnvironnement {
     public String getMoods() {return moods;}
 
     public void setMoods(String moods) {this.moods = moods;}
+
     public File getUpload() {
         return upload;
     }
@@ -95,30 +102,20 @@ public class CreatePlaylist extends MyCommonEnvironnement {
     }
 
     public String getUploadContentType() {
-        return uploadContentType;
+        return contentType;
     }
 
-    public void setUploadContentType(String uploadContentType) {
-        this.uploadContentType = uploadContentType;
+    public void setUploadContentType(String contentType) {
+        this.contentType = contentType;
     }
 
     public String getUploadFileName() {
-        return uploadFileName;
+        return fileName;
     }
 
-    public void setUploadFileName(String uploadFileName) {
-        this.uploadFileName = uploadFileName;
+    public void setUploadFileName(String fileName) {
+        this.fileName = fileName;
     }
-
-
-
-
-
-
-
-
-
-
 
 
 
