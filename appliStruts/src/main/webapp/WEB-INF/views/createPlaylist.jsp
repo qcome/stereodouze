@@ -114,7 +114,7 @@
             <div class="row">
                     <%--<label for="uploadImage" class="labelForm">Upload the playlist image!</label>
                     <s:file cssClass="file-loading" id="uploadImage" name="file"/>--%>
-
+                <s:file name="upload" label="Selectionnez une image" id="imageUpload"/>
                 <s:submit cssClass="btn btn-primary pull-right" id="buttonSubmit" value="Validate"/>
             </div>
         </div>

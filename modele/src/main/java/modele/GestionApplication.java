@@ -4,7 +4,9 @@ import modele.exceptions.ExceptionCoupleLoginPasswordInvalid;
 import modele.exceptions.ExceptionUserNotConnected;
 import modele.exceptions.ExceptionLoginAlreadyTaken;
 import modele.exceptions.ExceptionUserNotRegistered;
+import org.apache.struts2.ServletActionContext;
 
+import javax.servlet.ServletContext;
 import java.util.*;
 
 /**
