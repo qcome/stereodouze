@@ -58,14 +58,51 @@
     </div>
 </div>
 <button class="btn-primary" id="testbuttton">testbutton</button>
-<table id="tablePlaylists">
-    <s:iterator var="playlist" value="#application.playlists" status="i">
-        <tr id="<s:property value="%{#i.index}"/>-playlist">
-            <td><s:property value="#playlist.name"/></td>
-            <td><img src="resources/images/<s:property value="#playlist.imageName"/>" width="100" height="100" /></td>
-        </tr>
-    </s:iterator>
-</table>
+<div class="container">
+    <div class="well well-sm">
+        <strong>Category Title</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
+    </div>
+    <div id="products" class="row list-group">
+
+    </div>
+    <table id="tablePlaylists">
+        <s:iterator var="playlist" value="#application.playlists" status="i">
+            <div class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="resources/images/<s:property value="#playlist.imageName"/>" alt="" />
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            <s:property value="#playlist.name"/></h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <p class="lead">
+                                <s:property value="#playlist.drug"/>:<s:property value="#playlist.mood"/></p>
+                            <div class="col-xs-12 col-md-6">
+                                by: <s:property value="#playlist.userName"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <button class="btn btn-primary pull-right" onclick="playuserplaylist(<s:property value="#playlist.songs"/>)">Play</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                <%--<tr id="<s:property value="%{#i.index}"/>-playlist">
+                    <td><s:property value="#playlist.name"/></td>
+                    <td><img src="resources/images/<s:property value="#playlist.imageName"/>" width="100" height="100" /></td>
+                </tr>--%>
+                </div>
+            </div>
+        </s:iterator>
+    </table>
+</div>
 <div class="row">
     <div class="container-fluid" id="containerPlayer">
         <div id="jquery_jplayer_1" class="jp-jplayer"></div>

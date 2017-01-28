@@ -60,7 +60,8 @@ public class CreatePlaylist extends MyCommonEnvironnement{
             e.printStackTrace();
         }
         int idUser = (Integer) this.mapSession.get("idUser");
-        this.getMyFacade().createPlaylist(idUser, drugs, moods, idSongsList, fileName);
+        String userName = (String) this.mapSession.get("userName");
+        this.getMyFacade().createPlaylist(idUser, userName, drugs, moods, idSongsList, fileName);
         return SUCCESS;
     }
 

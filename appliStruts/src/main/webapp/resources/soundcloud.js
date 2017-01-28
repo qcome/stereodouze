@@ -93,6 +93,18 @@ function researchForSong(inputUser){
     });
 }
 
+/*************************************************
+ *              PLAY USER PLAYLIST               *
+ *************************************************/
+
+function playuserplaylist(listTracks){
+    alert (listTracks);
+    var list = (listTracks);
+    for(var i = 0; i <listTracks.length; i++){
+        alert (listTracks[i]);
+    }
+}
+
 
 
 
