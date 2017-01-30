@@ -39,7 +39,7 @@
 <br/>
 <%--<s:text name="createPlaylistLabel"/>--%>
 <div class="container" id="containerCreatePlaylist">
-    <s:form cssClass="form-group" id="formCreatePlaylist" theme="bootstrap" action="createPlaylistAction" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
+    <s:form cssClass="form-inline" id="formCreatePlaylist" theme="bootstrap" action="createPlaylistAction" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
         <div class="show" id="firstPartCreatePlaylist">
             <div class="row">
                 <p class="titleCreationPlaylist"> Welcome to playlist creation</p>
@@ -49,26 +49,39 @@
                 <br>
             </div>
 
-                <div class="row">
-                    <div class="col-xs-4 col-sm-4">
-                        <p class="labelForm">Select your drug:</p>
-                        <div id="labelSelectMood">
-
-                        </div>
-                    </div>
-                    <div class="col-xs-8 col-sm-8">
-
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <p class="labelForm">Select your drug:</p>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <div id="radioDrugs">
                         <s:radio cssClass="radio-inline" name="drugs" id="radioDrugs" list="drugsList"/>
-
-                        <div id="radioMoods" class="hidden">
-                            <s:radio name="moods" id="radioMoods" list="moodsList"/>
-                        </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-1" id="divBtnValidateFirstPart">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div id="labelSelectMood">
 
                     </div>
                 </div>
+                <div class="col-xs-8 col-sm-8">
+                    <div id="radioMoods" class="hidden">
+                        <s:radio cssClass="radio-inline" name="moods" id="radioMoods" list="moodsList"/>
+                    </div>
+                </div>
+            </div>
+
+               <div class="row">
+                   <div class="col-xs-2 col-xs-offset-5 col-sm-2 col-sm-offset-5" id="divBtnValidateFirstPart">
+
+                   </div>
+               </div>
+
+
+
+
 
         </div>
         <div class="hidden" id="secondPartCreatePlaylist">

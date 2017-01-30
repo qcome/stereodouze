@@ -102,5 +102,11 @@ a:hover, a:focus{
 #btnValidateFirstPart{
     margin-top: 25px;
 }
+input[type="radio"], input[type="checkbox"]{
+    margin: 0;
+}
+.form-inline .radio, .form-inline .checkbox{
+    margin-right: 10px;
+}
 
 

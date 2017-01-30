@@ -42,15 +42,18 @@ $(document).ready(function(){
             success: function(result)
             {
 
-                var html = '<p>';
+                var html = '';
                 var moodsList = result.moodsList;
-                for(i = 0; i<moodsList.length; i++){
-                    html+='<input name="moods" id="radioMoods'+ moodsList[i] +'" value="'+ moodsList[i] +'" class="radio-inline" type="radio">' +
-                        '<label for="radioMoods'+ moodsList[i] +'" class="radio-inline">'+ moodsList[i] +'</label>';
+                for(var i = 0; i<moodsList.length; i++){
+                    html+='<div class="radio"><label for="moods-'+ i +'" class="radio">'+
+                        '<input name="moods" id="moods-'+ i +'" value="'+ moodsList[i] +'" class="radio-inline" type="radio">'+ moodsList[i] +'</label></div>';
+                    /*html+='<input name="moods" id="radioMoods'+ moodsList[i] +'" value="'+ moodsList[i] +'" class="radio-inline" type="radio">' +
+                        '<label for="radioMoods'+ moodsList[i] +'" class="radio-inline">'+ moodsList[i] +'</label>';*/
                 }
-                html+= '</p>';
+                //html+= '</p>';
                 $("#labelSelectMood").html('<p class="labelForm">Select the associated mood:</p>');
-                $("#radioMoods").html(html).removeClass().addClass('show');
+                $("#radioMoods").removeClass().addClass('show').find(" .controls").html(html);
+               // $("#radioMoods")
                 $("input[name=moods]:radio").change(function(){
                     $("#divBtnValidateFirstPart").html('<button type="button" class="btn btn-primary btn-block" id="btnValidateFirstPart">Validate</button>');
                     $("#btnValidateFirstPart").click(function () {

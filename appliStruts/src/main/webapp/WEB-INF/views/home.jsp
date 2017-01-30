@@ -44,7 +44,7 @@
 <br/>
 <br/>
 <br/>
-<div class="row">
+<!--<div class="row">
     <div class="container" id="containerFindId">
         <form class="form" id="formFindId" role="form" method="post" accept-charset="UTF-8">
             <div class="form-group">
@@ -56,8 +56,8 @@
             </div>
         </form>
     </div>
-</div>
-<button class="btn-primary" id="testbuttton">testbutton</button>
+</div>-->
+<button class="btn btn-primary" id="testbuttton">testbutton</button>
 <div class="container">
     <div class="well well-sm">
         <strong>Category Title</strong>

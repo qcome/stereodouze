@@ -71,7 +71,8 @@ public class GestionApplication implements IGestionApplication{
         System.out.println("drug = " + drug);
         System.out.println("mood = " + mood);
         Playlist playlist = new Playlist(idUser, userName, drug, mood, songs, imageName);
-        User user = usersOnline.get(idUser);
+        System.out.println("mood = " + mood);
+        User user = users.get(idUser);
         user.getUserPlaylists().add(playlist);
         this.playlists.add(playlist);
     }

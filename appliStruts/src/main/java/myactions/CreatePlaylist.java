@@ -72,7 +72,8 @@ public class CreatePlaylist extends MyCommonEnvironnement{
         }
         int idUser = (Integer) this.mapSession.get("idUser");
         String userName = (String) this.mapSession.get("userName");
-        System.out.println(idSongsList);
+        System.out.println("idSongsList" + idSongsList);
+        System.out.println("fileName" + fileName);
         this.getMyFacade().createPlaylist(idUser, userName, drugs, moods, idSongsList, fileName);
         return SUCCESS;
     }

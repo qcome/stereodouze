@@ -125,7 +125,7 @@ function playuserplaylist(idPlaylist){
                     });
                 });
             }
-            setTimeout( function() { myjPlayerPlaylist.setPlaylist(playli); }, 100);
+            setTimeout( function() { myjPlayerPlaylist.setPlaylist(playli); }, 200);
         }
     });
 }
