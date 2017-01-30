@@ -66,7 +66,7 @@ public class GestionApplication implements IGestionApplication{
             throw new ExceptionUserNotConnected();
     }
 
-    public void createPlaylist(int idUser, String userName, String drug, String mood, ArrayList<Integer> songs, String imageName){
+    public void createPlaylist(int idUser, String userName, String drug, String mood, ArrayList<String> songs, String imageName){
         System.out.println("idUser = " + idUser);
         System.out.println("drug = " + drug);
         System.out.println("mood = " + mood);
@@ -101,6 +101,13 @@ public class GestionApplication implements IGestionApplication{
     public Map<Integer, Playlist> getUsersPlaylists() {return usersPlaylists;}
 
     public ArrayList<Playlist> getPlaylists() {return playlists;}
+
+    public Playlist getPlaylistFromId(int idPlaylist){
+        for(Playlist playlist : playlists)
+            if (idPlaylist == playlist.getIdPlaylist())
+                return playlists.get(idPlaylist);
+        return null;
+    }
 
 
 

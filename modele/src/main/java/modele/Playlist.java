@@ -16,32 +16,40 @@ public class Playlist {
     private String imageName;
     private Drug drug;
 
-    public String getUserName() {
-        return userName;
-    }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     private String userName;
 
 
     private Mood mood;
 
-    public ArrayList<Integer> getSongs() {
-        return songs;
+
+    private ArrayList<String> songs;
+
+    public ArrayList<String> getTitleSongs() {
+        return titleSongs;
     }
 
-    public void setSongs(ArrayList<Integer> songs) {
-        this.songs = songs;
+    public void setTitleSongs(ArrayList<String> titleSongs) {
+        this.titleSongs = titleSongs;
     }
 
-    private ArrayList<Integer> songs;
+    private ArrayList<String> titleSongs;
+
+    public ArrayList<String> getIdSongs() {
+        return idSongs;
+    }
+
+    public void setIdSongs(ArrayList<String> idSongs) {
+        this.idSongs = idSongs;
+    }
+
+    private ArrayList<String> idSongs;
+
 
     private static int identifiant_playlist = 0;
 
-    public Playlist(int idUser, String userName, String drug, String mood, ArrayList<Integer>songs, String imageName){
+    public Playlist(int idUser, String userName, String drug, String mood, ArrayList<String>songs, String imageName){
         this.drug = Drug.valueOf(drug);
         this.mood = Mood.valueOf(mood);
         this.idUser = idUser;
@@ -50,6 +58,14 @@ public class Playlist {
         //this.name = name;
         this.idPlaylist = identifiant_playlist;
         this.songs = songs;
+        this.titleSongs = new ArrayList<>();
+        this.idSongs = new ArrayList<>();
+        for (String song : songs) {
+            String[] parts = song.split("&");
+            this.idSongs.add(parts[0]);
+            this.titleSongs.add(parts[1]);
+
+        }
         identifiant_playlist++;
     }
 
@@ -72,5 +88,22 @@ public class Playlist {
     public Mood getMood() {return mood;}
 
     public void setMood(Mood mood) {this.mood = mood;}
+
+    public ArrayList<String> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(ArrayList<String> songs) {
+        this.songs = songs;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
 
 }

@@ -97,12 +97,41 @@ function researchForSong(inputUser){
  *              PLAY USER PLAYLIST               *
  *************************************************/
 
-function playuserplaylist(listTracks){
-    alert (listTracks);
-    var list = (listTracks);
+function playuserplaylist(idPlaylist){
+    var playli=[];
+   /* var list = (listTracks);
     for(var i = 0; i <listTracks.length; i++){
+        var titleTrack=result.tracks[i].title;
+        var mp3Track=result.tracks[i].stream_url + '/?client_id=' + KEY_API;
+        playlist.push({
+            title:titleTrack,
+            mp3:mp3Track
+        });
         alert (listTracks[i]);
-    }
+    }*/
+    $.ajax({
+        url: "playPlaylist.action?idPlaylist=" + idPlaylist,
+        type: "POST",
+        contentType: "application/json: charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            for(var j = 0; j<result.playlist.idSongs.length ; j++){
+                SC.get('/tracks/' + result.playlist.idSongs[j], function(res){
+                    var titleTrack=res.title;
+                    var mp3Track=res.stream_url + '/?client_id=' + KEY_API;
+                    playli.push({
+                        title:titleTrack,
+                        mp3:mp3Track
+                    });
+                });
+            }
+            setTimeout( function() { myjPlayerPlaylist.setPlaylist(playli); }, 100);
+        }
+    });
+}
+
+function updatePlayerUserPlaylist(){
+
 }
 
 

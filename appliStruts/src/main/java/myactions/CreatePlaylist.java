@@ -1,5 +1,6 @@
 package myactions;
 
+import modele.Playlist;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -19,7 +20,7 @@ import java.util.Map;
 public class CreatePlaylist extends MyCommonEnvironnement{
     private HttpServletRequest servletRequest;
 
-    private ArrayList<Integer> idSongsList;
+    private ArrayList<String> idSongsList;
     private String drugSelected;
     private List<String> moodsList;
     private List<String> drugsList;
@@ -30,13 +31,23 @@ public class CreatePlaylist extends MyCommonEnvironnement{
     private File upload;//The actual file
 
 
+    public Playlist getPlaylist() {
+        return playlist;
+    }
+
+    public void setPlaylist(Playlist playlist) {
+        this.playlist = playlist;
+    }
+
+    private Playlist playlist;
+    private int idPlaylist;
 
     private String contentType; //The content type of the file
     private String fileName; //The uploaded file name
 
     @Override
     public String execute(){
-        idSongsList = new ArrayList<Integer>();
+        idSongsList = new ArrayList<String>();
         drugsList = getMyFacade().getDrugsList();
         moodsList = new ArrayList<String>();
         return SUCCESS;
@@ -61,18 +72,22 @@ public class CreatePlaylist extends MyCommonEnvironnement{
         }
         int idUser = (Integer) this.mapSession.get("idUser");
         String userName = (String) this.mapSession.get("userName");
+        System.out.println(idSongsList);
         this.getMyFacade().createPlaylist(idUser, userName, drugs, moods, idSongsList, fileName);
         return SUCCESS;
     }
-
+    public String playPlaylist(){
+        playlist = getMyFacade().getPlaylistFromId(idPlaylist);
+        return SUCCESS;
+    }
     public String updateMood(){
         moodsList = getMyFacade().getMoodsListOfDrug(drugSelected);
         return SUCCESS;
     }
 
-    public ArrayList<Integer> getIdSongsList() {return idSongsList;}
+    public ArrayList<String> getIdSongsList() {return idSongsList;}
 
-    public void setIdSongsList(ArrayList<Integer> idSongsList) {this.idSongsList = idSongsList;}
+    public void setIdSongsList(ArrayList<String> idSongsList) {this.idSongsList = idSongsList;}
 
     public List<String> getDrugsList() {return drugsList;}
 
@@ -117,6 +132,10 @@ public class CreatePlaylist extends MyCommonEnvironnement{
     public void setUploadFileName(String fileName) {
         this.fileName = fileName;
     }
+
+    public int getIdPlaylist() {return idPlaylist;}
+
+    public void setIdPlaylist(int idPlaylist) {this.idPlaylist = idPlaylist;}
 
 
 

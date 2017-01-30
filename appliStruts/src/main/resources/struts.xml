@@ -17,6 +17,10 @@
             <result type="json"/>
         </action>
 
+        <action name="playPlaylist" class="myactions.CreatePlaylist" method="playPlaylist">
+            <result type="json"/>
+        </action>
+
     </package>
 
     <package name="default" namespace="/" extends="struts-default">

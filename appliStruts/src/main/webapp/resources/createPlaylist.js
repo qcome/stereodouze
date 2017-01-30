@@ -24,7 +24,8 @@ $(document).ready(function(){
         e.preventDefault();
         var idSong = $(this).find('option:selected').attr('id');
         var titleSong = $(this).find('option:selected').val();
-        $('#addedSongs').append('<option value='+ idSong +' id='+ idSong + '>' + titleSong + '</option>')
+        $('#addedSongs').append('<option id='+ idSong + '>' + titleSong + '</option>');
+        $('#'+idSong).val(idSong + "&" + titleSong)
     });
 
     $('#formCreatePlaylist').submit(function (e) {
