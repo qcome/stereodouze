@@ -60,7 +60,9 @@ public class Playlist {
         this.songs = songs;
         this.titleSongs = new ArrayList<>();
         this.idSongs = new ArrayList<>();
+
         for (String song : songs) {
+            System.out.println(song);
             String[] parts = song.split("&");
             this.idSongs.add(parts[0]);
             this.titleSongs.add(parts[1]);

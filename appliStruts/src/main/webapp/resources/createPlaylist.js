@@ -23,8 +23,15 @@ $(document).ready(function(){
     $('#addSongToPlaylist').click(function () {
         var idSong = $('#resultsResearch').find('option:selected').attr('id');
         var titleSong = $('#resultsResearch').find('option:selected').val();
-        $('#addedSongs').append('<option id='+ idSong + '>' + titleSong + '</option>');
-        $('#'+idSong).val(idSong + "&" + titleSong)
+        var alreadyExists = false;
+        $('#addedSongs option').each(function () {
+            alreadyExists = $(this).attr('id') === idSong;
+        });
+        if(!alreadyExists){
+            $('#addedSongs').append('<option id='+ idSong + '>' + titleSong + '</option>');
+            $('#'+idSong).val(idSong + "&" + titleSong)
+        }
+
     });
 
     $('#deleteSong').click(function () {
