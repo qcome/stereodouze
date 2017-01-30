@@ -1,5 +1,9 @@
 body{
-    background-image: url("../resources/images/ZenBG.png");
+    background: url("images/4238051-background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 a{
     color: #777;
@@ -23,7 +27,7 @@ a:hover, a:focus{
 }
 
 
-.form-group
+.form-inline .form-group
 {
     margin-bottom: 20px;
 }
@@ -89,7 +93,7 @@ a:hover, a:focus{
     width: 100%;
 }
 #inputUser, #resultsResearch{
-    width: 400px;
+    width: 380px;
 }
 .titleCreationPlaylist{
     text-align: center;
@@ -108,5 +112,15 @@ input[type="radio"], input[type="checkbox"]{
 .form-inline .radio, .form-inline .checkbox{
     margin-right: 10px;
 }
+#addedSongs{
+    width: 260px;
+    height: 160px;
+}
+.wrapperSelectMultiple{
+    overflow-x: scroll;
+    width: 260px;
+}
+
+
 
 

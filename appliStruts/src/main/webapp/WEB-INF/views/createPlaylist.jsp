@@ -73,56 +73,62 @@
                 </div>
             </div>
 
-               <div class="row">
-                   <div class="col-xs-2 col-xs-offset-5 col-sm-2 col-sm-offset-5" id="divBtnValidateFirstPart">
+            <div class="row">
+                <div class="col-xs-2 col-xs-offset-5 col-sm-2 col-sm-offset-5" id="divBtnValidateFirstPart">
 
-                   </div>
-               </div>
-
-
-
-
-
+                </div>
+            </div>
         </div>
+
         <div class="hidden" id="secondPartCreatePlaylist">
             <div class="row">
-                <div class="col-xs-4 col-sm-4">
-                    <form id="formAddedSongs" accept-charset="UTF-8">
+                <p class="titleCreationPlaylist"> Playlist creation</p>
+                <br/>
+                <p class="titleCreationPlaylist" style="font-size: 18px">Just add some songs to your playlist!</p>
+                <br/>
+                <br/>
+            </div>
+            <div class="row">
+                <div class="col-xs-5 col-sm-5">
+
                         <s:label cssClass="labelForm" for="addedSongs" value="Added songs:"/>
+                    <div class="wrapperSelectMultiple">
                         <s:select multiple="true"
                                   list="idSongsList"
                                   value="idSongsList"
                                   id="addedSongs"
-                                  cssClass="form-control"
+                                  cssClass="form-group"
                                   name="idSongsList">
                         </s:select>
-                        <button type="submit" class="btn btn-primary">Delete</button>
-                    </form>
+                    </div>
+                        <button type="button" id="deleteSong" class="btn btn-primary">Delete</button>
                 </div>
-                <div class="col-xs-8 col-sm-8">
-                    <form id="searchForSong" accept-charset="UTF-8">
+
+
+                <div class="col-xs-7 col-sm-7">
                         <div class="form-group">
                             <label class="labelForm" for="inputUser">First step: Search for a song</label>
                             <div class="form-inline">
                                 <input type="text" class="form-control" id="inputUser" placeholder="Type the desired song" required>
-                                <button type="submit" class="btn btn-primary pull-right">Research</button>
+                                <button type="button" id="searchForSong" class="btn btn-primary pull-right">Research</button>
                             </div>
                         </div>
-                    </form>
-                    <form id="addSongToPlaylist" accept-charset="UTF-8">
+
                         <div class="form-group">
                             <label class="labelForm" for="resultsResearch">Second step: Add the song you want</label>
                             <div class="form-inline">
                                 <select class="form-control" id="resultsResearch"></select>
-                                <button type="submit" class="btn btn-primary pull-right">Add</button>
+                                <button type="button" id="addSongToPlaylist" class="btn btn-primary pull-right">Add</button>
                             </div>
                         </div>
-                    </form>
-                    <label class="labelForm" for="btnValidateSecondPart">Last step: Confirm your playlist!</label>
-                    <button type="button" class="btn btn-primary pull-right" id="btnValidateSecondPart">Validate</button>
+                    <div class="form-group">
+                        <label class="labelForm" for="btnValidateSecondPart">Last step: Confirm your playlist!</label>
+                        <button type="button" class="btn btn-primary pull-right" id="btnValidateSecondPart">Validate</button>
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="hidden" id="thirdPartCreatePlaylist">
             <div class="row">
                     <%--<label for="uploadImage" class="labelForm">Upload the playlist image!</label>
