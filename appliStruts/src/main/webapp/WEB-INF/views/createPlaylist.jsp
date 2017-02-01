@@ -42,7 +42,7 @@
     <s:form cssClass="form-inline" id="formCreatePlaylist" theme="bootstrap" action="createPlaylistAction" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
         <div class="show" id="firstPartCreatePlaylist">
             <div class="row">
-                <p class="titleCreationPlaylist"> Welcome to playlist creation</p>
+                <p class="titleCreationPlaylist">Welcome to playlist creation</p>
                 <br>
                 <p class="titleCreationPlaylist" style="font-size: 18px">Let's choose your playlist properties</p>
                 <br>
@@ -82,7 +82,7 @@
 
         <div class="hidden" id="secondPartCreatePlaylist">
             <div class="row">
-                <p class="titleCreationPlaylist"> Playlist creation</p>
+                <p class="titleCreationPlaylist">Playlist creation</p>
                 <br/>
                 <p class="titleCreationPlaylist" style="font-size: 18px">Just add some songs to your playlist!</p>
                 <br/>
@@ -131,10 +131,24 @@
 
         <div class="hidden" id="thirdPartCreatePlaylist">
             <div class="row">
+                <p class="titleCreationPlaylist">Playlist creation</p>
+                <br/>
+                <p class="titleCreationPlaylist" style="font-size: 18px">Final step: customize it!</p>
+                <br/>
+                <br/>
+            </div>
+            <div class="row">
+                <s:label for="title" cssClass="labelForm" value="Give it a title"/>
+                <s:textfield name="title" id="title" />
+            </div>
+            <div class="row">
                     <%--<label for="uploadImage" class="labelForm">Upload the playlist image!</label>
                     <s:file cssClass="file-loading" id="uploadImage" name="file"/>--%>
-                <s:file name="upload" label="Selectionnez une image" id="imageUpload"/>
-                <s:submit cssClass="btn btn-primary pull-right" id="buttonSubmit" value="Validate"/>
+                <div class="form-inline">
+                    <s:file name="upload" cssClass="labelForm" label="Add a nice picture" id="imageUpload"/>
+                    <s:submit cssClass="btn btn-primary pull-right" id="buttonSubmit" value="Validate"/>
+                </div>
+
             </div>
         </div>
     </s:form>

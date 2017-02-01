@@ -66,12 +66,8 @@ public class GestionApplication implements IGestionApplication{
             throw new ExceptionUserNotConnected();
     }
 
-    public void createPlaylist(int idUser, String userName, String drug, String mood, ArrayList<String> songs, String imageName){
-        System.out.println("idUser = " + idUser);
-        System.out.println("drug = " + drug);
-        System.out.println("mood = " + mood);
-        Playlist playlist = new Playlist(idUser, userName, drug, mood, songs, imageName);
-        System.out.println("mood = " + mood);
+    public void createPlaylist(int idUser, String userName, String drug, String mood, ArrayList<String> songs, String imageName, String title){
+        Playlist playlist = new Playlist(idUser, userName, drug, mood, songs, imageName, title);
         User user = users.get(idUser);
         user.getUserPlaylists().add(playlist);
         this.playlists.add(playlist);

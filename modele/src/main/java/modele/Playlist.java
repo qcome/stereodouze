@@ -11,11 +11,14 @@ public class Playlist {
 
 
     private int idPlaylist;
-    private String name = "douze";
+    private String name;
 
     private String imageName;
     private Drug drug;
 
+
+
+    private String title;
 
 
     private String userName;
@@ -49,7 +52,7 @@ public class Playlist {
 
     private static int identifiant_playlist = 0;
 
-    public Playlist(int idUser, String userName, String drug, String mood, ArrayList<String>songs, String imageName){
+    public Playlist(int idUser, String userName, String drug, String mood, ArrayList<String>songs, String imageName, String title){
         this.drug = Drug.valueOf(drug);
         this.mood = Mood.valueOf(mood);
         this.idUser = idUser;
@@ -58,11 +61,11 @@ public class Playlist {
         //this.name = name;
         this.idPlaylist = identifiant_playlist;
         this.songs = songs;
+        this.name = title;
         this.titleSongs = new ArrayList<>();
         this.idSongs = new ArrayList<>();
 
         for (String song : songs) {
-            System.out.println(song);
             String[] parts = song.split("&");
             this.idSongs.add(parts[0]);
             this.titleSongs.add(parts[1]);
@@ -106,6 +109,10 @@ public class Playlist {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    public String getTitle() {return title;}
+
+    public void setTitle(String title) {this.title = title;}
 
 
 }

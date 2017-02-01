@@ -42,6 +42,10 @@ public class CreatePlaylist extends MyCommonEnvironnement{
     private Playlist playlist;
     private int idPlaylist;
 
+
+
+    private String title;
+
     private String contentType; //The content type of the file
     private String fileName; //The uploaded file name
 
@@ -74,7 +78,7 @@ public class CreatePlaylist extends MyCommonEnvironnement{
         String userName = (String) this.mapSession.get("userName");
         System.out.println("idSongsList" + idSongsList);
         System.out.println("fileName" + fileName);
-        this.getMyFacade().createPlaylist(idUser, userName, drugs, moods, idSongsList, fileName);
+        this.getMyFacade().createPlaylist(idUser, userName, drugs, moods, idSongsList, fileName, title);
         return SUCCESS;
     }
     public String playPlaylist(){
@@ -137,6 +141,10 @@ public class CreatePlaylist extends MyCommonEnvironnement{
     public int getIdPlaylist() {return idPlaylist;}
 
     public void setIdPlaylist(int idPlaylist) {this.idPlaylist = idPlaylist;}
+
+    public String getTitle() {return title;}
+
+    public void setTitle(String title) {this.title = title;}
 
 
 
