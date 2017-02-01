@@ -21,29 +21,61 @@ $(document).ready(function(){
 
     });
     $('#addSongToPlaylist').click(function () {
+
+
         var idSong = $('#resultsResearch').find('option:selected').attr('id');
         var titleSong = $('#resultsResearch').find('option:selected').val();
+
         var alreadyExists = false;
-        $('#addedSongs option').each(function () {
-            alreadyExists = $(this).attr('id') === idSong;
+        var actualSizeSelect = $('#selectAddedSongs').outerWidth();
+        $('#selectAddedSongs option').each(function () {
+            if ($(this).attr('id') === idSong)
+                alreadyExists = true;
+
         });
+        //alert($.fn.textWidth(titleSong, '14px Arial'));
+
         if(!alreadyExists){
-            $('#addedSongs').append('<option id='+ idSong + '>' + titleSong + '</option>');
-            $('#'+idSong).val(idSong + "&" + titleSong)
+            $('#selectAddedSongs').append('<option id='+ idSong + '>' + titleSong + '</option>');
+            $('#'+idSong).val(idSong + "&" + titleSong);
+            var lengthAddedSong = $.fn.textWidth(titleSong, '14px Arial');
+            //alert('actualSizeSelect: ' + actualSizeSelect + ' | lengthAddedSong: ' + (lengthAddedSong+46));
+            if(actualSizeSelect < lengthAddedSong+46)
+                $('#selectAddedSongs').css('width', lengthAddedSong+46)
         }
 
     });
-
+    $.fn.textWidth = function(text, font) {
+        if (!$.fn.textWidth.fakeEl)
+            $.fn.textWidth.fakeEl = $('<span>').hide().appendTo(document.body);
+        $.fn.textWidth.fakeEl.text(text || this.val() || this.text()).css('font', font || this.css('font'));
+        return $.fn.textWidth.fakeEl.width();
+    };
     $('#deleteSong').click(function () {
+        var widthSelect = $('#selectAddedSongs').outerWidth();
 
-        $('#addedSongs').find('option:selected').each(function () {
+        $('#selectAddedSongs').find('option:selected').each(function () {
+
             $(this).remove();
-        })
+        });
+        var maxWidthRemainingOptions = 0;
+        $("#selectAddedSongs option").each(function () {
+            if (maxWidthRemainingOptions <  $.fn.textWidth($(this).val(), '14px Arial'))
+                maxWidthRemainingOptions = $.fn.textWidth($(this).val(), '14px Arial');
+        });
+        maxWidthRemainingOptions = maxWidthRemainingOptions-28;
+        if(maxWidthRemainingOptions < widthSelect ) {
+            if(maxWidthRemainingOptions<260){
+                $('#selectAddedSongs').css('width', 260);
+            }
+        }
+
+
     });
 
 
-    $('#formCreatePlaylist').submit(function (e) {
-        $("#addedSongs option").prop('selected',true);
+    $('#formCreatePlaylist').submit(function () {
+        $("#selectAddedSongs option").prop('selected',true);
     });
 
     $("input[name=drugs]:radio").change(function(){
@@ -72,7 +104,13 @@ $(document).ready(function(){
                     $("#divBtnValidateFirstPart").html('<button type="button" class="btn btn-primary btn-block" id="btnValidateFirstPart">Validate</button>');
                     $("#btnValidateFirstPart").click(function () {
                         $('#firstPartCreatePlaylist').removeClass().addClass('hidden');
-                        $('#secondPartCreatePlaylist').removeClass().addClass('show')
+                        $('#secondPartCreatePlaylist').removeClass().addClass('show');
+                        $('#selectAddedSongs').wrap("<div class='wrapperSelectMultiple' id='wrapperSelectMultiple' style='overflow-x:scroll; width:260px; overflow: -moz-scrollbars-horizontal;'>");
+                        var parentWrapper = $('#wrapperSelectMultiple').parent();
+                        $('#deleteSong').detach().appendTo(parentWrapper);
+                        var widthButtonResearch = $('#searchForSong').outerWidth();
+                        $('#addSongToPlaylist').css('width', widthButtonResearch);
+
                     })
                 });
 

@@ -90,17 +90,17 @@
             </div>
             <div class="row">
                 <div class="col-xs-5 col-sm-5">
+                    <div></div>
+                    <label class="labelForm" for="selectAddedSongs">Added songs:</label>
 
-                        <s:label cssClass="labelForm" for="addedSongs" value="Added songs:"/>
-                    <div class="wrapperSelectMultiple">
                         <s:select multiple="true"
                                   list="idSongsList"
                                   value="idSongsList"
-                                  id="addedSongs"
+                                  id="selectAddedSongs"
                                   cssClass="form-group"
                                   name="idSongsList">
                         </s:select>
-                    </div>
+
                         <button type="button" id="deleteSong" class="btn btn-primary">Delete</button>
                 </div>
 

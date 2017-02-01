@@ -27,9 +27,6 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jplayer.playlist.min.js"></script>
     <link href="${pageContext.request.contextPath}/resources/skin/blue.monday/css/jplayer.blue.monday.css" rel="stylesheet" type="text/css">
 
-
-
-
     <script src="http://connect.soundcloud.com/sdk.js"></script>
 </head>
 <body>
