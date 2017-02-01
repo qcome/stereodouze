@@ -67,6 +67,8 @@ $(document).ready(function(){
         if(maxWidthRemainingOptions < widthSelect ) {
             if(maxWidthRemainingOptions<260){
                 $('#selectAddedSongs').css('width', 260);
+            }else{
+                $('#selectAddedSongs').css('width', maxWidthRemainingOptions)
             }
         }
 
