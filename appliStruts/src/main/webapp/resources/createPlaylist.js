@@ -107,11 +107,18 @@ $(document).ready(function(){
                     $("#btnValidateFirstPart").click(function () {
                         $('#firstPartCreatePlaylist').removeClass().addClass('hidden');
                         $('#secondPartCreatePlaylist').removeClass().addClass('show');
-                        $('#selectAddedSongs').wrap("<div class='wrapperSelectMultiple' id='wrapperSelectMultiple' style='overflow-x:scroll; width:260px; overflow: -moz-scrollbars-horizontal;'>");
+                        $('#selectAddedSongs').wrap("<div class='wrapperSelectMultiple' id='wrapperSelectMultiple' style='overflow-x:scroll; width:260px; overflow: -moz-scrollbars-horizontal; margin-bottom: 10px'>");
                         var parentWrapper = $('#wrapperSelectMultiple').parent();
                         $('#deleteSong').detach().appendTo(parentWrapper);
                         var widthButtonResearch = $('#searchForSong').outerWidth();
                         $('#addSongToPlaylist').css('width', widthButtonResearch);
+
+                        /*$('form input').on('keypress', function(e) {
+                            return e.which !== 13;
+                        });*/
+                        $('form input').on('keypress', function(e) {
+                            return e.which !== 13;
+                        });
 
                     })
                 });

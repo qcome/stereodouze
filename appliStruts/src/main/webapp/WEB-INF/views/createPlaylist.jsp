@@ -106,24 +106,27 @@
 
 
                 <div class="col-xs-7 col-sm-7">
-                        <div class="form-group">
-                            <label class="labelForm" for="inputUser">First step: Search for a song</label>
-                            <div class="form-inline">
-                                <input type="text" class="form-control" id="inputUser" placeholder="Type the desired song" required>
-                                <button type="button" id="searchForSong" class="btn btn-primary pull-right">Research</button>
-                            </div>
+                    <div class="form-group">
+                        <label class="labelForm" for="inputUser">First step: Search for a song</label>
+                        <div class="form-inline">
+                            <input type="text" class="form-control" id="inputUser" placeholder="Type the desired song" required>
+                            <button type="button" id="searchForSong" class="btn btn-primary pull-right">Research</button>
                         </div>
-
-                        <div class="form-group">
-                            <label class="labelForm" for="resultsResearch">Second step: Add the song you want</label>
-                            <div class="form-inline">
-                                <select class="form-control" id="resultsResearch"></select>
-                                <button type="button" id="addSongToPlaylist" class="btn btn-primary pull-right">Add</button>
-                            </div>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label class="labelForm" for="resultsResearch">Second step: Add the song you want</label>
+                        <div class="form-inline">
+                            <select class="form-control" id="resultsResearch"></select>
+                            <button type="button" id="addSongToPlaylist" class="btn btn-primary pull-right">Add</button>
                         </div>
+                    </div>
                     <div class="form-group">
                         <label class="labelForm" for="btnValidateSecondPart">Last step: Confirm your playlist!</label>
-                        <button type="button" class="btn btn-primary pull-right" id="btnValidateSecondPart">Validate</button>
+
+                    </div>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary" id="btnValidateSecondPart">Validate</button>
                     </div>
                 </div>
             </div>
@@ -133,7 +136,7 @@
             <div class="row">
                 <p class="titleCreationPlaylist">Playlist creation</p>
                 <br/>
-                <p class="titleCreationPlaylist" style="font-size: 18px">Final step: customize it!</p>
+                <p class="titleCreationPlaylist" style="font-size: 18px">Final step: personalize it!</p>
                 <br/>
                 <br/>
             </div>
