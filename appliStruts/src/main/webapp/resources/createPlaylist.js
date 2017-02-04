@@ -20,8 +20,16 @@ $(document).ready(function(){
         //$('#resultsResearch').html(html)
 
     });
+    $('#backToFirstPart').click(function () {
+        $('#secondPartCreatePlaylist').removeClass().addClass('hidden');
+        $('#firstPartCreatePlaylist').removeClass().addClass('show');
+    });
+    $('#backToSecondPart').click(function () {
+        $('#thirdPartCreatePlaylist').removeClass().addClass('hidden');
+        $('#secondPartCreatePlaylist').removeClass().addClass('show');
+    });
     $('#addSongToPlaylist').click(function () {
-
+        $('#btnValidateSecondPart').disable(false);
 
         var idSong = $('#resultsResearch').find('option:selected').attr('id');
         var titleSong = $('#resultsResearch').find('option:selected').val();
@@ -59,10 +67,14 @@ $(document).ready(function(){
             $(this).remove();
         });
         var maxWidthRemainingOptions = 0;
+        var remainsSongsInList = false;
         $("#selectAddedSongs option").each(function () {
+            remainsSongsInList = true;
             if (maxWidthRemainingOptions <  $.fn.textWidth($(this).val(), '14px Arial'))
                 maxWidthRemainingOptions = $.fn.textWidth($(this).val(), '14px Arial');
         });
+        if (!remainsSongsInList)
+            $('#btnValidateSecondPart').disable(true);
         maxWidthRemainingOptions = maxWidthRemainingOptions-28;
         if(maxWidthRemainingOptions < widthSelect ) {
             if(maxWidthRemainingOptions<260){
@@ -74,68 +86,104 @@ $(document).ready(function(){
 
 
     });
-
+    $.fn.extend({
+        disable: function(state) {
+            return this.each(function() {
+                this.disabled = state;
+            });
+        }
+    });
 
     $('#formCreatePlaylist').submit(function () {
         $("#selectAddedSongs option").prop('selected',true);
     });
 
-    $("input[name=drugs]:radio").change(function(){
+    $("input[name=drugs]:radio").change(function() {
+        $('#btnValidateFirstPart').disable(true);
         var drug = $(this).val();
         $.ajax({
             url: "updateMood.action?drugSelected=" + drug,
             type: "POST",
             contentType: "application/json: charset=utf-8",
             dataType: "json",
-            success: function(result)
-            {
+            success: function (result) {
 
                 var html = '';
                 var moodsList = result.moodsList;
-                for(var i = 0; i<moodsList.length; i++){
-                    html+='<div class="radio"><label for="moods-'+ i +'" class="radio">'+
-                        '<input name="moods" id="moods-'+ i +'" value="'+ moodsList[i] +'" class="radio-inline" type="radio">'+ moodsList[i] +'</label></div>';
+                for (var i = 0; i < moodsList.length; i++) {
+                    html += '<div class="radio"><label for="moods-' + i + '" class="radio">' +
+                        '<input name="moods" id="moods-' + i + '" value="' + moodsList[i] + '" class="radio-inline" type="radio">' + moodsList[i] + '</label></div>';
                     /*html+='<input name="moods" id="radioMoods'+ moodsList[i] +'" value="'+ moodsList[i] +'" class="radio-inline" type="radio">' +
-                        '<label for="radioMoods'+ moodsList[i] +'" class="radio-inline">'+ moodsList[i] +'</label>';*/
+                     '<label for="radioMoods'+ moodsList[i] +'" class="radio-inline">'+ moodsList[i] +'</label>';*/
                 }
                 //html+= '</p>';
                 $("#labelSelectMood").html('<p class="labelForm">Select the associated mood:</p>');
                 $("#radioMoods").removeClass().addClass('show').find(" .controls").html(html);
-               // $("#radioMoods")
                 $("input[name=moods]:radio").change(function(){
-                    $("#divBtnValidateFirstPart").html('<button type="button" class="btn btn-primary btn-block" id="btnValidateFirstPart">Validate</button>');
-                    $("#btnValidateFirstPart").click(function () {
-                        $('#firstPartCreatePlaylist').removeClass().addClass('hidden');
-                        $('#secondPartCreatePlaylist').removeClass().addClass('show');
-                        $('#selectAddedSongs').wrap("<div class='wrapperSelectMultiple' id='wrapperSelectMultiple' style='overflow-x:scroll; width:260px; overflow: -moz-scrollbars-horizontal; margin-bottom: 10px'>");
-                        var parentWrapper = $('#wrapperSelectMultiple').parent();
-                        $('#deleteSong').detach().appendTo(parentWrapper);
-                        var widthButtonResearch = $('#searchForSong').outerWidth();
-                        $('#addSongToPlaylist').css('width', widthButtonResearch);
+                    $('#btnValidateFirstPart').disable(false);
+                    $("#divBtnValidateFirstPart").show();
 
-                        /*$('form input').on('keypress', function(e) {
-                            return e.which !== 13;
-                        });*/
-                        $('form input').on('keypress', function(e) {
-                            return e.which !== 13;
-                        });
-
-                    })
-                });
-
-
+                })
             },
             error: function(result){
                 alert("Error connexion");
             }
         });
     });
+   // $("#radioMoods")
+    $("#btnValidateFirstPart").click(function () {
+        $('#firstPartCreatePlaylist').removeClass().addClass('hidden');
+        $('#secondPartCreatePlaylist').removeClass().addClass('show');
+        if(!$("#wrapperSelectMultiple").length) {
+            //object already exists
+            $('#selectAddedSongs').wrap("<div class='wrapperSelectMultiple' id='wrapperSelectMultiple' style='overflow-x:scroll; width:260px; overflow: -moz-scrollbars-horizontal; margin-bottom: 10px'>");
+        }
+        var parentWrapper = $('#wrapperSelectMultiple').parent();
+        $('#deleteSong').detach().appendTo(parentWrapper);
+        var widthButtonResearch = $('#searchForSong').outerWidth();
+        $('#addSongToPlaylist').css('width', widthButtonResearch);
+
+        /*$('form input').on('keypress', function(e) {
+         return e.which !== 13;
+         });*/
+        $('#inputUser').on('keypress', function(e) {
+            var key = e.which;
+            if(key == 13)  // the enter key code
+            {
+                $('#searchForSong').click();
+                return false;
+            }
+        });
+
+    });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#target').attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imageUpload").change(function(){
+        readURL(this);
+
+    });
+
     $("#btnValidateSecondPart").click(function () {
         $('#secondPartCreatePlaylist').removeClass().addClass('hidden');
         $('#thirdPartCreatePlaylist').removeClass().addClass('show');
+        var cw = $('#image-preview').parent().width();
+        $('#image-preview').css('height',cw+'px');
+        $.uploadPreview({
+            input_field: "#imageUpload",
+            preview_box: "#image-preview",
+            label_field: "#image-label"
+        });
     });
-
-
 
 });
 

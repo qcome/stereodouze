@@ -19,7 +19,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/home.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/createPlaylist.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/soundcloud.js"></script>
-
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.uploadPreview.js"></script>
     <script src="http://connect.soundcloud.com/sdk.js"></script>
 
 </head>
@@ -74,20 +74,28 @@
             </div>
 
             <div class="row">
-                <div class="col-xs-2 col-xs-offset-5 col-sm-2 col-sm-offset-5" id="divBtnValidateFirstPart">
-
+                <div class="col-xs-2 col-xs-offset-5 col-sm-2 col-sm-offset-5" id="divBtnValidateFirstPart" hidden>
+                    <button type="button" class="btn btn-primary btn-block" id="btnValidateFirstPart">Validate</button>
                 </div>
             </div>
         </div>
 
         <div class="hidden" id="secondPartCreatePlaylist">
             <div class="row">
+                <div class="col-xs-1 col-sm-1">
+
+                    <a href="#" id="backToFirstPart"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                </div>
+                <div class="col-xs-10 col-sm-10">
+
                 <p class="titleCreationPlaylist">Playlist creation</p>
                 <br/>
                 <p class="titleCreationPlaylist" style="font-size: 18px">Just add some songs to your playlist!</p>
-                <br/>
-                <br/>
+
+                </div>
             </div>
+            <br/>
+            <br/>
             <div class="row">
                 <div class="col-xs-5 col-sm-5">
                     <div></div>
@@ -122,36 +130,58 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="labelForm" for="btnValidateSecondPart">Last step: Confirm your playlist!</label>
+                        <label class="labelForm">Last step: Confirm your playlist!</label>
+                        <!--<p class="labelForm" id="pLastStep">Last step: Confirm your playlist!</p>-->
 
                     </div>
                     <div class="row">
-                        <button type="button" class="btn btn-primary" id="btnValidateSecondPart">Validate</button>
+                        <button type="button" class="btn btn-primary" id="btnValidateSecondPart" disabled>Validate</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="hidden" id="thirdPartCreatePlaylist">
             <div class="row">
-                <p class="titleCreationPlaylist">Playlist creation</p>
-                <br/>
-                <p class="titleCreationPlaylist" style="font-size: 18px">Final step: personalize it!</p>
-                <br/>
-                <br/>
+                <div class="col-xs-1 col-sm-1">
+                    <a href="#" id="backToSecondPart"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                </div>
+                <div class="col-xs-10 col-sm-10">
+                    <p class="titleCreationPlaylist">Playlist creation</p>
+                    <br/>
+                    <p class="titleCreationPlaylist" style="font-size: 18px">Final step: personalize it!</p>
+                </div>
             </div>
+            <br/>
+            <br/>
             <div class="row">
-                <s:label for="title" cssClass="labelForm" value="Give it a title"/>
-                <s:textfield name="title" id="title" />
-            </div>
-            <div class="row">
+                <!--image part -->
+                <div class="col-xs-5 col-sm-5">
+                    <!--<label class="labelForm">Upload an image:</label>
+
+                    <img id="target" src="#" alt="" />-->
+                    <div id="image-preview">
+                        <label class="labelForm" id="image-label" for="imageUpload">Choose image</label>
+                        <%--<s:file name="upload" cssClass="labelForm" id="imageUpload"/>--%>
+                        <input type="file" name="upload" id="imageUpload" hidden/>
+                    </div>
+                </div>
+                <div class="col-xs-7 col-sm-7">
+                    <div class="form-group">
+                        <label for="inputTitle"  class="labelForm">Give it a title</label>
+                        <input type="text" id="inputTitle" name="title" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="labelForm" for="description">Description</label>
+                        <textarea class="form-control" name="description" rows="5" id="description"></textarea>
+                    </div>
+                </div>
                     <%--<label for="uploadImage" class="labelForm">Upload the playlist image!</label>
                     <s:file cssClass="file-loading" id="uploadImage" name="file"/>--%>
-                <div class="form-inline">
-                    <s:file name="upload" cssClass="labelForm" label="Add a nice picture" id="imageUpload"/>
-                    <s:submit cssClass="btn btn-primary pull-right" id="buttonSubmit" value="Validate"/>
-                </div>
 
+
+            </div>
+            <div class="row">
+                <s:submit cssClass="btn btn-primary" id="buttonSubmit" value="Validate"/>
             </div>
         </div>
     </s:form>
