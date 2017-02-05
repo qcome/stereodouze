@@ -187,12 +187,10 @@
                         <textarea class="form-control" name="description" rows="5" id="description"></textarea>
                     </div>
                 </div>
-                    <%--<label for="uploadImage" class="labelForm">Upload the playlist image!</label>
-                    <s:file cssClass="file-loading" id="uploadImage" name="file"/>--%>
-
-
             </div>
-            <div class="row">
+            <br/>
+            <br/>
+            <div class="row" id="wrapperSubmitButton">
                 <s:submit cssClass="btn btn-primary" id="buttonSubmit" value="Validate"/>
             </div>
         </div>
