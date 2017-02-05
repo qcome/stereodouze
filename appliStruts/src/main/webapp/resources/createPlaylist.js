@@ -176,14 +176,49 @@ $(document).ready(function(){
     $("#btnValidateSecondPart").click(function () {
         $('#secondPartCreatePlaylist').removeClass().addClass('hidden');
         $('#thirdPartCreatePlaylist').removeClass().addClass('show');
-        var cw = $('#image-preview').parent().width();
-        $('#image-preview').css('height',cw+'px');
-        $.uploadPreview({
+        //var cw = $('#image-preview').parent().width();
+        //$('#image-preview').css('height',cw+'px').draggable();
+        /*$.uploadPreview({
             input_field: "#imageUpload",
             preview_box: "#image-preview",
             label_field: "#image-label"
+        });*/
+
+        $("#input").change(function () {
+            var img = new Image;
+            var canvas = document.getElementById('canvas');
+            var file = this.files[0];
+            img.src = URL.createObjectURL(file);
+            img.onload = function() {
+                //ctx.drawImage(img, 20,20);
+                var MAX_WIDTH = 200;
+                var MAX_HEIGHT = 200;
+                var width = img.width;
+                var height = img.height;
+                /*
+                if (width > height) {
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
+                } else {
+                    if (height > MAX_HEIGHT) {
+                        width *= MAX_HEIGHT / height;
+                        height = MAX_HEIGHT;
+                    }
+                }*/
+                alert('the image is drawn');
+                //canvas.width = 200;
+                //canvas.height = 200;
+                var ctx = canvas.getContext("2d");
+                //width then height
+                ctx.drawImage(img, 0, 0, 200, 200);
+                alert('the image is drawn');
+            }
+
         });
     });
+
 
 });
 

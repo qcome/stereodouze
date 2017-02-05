@@ -129,7 +129,6 @@ input[type="radio"], input[type="checkbox"]{
     border-color: #5f5f5f;
 }
 #image-preview label {
-    position: absolute;
     z-index: 5;
     opacity: 0.8;
     cursor: pointer;
@@ -138,7 +137,6 @@ input[type="radio"], input[type="checkbox"]{
     height: 50px;
     font-size: 20px;
     line-height: 50px;
-    text-transform: uppercase;
     top: 0;
     left: 0;
     right: 0;
@@ -148,8 +146,6 @@ input[type="radio"], input[type="checkbox"]{
 }
 #image-preview{
     overflow: hidden;
-    background-color: #FFFFFF;
-    position: relative;
 }
 #image-preview input {
     position: absolute;

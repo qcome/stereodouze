@@ -20,6 +20,8 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/createPlaylist.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/soundcloud.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.uploadPreview.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/myUploadPreview.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
     <script src="http://connect.soundcloud.com/sdk.js"></script>
 
 </head>
@@ -159,10 +161,20 @@
                     <!--<label class="labelForm">Upload an image:</label>
 
                     <img id="target" src="#" alt="" />-->
-                    <div id="image-preview">
+                    <!--<div id="image-preview">
                         <label class="labelForm" id="image-label" for="imageUpload">Choose image</label>
                         <%--<s:file name="upload" cssClass="labelForm" id="imageUpload"/>--%>
+                        <div id="test">
+
+                        </div>
                         <input type="file" name="upload" id="imageUpload" hidden/>
+                    </div>-->
+                    <div id="image-preview">
+
+                            <%--<s:file name="upload" cssClass="labelForm" id="imageUpload"/>--%>
+                        <input type="file" name="upload" id="input" hidden/>
+                                <canvas id="canvas" height="200" width="200"></canvas>
+                                <label class="labelForm" id="image-label" for="input">Choose image</label>
                     </div>
                 </div>
                 <div class="col-xs-7 col-sm-7">
