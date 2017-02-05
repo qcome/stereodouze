@@ -1,5 +1,6 @@
 package myactions;
 
+import librairies.ImageResizer;
 import modele.Playlist;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -74,6 +75,13 @@ public class CreatePlaylist extends MyCommonEnvironnement{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //resize image
+        try {
+            ImageResizer.resize(fullFileName, fullFileName, 200, 200);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         int idUser = (Integer) this.mapSession.get("idUser");
         String userName = (String) this.mapSession.get("userName");
         System.out.println("idSongsList" + idSongsList);

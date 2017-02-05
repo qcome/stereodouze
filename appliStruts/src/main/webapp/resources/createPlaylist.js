@@ -213,6 +213,7 @@ $(document).ready(function(){
                 var ctx = canvas.getContext("2d");
                 //width then height
                 ctx.drawImage(img, 0, 0, 200, 200);
+
                 alert('the image is drawn');
             }
 
