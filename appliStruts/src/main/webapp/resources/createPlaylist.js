@@ -85,7 +85,7 @@ $(document).ready(function(){
         }
     });
 
-    function setSelectWidth(){
+    /*function setSelectWidth(){
         var remaingSongsInList = false;
         var widthSelect = $('#selectAddedSongs').outerWidth();
         var maxWidthRemainingOptions = 0;
@@ -102,7 +102,7 @@ $(document).ready(function(){
         }
 
         console.log($('#selectAddedSongs').width());
-    }
+    }*/
 
 
     $('#formCreatePlaylist').submit(function () {
@@ -176,7 +176,7 @@ $(document).ready(function(){
         });
         //add resize event to selectmultiple
         var sizeSelect;
-        $(window).resize(setSelectWidth ());
+       // $(window).resize(setSelectWidth ());
 
 
 

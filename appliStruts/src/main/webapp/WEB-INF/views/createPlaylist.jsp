@@ -43,7 +43,7 @@
 <div class="container" id="containerCreatePlaylist">
     <s:form cssClass="form-inline" id="formCreatePlaylist" theme="bootstrap" action="createPlaylistAction" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
         <div class="show" id="firstPartCreatePlaylist">
-            <div class="row">
+            <div class="row row-centered">
                 <p class="titleCreationPlaylist">Welcome to playlist creation</p>
                 <br>
                 <p class="titleCreationPlaylist" style="font-size: 18px">Let's choose your playlist properties</p>
@@ -154,13 +154,14 @@
             <br/>
             <div class="row">
                 <!--image part -->
-                <div class="col-xs-4 col-xs-offset-2 col-sm-4 col-sm-offset-2">
+                <div class="col-xs-4 col-xs-offset-2 col-sm-4 col-sm-offset-1">
                     <div id="image-preview">
                         <input type="file" name="upload" id="input" hidden/>
                         <canvas id="canvas" height="200" width="200"></canvas>
                         <label class="labelForm" id="image-label" for="input">Choose image</label>
                     </div>
                 </div>
+                <div class="col-xs-12 col-sm-2"><br/></div>
                 <div class="col-xs-4 col-sm-4">
                     <div class="form-group">
                         <label for="inputTitle"  class="labelForm">Give it a title</label>
