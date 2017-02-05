@@ -44,7 +44,6 @@ $(document).ready(function(){
 
         //ajout dans le select
         var widthWrapperSelect = $('#wrapperSelectMultiple').outerWidth();
-        alert('widthWrapperSelect' + widthWrapperSelect);
         if(!alreadyExists){
             $('#selectAddedSongs').append('<option id='+ idSong + '>' + titleSong + '</option>');
             $('#'+idSong).val(idSong + "&" + titleSong);
@@ -52,13 +51,10 @@ $(document).ready(function(){
             var ratio = (lengthAddedSong)/widthWrapperSelect;
             //alert((lengthAddedSong+30)/actualSizeSelect);
             //alert(ratio*100);
-            alert('actualSizeSelect' + actualSizeSelect);
-            alert('lengthAddedSong' + lengthAddedSong);
             if(actualSizeSelect < lengthAddedSong) {
                 $('#selectAddedSongs').css('width', lengthAddedSong);
             }
             widthMaxSelect = lengthAddedSong;
-            alert("add" + widthMaxSelect);
         }
     });
 
@@ -77,7 +73,6 @@ $(document).ready(function(){
                 maxWidthRemainingOptions = $.fn.textWidth($(this).val(), '14px Arial');
         });
         widthMaxSelect = maxWidthRemainingOptions-30;
-        alert("delete" + widthMaxSelect);
         if (!remainsSongsInList)
             $('#btnValidateSecondPart').disable(true);
         maxWidthRemainingOptions = maxWidthRemainingOptions-28;
@@ -250,14 +245,11 @@ $(document).ready(function(){
                         height = MAX_HEIGHT;
                     }
                 }*/
-                alert('the image is drawn');
                 //canvas.width = 200;
                 //canvas.height = 200;
                 var ctx = canvas.getContext("2d");
                 //width then height
                 ctx.drawImage(img, 0, 0, 200, 200);
-
-                alert('the image is drawn');
             }
 
         });
