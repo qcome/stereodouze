@@ -11,15 +11,10 @@ $(document).ready(function(){
 
     $('#searchForSong').click(function(e)
     {
-
         var inputUser = $('#inputUser').val();
-
         researchForSong(inputUser);
-
-
-        //$('#resultsResearch').html(html)
-
     });
+
     $('#backToFirstPart').click(function () {
         $('#secondPartCreatePlaylist').removeClass().addClass('hidden');
         $('#firstPartCreatePlaylist').removeClass().addClass('show');
@@ -28,6 +23,12 @@ $(document).ready(function(){
         $('#thirdPartCreatePlaylist').removeClass().addClass('hidden');
         $('#secondPartCreatePlaylist').removeClass().addClass('show');
     });
+
+
+
+    var widthMaxSelect = 0;
+
+    //add song
     $('#addSongToPlaylist').click(function () {
         $('#btnValidateSecondPart').disable(false);
 
@@ -39,31 +40,33 @@ $(document).ready(function(){
         $('#selectAddedSongs option').each(function () {
             if ($(this).attr('id') === idSong)
                 alreadyExists = true;
-
         });
-        //alert($.fn.textWidth(titleSong, '14px Arial'));
 
+        //ajout dans le select
+        var widthWrapperSelect = $('#wrapperSelectMultiple').outerWidth();
+        alert('widthWrapperSelect' + widthWrapperSelect);
         if(!alreadyExists){
             $('#selectAddedSongs').append('<option id='+ idSong + '>' + titleSong + '</option>');
             $('#'+idSong).val(idSong + "&" + titleSong);
-            var lengthAddedSong = $.fn.textWidth(titleSong, '14px Arial');
-            //alert('actualSizeSelect: ' + actualSizeSelect + ' | lengthAddedSong: ' + (lengthAddedSong+46));
-            if(actualSizeSelect < lengthAddedSong+46)
-                $('#selectAddedSongs').css('width', lengthAddedSong+46)
+            var lengthAddedSong = $.fn.textWidth(titleSong, '14px Arial')+35;
+            var ratio = (lengthAddedSong)/widthWrapperSelect;
+            //alert((lengthAddedSong+30)/actualSizeSelect);
+            //alert(ratio*100);
+            alert('actualSizeSelect' + actualSizeSelect);
+            alert('lengthAddedSong' + lengthAddedSong);
+            if(actualSizeSelect < lengthAddedSong) {
+                $('#selectAddedSongs').css('width', lengthAddedSong);
+            }
+            widthMaxSelect = lengthAddedSong;
+            alert("add" + widthMaxSelect);
         }
-
     });
-    $.fn.textWidth = function(text, font) {
-        if (!$.fn.textWidth.fakeEl)
-            $.fn.textWidth.fakeEl = $('<span>').hide().appendTo(document.body);
-        $.fn.textWidth.fakeEl.text(text || this.val() || this.text()).css('font', font || this.css('font'));
-        return $.fn.textWidth.fakeEl.width();
-    };
+
+    //delete song
     $('#deleteSong').click(function () {
+        var widthWrapperSelect = $('#wrapperSelectMultiple').outerWidth();
         var widthSelect = $('#selectAddedSongs').outerWidth();
-
         $('#selectAddedSongs').find('option:selected').each(function () {
-
             $(this).remove();
         });
         var maxWidthRemainingOptions = 0;
@@ -73,26 +76,39 @@ $(document).ready(function(){
             if (maxWidthRemainingOptions <  $.fn.textWidth($(this).val(), '14px Arial'))
                 maxWidthRemainingOptions = $.fn.textWidth($(this).val(), '14px Arial');
         });
+        widthMaxSelect = maxWidthRemainingOptions-30;
+        alert("delete" + widthMaxSelect);
         if (!remainsSongsInList)
             $('#btnValidateSecondPart').disable(true);
         maxWidthRemainingOptions = maxWidthRemainingOptions-28;
         if(maxWidthRemainingOptions < widthSelect ) {
-            if(maxWidthRemainingOptions<260){
-                $('#selectAddedSongs').css('width', 260);
+            if(maxWidthRemainingOptions<widthWrapperSelect){
+                $('#selectAddedSongs').css('width', widthWrapperSelect);
             }else{
                 $('#selectAddedSongs').css('width', maxWidthRemainingOptions)
             }
         }
-
-
     });
-    $.fn.extend({
-        disable: function(state) {
-            return this.each(function() {
-                this.disabled = state;
-            });
+
+    function setSelectWidth(){
+        var remaingSongsInList = false;
+        var widthSelect = $('#selectAddedSongs').outerWidth();
+        var maxWidthRemainingOptions = 0;
+        $("#selectAddedSongs option").each(function () {
+            remaingSongsInList = true;
+            if (maxWidthRemainingOptions <  $.fn.textWidth($(this).val(), '14px Arial'))
+                maxWidthRemainingOptions = $.fn.textWidth($(this).val(), '14px Arial');
+        });
+        if (maxWidthRemainingOptions < widthSelect){
+            $('#selectAddedSongs').css('width', 100 + '%')
+        }else{
+            var ratio = (maxWidthRemainingOptions+30)/widthSelect;
+            $('#selectAddedSongs').css('width', (ratio*100) + '%')
         }
-    });
+
+        console.log($('#selectAddedSongs').width());
+    }
+
 
     $('#formCreatePlaylist').submit(function () {
         $("#selectAddedSongs option").prop('selected',true);
@@ -136,7 +152,7 @@ $(document).ready(function(){
         $('#secondPartCreatePlaylist').removeClass().addClass('show');
         if(!$("#wrapperSelectMultiple").length) {
             //object already exists
-            $('#selectAddedSongs').wrap("<div class='wrapperSelectMultiple' id='wrapperSelectMultiple' style='overflow-x:scroll; width:260px; overflow: -moz-scrollbars-horizontal; margin-bottom: 10px'>");
+            //$('#selectAddedSongs').wrap("");
         }
         var parentWrapper = $('#wrapperSelectMultiple').parent();
         $('#deleteSong').detach().appendTo(parentWrapper);
@@ -163,6 +179,10 @@ $(document).ready(function(){
             var $selected = $('#selectAddedSongs option:selected');
             $selected.first().next().after($selected)
         });
+        //add resize event to selectmultiple
+        var sizeSelect;
+        $(window).resize(setSelectWidth ());
+
 
 
 
@@ -183,7 +203,19 @@ $(document).ready(function(){
         readURL(this);
 
     });
-
+    $.fn.textWidth = function(text, font) {
+        if (!$.fn.textWidth.fakeEl)
+            $.fn.textWidth.fakeEl = $('<span>').hide().appendTo(document.body);
+        $.fn.textWidth.fakeEl.text(text || this.val() || this.text()).css('font', font || this.css('font'));
+        return $.fn.textWidth.fakeEl.width();
+    };
+    $.fn.extend({
+        disable: function(state) {
+            return this.each(function() {
+                this.disabled = state;
+            });
+        }
+    });
     $("#btnValidateSecondPart").click(function () {
         $('#secondPartCreatePlaylist').removeClass().addClass('hidden');
         $('#thirdPartCreatePlaylist').removeClass().addClass('show');
