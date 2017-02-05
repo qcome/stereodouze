@@ -85,24 +85,22 @@
         <div class="hidden" id="secondPartCreatePlaylist">
             <div class="row">
                 <div class="col-xs-1 col-sm-1">
-
                     <a href="#" id="backToFirstPart"><span class="glyphicon glyphicon-chevron-left"></span></a>
                 </div>
                 <div class="col-xs-10 col-sm-10">
-
-                <p class="titleCreationPlaylist">Playlist creation</p>
-                <br/>
-                <p class="titleCreationPlaylist" style="font-size: 18px">Just add some songs to your playlist!</p>
-
+                    <p class="titleCreationPlaylist">Playlist creation</p>
+                    <br/>
+                    <p class="titleCreationPlaylist" style="font-size: 18px">Just add some songs to your playlist!</p>
                 </div>
             </div>
             <br/>
             <br/>
             <div class="row">
-                <div class="col-xs-5 col-sm-5">
-                    <div></div>
-                    <label class="labelForm" for="selectAddedSongs">Added songs:</label>
-
+                <div class="col-xs-10 col-xs-offset-2 col-sm-5 col-sm-offset-0">
+                    <div style="padding-left: 20px">
+                        <a href="#" id="chevronUp"><span class="glyphicon glyphicon-chevron-up"></span></a>
+                        <a href="#" id="chevronDown"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                        <label class="labelForm" for="selectAddedSongs">Added songs:</label>
                         <s:select multiple="true"
                                   list="idSongsList"
                                   value="idSongsList"
@@ -110,27 +108,23 @@
                                   cssClass="form-group"
                                   name="idSongsList">
                         </s:select>
-
                         <button type="button" id="deleteSong" class="btn btn-primary">Delete</button>
+                    </div>
                 </div>
-
-
-                <div class="col-xs-7 col-sm-7">
-                    <div class="form-group">
+                <!--<div class="col-xs-12 col-sm-1"></div>-->
+                <div class="col-xs-9 col-xs-offset-2 col-sm-7 col-sm-offset-0">
                         <label class="labelForm" for="inputUser">First step: Search for a song</label>
                         <div class="form-inline">
                             <input type="text" class="form-control" id="inputUser" placeholder="Type the desired song" required>
-                            <button type="button" id="searchForSong" class="btn btn-primary pull-right">Research</button>
+                            <button type="button" id="searchForSong" class="btn btn-primary">Research</button>
                         </div>
-                    </div>
                     <br/>
-                    <div class="form-group">
                         <label class="labelForm" for="resultsResearch">Second step: Add the song you want</label>
                         <div class="form-inline">
                             <select class="form-control" id="resultsResearch"></select>
-                            <button type="button" id="addSongToPlaylist" class="btn btn-primary pull-right">Add</button>
+                            <button type="button" id="addSongToPlaylist" class="btn btn-primary">Add</button>
                         </div>
-                    </div>
+                    <br/>
                     <div class="form-group">
                         <label class="labelForm">Last step: Confirm your playlist!</label>
                         <!--<p class="labelForm" id="pLastStep">Last step: Confirm your playlist!</p>-->
@@ -157,34 +151,21 @@
             <br/>
             <div class="row">
                 <!--image part -->
-                <div class="col-xs-5 col-sm-5">
-                    <!--<label class="labelForm">Upload an image:</label>
-
-                    <img id="target" src="#" alt="" />-->
-                    <!--<div id="image-preview">
-                        <label class="labelForm" id="image-label" for="imageUpload">Choose image</label>
-                        <%--<s:file name="upload" cssClass="labelForm" id="imageUpload"/>--%>
-                        <div id="test">
-
-                        </div>
-                        <input type="file" name="upload" id="imageUpload" hidden/>
-                    </div>-->
+                <div class="col-xs-4 col-xs-offset-2 col-sm-4 col-sm-offset-2">
                     <div id="image-preview">
-
-                            <%--<s:file name="upload" cssClass="labelForm" id="imageUpload"/>--%>
                         <input type="file" name="upload" id="input" hidden/>
-                                <canvas id="canvas" height="200" width="200"></canvas>
-                                <label class="labelForm" id="image-label" for="input">Choose image</label>
+                        <canvas id="canvas" height="200" width="200"></canvas>
+                        <label class="labelForm" id="image-label" for="input">Choose image</label>
                     </div>
                 </div>
-                <div class="col-xs-7 col-sm-7">
+                <div class="col-xs-4 col-sm-4">
                     <div class="form-group">
                         <label for="inputTitle"  class="labelForm">Give it a title</label>
                         <input type="text" id="inputTitle" name="title" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label class="labelForm" for="description">Description</label>
-                        <textarea class="form-control" name="description" rows="5" id="description"></textarea>
+                        <textarea class="form-control" name="description" rows="5" id="description" required></textarea>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,13 @@ a{
     color: #777;
 }
 a:hover, a:focus{
-    color: #333;
+    color: #1A1A1A;
+}
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .col-xs-2{
+        width: inherit;
+    }
 }
 @media(max-width:768px){
     #login-dp{
@@ -94,7 +100,7 @@ a:hover, a:focus{
     width: 100%;
 }
 #inputUser, #resultsResearch{
-    width: 380px;
+    width: 75%;
 }
 .titleCreationPlaylist{
     text-align: center;
@@ -133,7 +139,7 @@ input[type="radio"], input[type="checkbox"]{
     opacity: 0.8;
     cursor: pointer;
     background-color: #bdc3c7;
-    width: 200px;
+    width: 220px;
     height: 50px;
     font-size: 20px;
     line-height: 50px;
@@ -141,8 +147,9 @@ input[type="radio"], input[type="checkbox"]{
     left: 0;
     right: 0;
     bottom: 0;
-    margin: auto;
     text-align: center;
+    border-radius: 10px;
+    margin: 10px auto auto;
 }
 #image-preview{
     overflow: hidden;
@@ -155,6 +162,24 @@ input[type="radio"], input[type="checkbox"]{
 #wrapperSubmitButton{
     text-align: center;
 }
+#canvas{
+    border: 10px solid rgba(155, 155, 155, 0.86);
+    border-radius: 10px;
+}
+#inputTitle, #description{
+    width: 80%;
+}
+#chevronUp{
+    position: absolute;
+    left: 10px;
+    top: 90px;
+}
+#chevronDown{
+    position: absolute;
+    left: 9px;
+    top: 110px;
+}
+
 
 
 

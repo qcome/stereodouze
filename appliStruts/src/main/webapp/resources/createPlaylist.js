@@ -154,6 +154,17 @@ $(document).ready(function(){
                 return false;
             }
         });
+        //up and down
+        $('#chevronUp').click(function () {
+            var $selected = $('#selectAddedSongs option:selected');
+            $selected.first().prev().before($selected)
+        });
+        $('#chevronDown').click(function () {
+            var $selected = $('#selectAddedSongs option:selected');
+            $selected.first().next().after($selected)
+        });
+
+
 
     });
 

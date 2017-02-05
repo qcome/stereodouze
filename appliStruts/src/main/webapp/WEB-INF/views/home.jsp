@@ -76,8 +76,7 @@
                         <h4 class="group inner list-group-item-heading">
                             <s:property value="#playlist.name"/></h4>
                         <p class="group inner list-group-item-text">
-                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                            <s:property value="#playlist.description"/></p>
                         <div class="row">
                             <p class="lead">
                                 <s:property value="#playlist.drug"/>:<s:property value="#playlist.mood"/></p>

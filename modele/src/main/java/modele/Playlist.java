@@ -24,6 +24,9 @@ public class Playlist {
     private String userName;
 
 
+
+    private String description;
+
     private Mood mood;
 
 
@@ -52,7 +55,7 @@ public class Playlist {
 
     private static int identifiant_playlist = 0;
 
-    public Playlist(int idUser, String userName, String drug, String mood, ArrayList<String>songs, String imageName, String title){
+    public Playlist(int idUser, String userName, String drug, String mood, ArrayList<String>songs, String imageName, String title, String description){
         this.drug = Drug.valueOf(drug);
         this.mood = Mood.valueOf(mood);
         this.idUser = idUser;
@@ -64,6 +67,7 @@ public class Playlist {
         this.name = title;
         this.titleSongs = new ArrayList<>();
         this.idSongs = new ArrayList<>();
+        this.description = description;
 
         for (String song : songs) {
             String[] parts = song.split("&");
@@ -113,6 +117,10 @@ public class Playlist {
     public String getTitle() {return title;}
 
     public void setTitle(String title) {this.title = title;}
+
+    public String getDescription() {return description;}
+
+    public void setDescription(String description) {this.description = description;}
 
 
 }
