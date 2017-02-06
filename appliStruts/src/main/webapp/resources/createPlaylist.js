@@ -26,6 +26,8 @@ $(document).ready(function(){
 
 
 
+
+
     var widthMaxSelect = 0;
 
     //add song
@@ -174,6 +176,19 @@ $(document).ready(function(){
             var $selected = $('#selectAddedSongs option:selected');
             $selected.first().next().after($selected)
         });
+        $(document).mousemove(function (e) {
+            mouseX = e.pageX;
+            mouseY = e.pageY;
+        });
+
+        $('#resultsResearch').on('mouseenter', 'option', function (e) {
+            console.log(objectNameImageurl[this.id]);
+            var $image = '<img src=' + objectNameImageurl[this.id] + '>';
+            $("#divImageSong").html($image).show().css({ 'top': mouseY, 'left': mouseX }).fadeIn('slow');
+
+            //console.log(this.id)
+        });
+
         //add resize event to selectmultiple
         var sizeSelect;
        // $(window).resize(setSelectWidth ());

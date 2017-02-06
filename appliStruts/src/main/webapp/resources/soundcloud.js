@@ -79,15 +79,18 @@ function updtatePlayerPlaylist(idPlaylist){
 /*************************************************
  *              CREATE PLAYLIST                  *
  *************************************************/
-
+var objectNameImageurl={};
 var html = '';
 function researchForSong(inputUser){
+    objectNameImageurl = {};
     html = '';
     SC.get('/tracks/?q=' + inputUser, function(result) {
         for (i = 0; i < result.length; i++) {
             var titleTrack=result[i].title;
             var idTrack=result[i].id;
+            var artworkUrl=result[i].artwork_url;
             html+= '<option id=' + idTrack + '>' + titleTrack + '</option>';
+            objectNameImageurl[idTrack] = artworkUrl;
         }
         $('#resultsResearch').html(html)
     });

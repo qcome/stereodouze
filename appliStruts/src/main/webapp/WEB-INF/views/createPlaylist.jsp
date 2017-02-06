@@ -31,6 +31,9 @@
         <jsp:include page="navbar.jsp"/>
     </div>
 </div>
+<div style="position: relative; width: 0; height: 0;">
+    <div id="divImageSong" style="display:none; position:absolute; float:left;"></div>
+</div>
 <br/>
 <br/>
 <br/>
@@ -127,6 +130,7 @@
                             <select class="form-control" id="resultsResearch"></select>
                             <button type="button" id="addSongToPlaylist" class="btn btn-primary">Add</button>
                         </div>
+
                     <br/>
                     <div class="form-group">
                         <label class="labelForm">Last step: Confirm your playlist!</label>
