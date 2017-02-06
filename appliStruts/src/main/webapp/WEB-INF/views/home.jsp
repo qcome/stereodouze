@@ -71,6 +71,11 @@
         <s:iterator var="playlist" value="#application.playlists" status="i">
             <div class="item  col-xs-4 col-lg-4">
                 <div class="thumbnail">
+                    <s:url action="goToPlaylist.action" var="urlTag" escapeAmp="false">
+                        <s:param name="idPlaylist"><s:property value="#playlist.idPlaylist"/></s:param>
+                        <s:param name="userName"><s:property value="#playlist.userName"/></s:param>
+                    </s:url>
+                    <a href="<s:property value="#urlTag" />" >URL Tag Action (via property)</a>
                     <img class="group list-group-image" src="resources/images/<s:property value="#playlist.imageName"/>" alt="" />
                     <div class="caption">
                         <h4 class="group inner list-group-item-heading">
