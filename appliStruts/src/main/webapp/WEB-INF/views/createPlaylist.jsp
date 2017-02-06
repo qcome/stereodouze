@@ -162,7 +162,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-2"><br/></div>
-                <div class="col-xs-4 col-sm-4">
+                <div class="col-xs-12 col-sm-4">
                     <div class="form-group">
                         <label for="inputTitle"  class="labelForm">Give it a title</label>
                         <input type="text" id="inputTitle" name="title" class="form-control" required>

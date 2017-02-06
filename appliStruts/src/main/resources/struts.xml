@@ -39,16 +39,16 @@
             <result>/WEB-INF/views/createPlaylist.jsp</result>
         </action>
         
-        <action name="listenPlaylist" class="myactions.ListenPlaylist" method="listenPlaylist">
+       <!-- <action name="listenPlaylist" class="myactions.ListenPlaylist" method="listenPlaylist">
             <result>/WEB-INF/views/listenPlaylist.jsp</result>
-        </action>
+        </action>-->
 
         <action name="home" class="myactions.Default">
             <result>/WEB-INF/views/home.jsp</result>
         </action>
 
         <action name="goToPlaylist" class="myactions.ListenPlaylist">
-            <result type="redirect">listenPlaylist</result>
+            <result>/WEB-INF/views/listenPlaylist.jsp</result>
         </action>
 
         <action name="disconnection" class="myactions.Disconnection">

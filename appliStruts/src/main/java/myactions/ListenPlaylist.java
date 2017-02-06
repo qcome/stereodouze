@@ -12,12 +12,12 @@ public class ListenPlaylist extends MyCommonEnvironnement{
 
     @Override
     public String execute(){
-
+        playlist = getMyFacade().getPlaylistFromId(idPlaylist);
         return SUCCESS;
     }
 
     public String listenPlaylist(){
-        playlist = getMyFacade().getPlaylistFromId(idPlaylist);
+
         return SUCCESS;
     }
 

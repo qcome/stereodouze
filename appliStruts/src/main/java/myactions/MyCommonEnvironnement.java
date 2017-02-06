@@ -36,14 +36,14 @@ public class MyCommonEnvironnement extends ActionSupport implements ApplicationA
             arrayList.add("175829885&Naâman - Reggae Sun Scoop (Riddim By Fatbabs)");
             arrayList.add("214145215&Naâman - Outta Road");
             arrayList.add("169858600&Naâman - Runaway (Pretty Looks Riddim)");
-            this.myFacade.createPlaylist(0, "admin", "WEED", "RASTA", arrayList, "1480165052-picsart-11-26-01-56-44.jpg", "Keep Skanking", "vive la weed lel");
+            this.myFacade.createPlaylist(0, "admin", "WEED", "RASTA", arrayList, "Capture.PNG", "Keep Skanking", "vive la weed lel");
             ArrayList<String> al = new ArrayList<String>();
             al.add("234519715&MALAA - Notorious *Free Download*");
             al.add("270169350&Malaa - Diamonds*");
             al.add("203882029&Major Lazer & DJ Snake (Feat.  MØ) - Lean On (Malaa Remix)");
             al.add("283785673&TCHAMI & MALAA - Prophecy");
             al.add("220096510&Pregnant (Original Mix)");
-            this.myFacade.createPlaylist(0, "admin", "COCAINE", "GANGSTA", al, "1467827638-issouuuu.jpg", "GHouse oklm", "#yolo");
+            this.myFacade.createPlaylist(0, "admin", "COCAINE", "GANGSTA", al, "user_playlists.playlist_image.bf837bd7f0e08760.68616d6275726765722e6a7067_thumb.jpg", "GHouse oklm", "#yolo");
             map.put("playlists", myFacade.getPlaylists());
         }
         //actualisation playlists
