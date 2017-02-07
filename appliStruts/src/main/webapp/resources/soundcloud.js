@@ -35,7 +35,7 @@ $(document).ready(function() {
         smoothPlayBar: true,
         keyEnabled: true
     };
-    myjPlayerPlaylist = new jPlayerPlaylist(cssSelector,[], options);
+    //myjPlayerPlaylist = new jPlayerPlaylist(cssSelector,[], options);
     $('#testbuttton').click(function () {
 
     });
@@ -133,11 +133,64 @@ function playuserplaylist(idPlaylist){
     });
 }
 
-function updatePlayerUserPlaylist(){
+/*************************************************
+ *                LISTEN PLAYLIST                *
+ *************************************************/
 
+var arraySongs;
+var lengthPlaylist;
+function setSongArray(idSongs) {
+    arraySongs = idSongs;
+    lengthPlaylist = arraySongs.length;
+}
+function playFirstSong(media){
+    $('#jquery_jplayer').jPlayer({
+        ready: function () {
+            alert('ready');
+            $(this).jPlayer("setMedia", {
+                mp3: media + '/?client_id=' + KEY_API
+            }).jPlayer("play")
+        },
+        cssSelectorAncestor: "#jp_container_1",
+        swfPath: "/js",
+        supplied: "mp3",
+        useStateClassSkin: true,
+        autoBlur: false,
+        smoothPlayBar: true,
+        keyEnabled: true,
+        remainingDuration: true,
+        toggleDuration: false
+    });
 }
 
+var posSong = 0;
+function updatePlayerUserPlaylist(posSong){
+    SC.get('/tracks/' + arraySongs[posSong], function(res){
+        //$('#jquery_jplayer_1').jPlayer("setMedia", {mp3 : media}).play();
+        var splitedTitle = res.title.split(" - ");
+        $('#artistSpanTitle').html(splitedTitle[0]);
+        $('#titleSong').html(splitedTitle[1]);
+        $('#imageSong').attr("src", res.artwork_url);
+        if(posSong == 0)
+            playFirstSong(res.stream_url);
+        else
+            playSong(res.stream_url)
+    });
+}
+function playSong(media){
+    $('#jquery_jplayer').jPlayer("setMedia", {
+                mp3: media + '/?client_id=' + KEY_API
+            }).jPlayer("play")
+}
 
+$(document).ready(function() {
+  $('.jp-next').click(function () {
+      posSong++;
+      if(posSong<lengthPlaylist){
+          updatePlayerUserPlaylist(posSong)
+      }
+  })
+});
 
 
 

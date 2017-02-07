@@ -14,16 +14,22 @@
     <sj:head/>
     <sb:head/>
     <title><s:property value="playlist.name"/></title>
-
+    <script type="text/javascript">
+        $(document).ready(function() {
+            setSongArray(<s:property value="playlist.idSongs"/>);
+        });
+    </script>
+    <link href="${pageContext.request.contextPath}/resources/skin/blue.monday/css/jplayer.blue.monday.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/style.css" rel="stylesheet" type="text/css" >
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/javascript.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/soundcloud.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/listenPlaylist.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.jplayer.swf"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.jplayer.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jplayer.playlist.min.js"></script>
-    <link href="${pageContext.request.contextPath}/resources/skin/blue.monday/css/jplayer.blue.monday.css" rel="stylesheet" type="text/css">
+
 
     <script src="http://connect.soundcloud.com/sdk.js"></script>
+
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="navigationbar">
@@ -40,11 +46,15 @@
 <br/>
 <br/>
 <div class="container" id="containerListenPlaylist">
+    <img src="${pageContext.request.contextPath}/resources/images/<s:property value="playlist.imageName"/>">
+
+    
+    
 </div>
 <div class="row">
     <div id="wrapperContainerPlayer">
         <div class="container-fluid" id="containerPlayer">
-            <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+            <div id="jquery_jplayer" class="jp-jplayer"></div>
             <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
                 <div class="jp-type-single">
                     <div class="jp-gui jp-interface">
@@ -52,12 +62,16 @@
                             <button class="jp-previous" role="button" tabindex="0">previous</button>
                             <button class="jp-play" role="button" tabindex="0">play</button>
                             <button class="jp-next" role="button" tabindex="0">next</button>
-                            <button class="jp-stop" role="button" tabindex="0">stop</button>
                         </div>
+                        <img id="imageSong" src="">
                         <div class="jp-progress">
                             <div class="jp-seek-bar">
                                 <div class="jp-play-bar"></div>
                             </div>
+                        </div>
+                        <div id="infosSong">
+                            <div id="titleSong"></div>
+                            <div id="artistSong">BY: <span id="artistSpanTitle"></span></div>
                         </div>
                         <div class="jp-volume-controls">
                             <button class="jp-mute" role="button" tabindex="0">mute</button>
@@ -66,14 +80,16 @@
                                 <div class="jp-volume-bar-value"></div>
                             </div>
                         </div>
-                        <div class="jp-time-holder">
+                        <!--<div class="jp-time-holder">
                             <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
                             <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-                        </div>
-                        <div class="jp-toggles">
-                            <button class="jp-repeat" role="button" tabindex="0">repeat</button>
-                            <button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
-                        </div>
+                            <div class="jp-toggles">
+                                <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="jp-details">
+                        <!--<div class="jp-title" aria-label="title">&nbsp;</div>-->
                     </div>
                     <!--playlist initialy placed -->
                     <div class="jp-no-solution">

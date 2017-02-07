@@ -50,6 +50,8 @@ public class Playlist {
         this.idSongs = idSongs;
     }
 
+
+
     private ArrayList<String> idSongs;
 
 

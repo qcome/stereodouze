@@ -4,5 +4,5 @@
 $(document).ready(function(){
     var urlHome = "home.action";
     $('.navbar-brand').attr("href", urlHome);
-
+    updatePlayerUserPlaylist(0);
 });

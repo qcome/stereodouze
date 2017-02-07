@@ -208,6 +208,45 @@ input[type="radio"], input[type="checkbox"]{
     /* custom width */
     width:320px;
 }
+#imageSong{
+    height: 100%;
+    float: left;
+    margin: 0;
+    padding: 5px;
+}
+.jp-audio .jp-controls{
+    width: auto;
+    padding: 0;
+    float: left;
+}
+.jp-audio .jp-type-single .jp-progress{
+    position: relative;
+    float: left;
+    left: 0;
+    height: 8px;
+    width: 300px;
+    top: 47px;
+}
+.jp-audio{
+    width: 600px;
+}
+.jp-audio .jp-interface{
+    height: 60px;
+}
+#infosSong{
+    position: relative;
+    float: left;
+    bottom: 6px;
+    font-size: 14px;
+    width: 300px;
+}
+.jp-volume-controls{
+    position: relative;
+    float: left;
+    top: 10px;
+    left: 20px;
+    width: 100px;
+}
 
 
 
