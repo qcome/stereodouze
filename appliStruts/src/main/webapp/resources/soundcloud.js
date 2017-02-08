@@ -146,7 +146,6 @@ function setSongArray(idSongs) {
 function playFirstSong(media){
     $('#jquery_jplayer').jPlayer({
         ready: function () {
-            alert('ready');
             $(this).jPlayer("setMedia", {
                 mp3: media + '/?client_id=' + KEY_API
             }).jPlayer("play")
@@ -162,7 +161,7 @@ function playFirstSong(media){
         toggleDuration: false
     });
 }
-
+var firstTime = true;
 var posSong = 0;
 function updatePlayerUserPlaylist(posSong){
     SC.get('/tracks/' + arraySongs[posSong], function(res){
@@ -171,8 +170,10 @@ function updatePlayerUserPlaylist(posSong){
         $('#artistSpanTitle').html(splitedTitle[0]);
         $('#titleSong').html(splitedTitle[1]);
         $('#imageSong').attr("src", res.artwork_url);
-        if(posSong == 0)
+        if(posSong == 0 && firstTime) {
             playFirstSong(res.stream_url);
+            firstTime = false;
+        }
         else
             playSong(res.stream_url)
     });
@@ -184,12 +185,18 @@ function playSong(media){
 }
 
 $(document).ready(function() {
-  $('.jp-next').click(function () {
-      posSong++;
-      if(posSong<lengthPlaylist){
+    $('.jp-next').click(function () {
+      if(posSong+1 < lengthPlaylist){
+          posSong++;
           updatePlayerUserPlaylist(posSong)
       }
-  })
+    });
+    $('.jp-previous').click(function () {
+        if(posSong-1 >= 0){
+            posSong--;
+            updatePlayerUserPlaylist(posSong)
+        }
+    })
 });
 
 
