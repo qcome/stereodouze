@@ -19,8 +19,6 @@
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <img src="${pageContext.request.contextPath}/resources/images/bobross.jpeg" style="width: 50px; height: auto">
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
         <li role="separator" class="divider"></li>
         <li>
             <s:if test="%{#session.idUser == null}">
@@ -32,8 +30,6 @@
                 <s:a href="%{urlCreatePlaylist}"><b>Create Playlist</b></s:a>
             </s:else>
         </li>
-        <li><p class="navbar-text">Already have an account?</p></li>
-
         <s:if test="%{#session.idUser == null}">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b><span class="caret"></span></a>

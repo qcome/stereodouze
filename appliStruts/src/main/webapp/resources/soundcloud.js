@@ -150,6 +150,12 @@ function playFirstSong(media){
                 mp3: media + '/?client_id=' + KEY_API
             }).jPlayer("play")
         },
+        ended: function () {
+            if(posSong+1 < lengthPlaylist){
+                posSong++;
+                updatePlayerUserPlaylist(posSong)
+            }
+        },
         cssSelectorAncestor: "#jp_container_1",
         swfPath: "/js",
         supplied: "mp3",

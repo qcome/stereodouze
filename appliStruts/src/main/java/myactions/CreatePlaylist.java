@@ -1,17 +1,23 @@
 package myactions;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import librairies.ImageResizer;
 import modele.Playlist;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,9 +50,18 @@ public class CreatePlaylist extends MyCommonEnvironnement{
     private int idPlaylist;
 
 
+    public String getCssCroppedImage() {
+        return cssCroppedImage;
+    }
+
+    public void setCssCroppedImage(String cssCroppedImage) {
+        this.cssCroppedImage = cssCroppedImage;
+    }
+
+    private String cssCroppedImage;
+
 
     private String title;
-
 
 
     private String description;
@@ -79,19 +94,92 @@ public class CreatePlaylist extends MyCommonEnvironnement{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //resize image
-        try {
-            ImageResizer.resize(fullFileName, fullFileName, 200, 200);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
         int idUser = (Integer) this.mapSession.get("idUser");
         String userName = (String) this.mapSession.get("userName");
         System.out.println("idSongsList" + idSongsList);
         System.out.println("fileName" + fileName);
+        //Array array = (Array) cssCroppedImage;
+        //Map map = (Map) cssCroppedImage;
+
+
+        JSONObject obj = new JSONObject(decodeURIComponent(cssCroppedImage));
+        JSONArray jsonArray = obj.getJSONArray("points");
+        System.out.println(obj.getDouble("zoom"));
+        int[] numbers = new int[jsonArray.length()];
+        for (int i = 0; i < jsonArray.length(); ++i) {
+            numbers[i] = jsonArray.optInt(i);
+        }
+        System.out.println(jsonArray.get(0));
+        System.out.println(jsonArray.get(1));
+        System.out.println(jsonArray.get(2));
+        System.out.println(jsonArray.get(3));
+
+//resize image
+        try {
+            ImageResizer.resize(fullFileName, fullFileName, obj.getDouble("zoom"),numbers[0], numbers[1]);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+       //ImageResizer.marvinResize(fullFileName,fullFileName, numbers[0], numbers[1]);
         this.getMyFacade().createPlaylist(idUser, userName, drugs, moods, idSongsList, fileName, title, description);
         return SUCCESS;
+    }
+    public static String decodeURIComponent(String encodedURI) {
+        char actualChar;
+
+        StringBuffer buffer = new StringBuffer();
+
+        int bytePattern, sumb = 0;
+
+        for (int i = 0, more = -1; i < encodedURI.length(); i++) {
+            actualChar = encodedURI.charAt(i);
+
+            switch (actualChar) {
+                case '%': {
+                    actualChar = encodedURI.charAt(++i);
+                    int hb = (Character.isDigit(actualChar) ? actualChar - '0'
+                            : 10 + Character.toLowerCase(actualChar) - 'a') & 0xF;
+                    actualChar = encodedURI.charAt(++i);
+                    int lb = (Character.isDigit(actualChar) ? actualChar - '0'
+                            : 10 + Character.toLowerCase(actualChar) - 'a') & 0xF;
+                    bytePattern = (hb << 4) | lb;
+                    break;
+                }
+                case '+': {
+                    bytePattern = ' ';
+                    break;
+                }
+                default: {
+                    bytePattern = actualChar;
+                }
+            }
+
+            if ((bytePattern & 0xc0) == 0x80) { // 10xxxxxx
+                sumb = (sumb << 6) | (bytePattern & 0x3f);
+                if (--more == 0)
+                    buffer.append((char) sumb);
+            } else if ((bytePattern & 0x80) == 0x00) { // 0xxxxxxx
+                buffer.append((char) bytePattern);
+            } else if ((bytePattern & 0xe0) == 0xc0) { // 110xxxxx
+                sumb = bytePattern & 0x1f;
+                more = 1;
+            } else if ((bytePattern & 0xf0) == 0xe0) { // 1110xxxx
+                sumb = bytePattern & 0x0f;
+                more = 2;
+            } else if ((bytePattern & 0xf8) == 0xf0) { // 11110xxx
+                sumb = bytePattern & 0x07;
+                more = 3;
+            } else if ((bytePattern & 0xfc) == 0xf8) { // 111110xx
+                sumb = bytePattern & 0x03;
+                more = 4;
+            } else { // 1111110x
+                sumb = bytePattern & 0x01;
+                more = 5;
+            }
+        }
+        return buffer.toString();
     }
     public String playPlaylist(){
         playlist = getMyFacade().getPlaylistFromId(idPlaylist);

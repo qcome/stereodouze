@@ -4,10 +4,16 @@ package modele;
  * Created by Quentin on 17/01/2017.
  */
 public enum Mood {
-    RASTA ("RASTA", Drug.WEED),
-    THUGLIFE ("THUG LIFE", Drug.WEED),
-    GANGSTA ("GANGSTA", Drug.COCAINE),
-    DANCE ("DANCE", Drug.EXTASY);
+    RASTA ("RASTA", Drug.DRUG),
+    THUGLIFE ("THUGLIFE", Drug.DRUG),
+    SPEED ("SPEED", Drug.DRUG),
+    POWER ("POWER", Drug.DRUG),
+    CHILL ("CHILL", Drug.DRUG),
+    ELECTRO ("ELECTRO", Drug.PARTY),
+    WTF ("WTF", Drug.PARTY),
+    GAMING ("GAMING", Drug.MOTIVATION),
+    STUDYING ("STUDYING", Drug.MOTIVATION),
+    WORKOUT ("WORKOUT", Drug.MOTIVATION);
 
     private String name;
     private Drug drug;

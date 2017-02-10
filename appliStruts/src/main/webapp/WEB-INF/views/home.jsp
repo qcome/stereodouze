@@ -54,7 +54,7 @@
         </form>
     </div>
 </div>-->
-<button class="btn btn-primary" id="testbuttton">testbutton</button>
+<!--<button class="btn btn-primary" id="testbuttton">testbutton</button>-->
 <div class="container">
     <div class="well well-sm">
         <strong>Category Title</strong>
@@ -105,7 +105,7 @@
         </s:iterator>
     </table>
 </div>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<!--<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="row">
     <div class="container-fluid" id="containerPlayer">
         <div id="jquery_jplayer_1" class="jp-jplayer"></div>
@@ -144,7 +144,7 @@
                         <button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
                     </div>
                 </div>
-                <!--playlist initialy placed -->
+                <!--playlist initialy placed
                 <div class="jp-no-solution">
                     <span>Update Required</span>
                     To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
@@ -152,7 +152,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!--<object height="81" width="100%" id="myPlayer" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
     <param name="movie" value="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fsoundcloud.com%2Fmatas%2Fhobnotropic&enable_api=true&object_id=myPlayer"/>
     <param name="allowscriptaccess" value="always"/>

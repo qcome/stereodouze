@@ -236,12 +236,80 @@ $(document).ready(function(){
             preview_box: "#image-preview",
             label_field: "#image-label"
         });*/
-
+        /*$uploadCrop = $('#wrapperCropper').croppie({
+            enableExif: true,
+            viewport: {
+                width: 200,
+                height: 200,
+                type: 'circle'
+            },
+            boundary: {
+                width: 300,
+                height: 300
+            }
+        });*/
         $("#input").change(function () {
+            readFile(this);
+        });
+        var $uploadCrop;
+        function readFile(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $uploadCrop.croppie('bind', {
+                        url: e.target.result
+                    }).then(function(){
+                        console.log('jQuery bind complete');
+                    });
+
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+            else {
+                alert("Sorry - you're browser doesn't support the FileReader API");
+            }
+        }
+        $uploadCrop = $('#wrapperCropper').croppie({
+            viewport: {
+                width: 200,
+                height: 200
+            },
+            enableExif: true
+        }).bind('update', function (ev) {
+            console.log('update', ev);
+            console.log('result', {
+                type: 'base64'
+            });
+            $('#cssCroppedImage').val(encodeURIComponent(JSON.stringify($uploadCrop.croppie('get'))));
+            console.log($(this).croppie('get'));
+            console.log($(this).croppie('get').points);
+            console.log($(this).croppie('get').zoom);
+
+        });
+
+
+/*
+         boundary: {
+         width: 300,
+         height: 300
+         },
+            var img = new Image;
+            var file  = this.files[0];
+            img.src = URL.createObjectURL(file);
+            $uploadCrop.croppie('bind', {
+                url: img.src
+            }).then(function(){
+                console.log('jQuery bind complete');
+            });
+
             var img = new Image;
             var canvas = document.getElementById('canvas');
             var file = this.files[0];
             img.src = URL.createObjectURL(file);
+
             img.onload = function() {
                 //ctx.drawImage(img, 20,20);
                 var MAX_WIDTH = 200;
@@ -259,15 +327,15 @@ $(document).ready(function(){
                         width *= MAX_HEIGHT / height;
                         height = MAX_HEIGHT;
                     }
-                }*/
+                }
                 //canvas.width = 200;
                 //canvas.height = 200;
                 var ctx = canvas.getContext("2d");
                 //width then height
                 ctx.drawImage(img, 0, 0, 200, 200);
-            }
 
-        });
+
+        });}*/
     });
 
 

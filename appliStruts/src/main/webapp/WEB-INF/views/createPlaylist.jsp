@@ -15,12 +15,14 @@
     <sj:head/>
     <sb:head/>
     <link href="${pageContext.request.contextPath}/resources/style.css" rel="stylesheet" type="text/css" >
+    <link href="${pageContext.request.contextPath}/resources/croppie.css" rel="stylesheet" type="text/css" >
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/javascript.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/home.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/createPlaylist.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/soundcloud.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.uploadPreview.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/myUploadPreview.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/croppie.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
     <script src="http://connect.soundcloud.com/sdk.js"></script>
 
@@ -160,8 +162,11 @@
                 <!--image part -->
                 <div class="col-xs-4 col-xs-offset-2 col-sm-4 col-sm-offset-1">
                     <div id="image-preview">
-                        <input type="file" name="upload" id="input" hidden/>
-                        <canvas id="canvas" height="200" width="200"></canvas>
+                        <input type="file" name="upload" id="input" hidden required="required"/>
+                        <input type="hidden" id="cssCroppedImage" name="cssCroppedImage" value="">
+                        <div class="croppie-container" id="wrapperCropper">
+                        </div>
+                        <!--<canvas id="canvas" height="200" width="200"></canvas>-->
                         <label class="labelForm" id="image-label" for="input">Choose image</label>
                     </div>
                 </div>

@@ -13,6 +13,7 @@
 <head>
     <sj:head/>
     <sb:head/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><s:property value="playlist.name"/></title>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -46,10 +47,17 @@
 <br/>
 <br/>
 <div class="container" id="containerListenPlaylist">
-    <img src="${pageContext.request.contextPath}/resources/images/<s:property value="playlist.imageName"/>">
-
-    
-    
+    <div class="row">
+        <div class="col-md-5 col-xs-12">
+            <img src="${pageContext.request.contextPath}/resources/images/<s:property value="playlist.imageName"/>">
+        </div>
+        <div class="col-md-7 col-xs-12">
+            <div ><s:property value="playlist.name"/></div>
+            <p><s:property value="playlist.description"/></p>
+        </div>
+    </div>
+</div>
+<div class="container" id="containerSongsList">
 </div>
 <div class="row">
     <div id="wrapperContainerPlayer">
@@ -64,16 +72,21 @@
                             <button class="jp-next" role="button" tabindex="0">next</button>
                         </div>
                         <img id="imageSong" src="">
-                        <div class="jp-progress">
-                            <div class="jp-seek-bar">
-                                <div class="jp-play-bar"></div>
+                        <div id="wrapperInfosProgress">
+                            <div id="infosSong">
+                                <div id="titleSong"></div>
+                                <div id="artistSong">BY: <span id="artistSpanTitle"></span></div>
+                            </div>
+                            <div class="jp-progress">
+                                <div class="jp-seek-bar">
+                                    <div class="jp-play-bar"></div>
+                                </div>
                             </div>
                         </div>
-                        <div id="infosSong">
-                            <div id="titleSong"></div>
-                            <div id="artistSong">BY: <span id="artistSpanTitle"></span></div>
-                        </div>
+
                         <div class="jp-volume-controls">
+                            <a class="logo" href="https://soundcloud.com/the-bugle/bugle-179-playas-gon-play" title="Écouter sur SoundCloud">
+                            </a>
                             <button class="jp-mute" role="button" tabindex="0">mute</button>
                             <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
                             <div class="jp-volume-bar">
