@@ -1,5 +1,4 @@
 package librairies;
-
 import org.imgscalr.Scalr;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
