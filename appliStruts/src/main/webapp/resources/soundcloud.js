@@ -83,7 +83,6 @@ var html = '';
 function researchForSong(inputUser){
     objectNameImageurl = {};
     html = '';
-    alert(inputUser);
     SC.get('/tracks/?q=' + inputUser, function(result) {
         for (i = 0; i < result.length; i++) {
             var titleTrack=result[i].title;
@@ -172,9 +171,9 @@ var posSong = 0;
 function updatePlayerUserPlaylist(posSong){
     SC.get('/tracks/' + arraySongs[posSong], function(res){
         //$('#jquery_jplayer_1').jPlayer("setMedia", {mp3 : media}).play();
-        var splitedTitle = res.title.split(" - ");
-        $('#artistSpanTitle').html(splitedTitle[0]);
-        $('#titleSong').html(splitedTitle[1]);
+        //var splitedTitle = res.title.split(" - ");
+        $('#artistSpanTitle').html(res.user.username);
+        $('#titleSong').html(res.title);
         $('#imageSong').attr("src", res.artwork_url);
         if(posSong == 0 && firstTime) {
             playFirstSong(res.stream_url);
