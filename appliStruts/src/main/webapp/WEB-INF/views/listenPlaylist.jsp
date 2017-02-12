@@ -20,11 +20,13 @@
             setSongArray(<s:property value="playlist.idSongs"/>);
         });
     </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="${pageContext.request.contextPath}/resources/skin/blue.monday/css/jplayer.blue.monday.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/style.css" rel="stylesheet" type="text/css" >
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/javascript.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/soundcloud.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/listenPlaylist.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/home.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.jplayer.swf"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.jplayer.min.js"></script>
 

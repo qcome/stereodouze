@@ -89,11 +89,43 @@ a:hover, a:focus{
 #dividerLoginForm{
     background-color: #777;
 }
-/*#target{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}*/
+/**************************************
+ *       CREATE PLAYLIST PART 1       *
+ **************************************/
+/**************************************
+ *       CREATE PLAYLIST PART 2       *
+ **************************************/
+#wrapperAddedSongs{
+    width: 270px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#wrapperChevrons{
+    float: left;
+    height: 100%;
+    width: 20px;
+}
+#chevronUp{
+    position: absolute;
+    top: 90px;
+}
+#chevronDown{
+    position: absolute;
+    top: 110px;
+}
+#wrapperSelectMultiple{
+    min-width: 250px;
+}
+
+
+
+
+
+
+/**************************************
+ *       CREATE PLAYLIST PART 3       *
+ **************************************/
 #wrapperContainerPlayer{
     position: fixed;
     bottom: 0;
@@ -161,7 +193,9 @@ input[type="radio"], input[type="checkbox"]{
 }
 #image-preview{
     overflow: hidden;
-    min-width: 250px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
 }
 #input{
     position: absolute;
@@ -180,19 +214,7 @@ input[type="radio"], input[type="checkbox"]{
 #inputTitle, #description{
     width: 100%;
 }
-#chevronUp{
-    position: absolute;
-    left: 10px;
-    top: 90px;
-}
-#chevronDown{
-    position: absolute;
-    left: 9px;
-    top: 110px;
-}
-#wrapperSelectMultiple{
-    min-width: 250px;
-}
+
 .row-centered {
     text-align:center;
 }
@@ -267,6 +289,7 @@ input[type="radio"], input[type="checkbox"]{
     /*border: 10px solid rgba(155, 155, 155, 0.86);
     border-radius: 10px;*/
 }
+
 
 
 

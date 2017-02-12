@@ -14,7 +14,6 @@ var KEY_API = 'j5dOQqQeUHPVHQGdVHRyu4hFrOTfR837';
 
 
 $(document).ready(function() {
-
     SC.initialize({
         client_id: KEY_API
     });
@@ -84,6 +83,7 @@ var html = '';
 function researchForSong(inputUser){
     objectNameImageurl = {};
     html = '';
+    alert(inputUser);
     SC.get('/tracks/?q=' + inputUser, function(result) {
         for (i = 0; i < result.length; i++) {
             var titleTrack=result[i].title;

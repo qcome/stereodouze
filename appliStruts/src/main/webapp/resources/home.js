@@ -12,7 +12,6 @@ $( window ).load(function() {
     $('#formLogin').submit(function(e)
     {
         e.preventDefault();
-
         var data = $(this).serialize();
 
         $.ajax({
