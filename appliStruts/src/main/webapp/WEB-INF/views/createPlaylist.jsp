@@ -15,6 +15,7 @@
     <sj:head/>
     <sb:head/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="${pageContext.request.contextPath}/resources/librairies/circleplayer/circle.skin/circle.player.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/style.css" rel="stylesheet" type="text/css" >
     <link href="${pageContext.request.contextPath}/resources/croppie.css" rel="stylesheet" type="text/css" >
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/javascript.js"></script>
@@ -128,15 +129,30 @@
                             <select class="form-control" id="resultsResearch"></select>
                             <button type="button" id="addSongToPlaylist" class="btn btn-primary">Add</button>
                         </div>
-
                     <br/>
-                    <div class="form-group">
-                        <label class="labelForm">Last step: Confirm your playlist!</label>
-                    </div>
-                    <div class="row">
-                        <button type="button" class="btn btn-primary" id="btnValidateSecondPart" disabled>Validate</button>
-                    </div>
+                        <div id="wrapperListenToSong">
+                            <div id="jquery_jplayer_1" class="cp-jplayer"></div>
+                            <div id="cp_container_1" class="cp-container">
+                                <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                                    <div class="cp-buffer-1"></div>
+                                    <div class="cp-buffer-2"></div>
+                                </div>
+                                <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+                                    <div class="cp-progress-1"></div>
+                                    <div class="cp-progress-2"></div>
+                                </div>
+                                <div class="cp-circle-control"></div>
+                                <ul class="cp-controls">
+                                    <li><a href="#" class="cp-play" tabindex="1">play</a></li>
+                                    <li><a href="#" class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                                </ul>
+                            </div>
+                        </div>
                 </div>
+            </div>
+            <div class="row-centered">
+                <label class="labelForm">Last step: Confirm your playlist!</label>
+                <button type="button" class="btn btn-primary" id="btnValidateSecondPart" disabled>Validate</button>
             </div>
         </div>
         <div class="hidden" id="thirdPartCreatePlaylist">

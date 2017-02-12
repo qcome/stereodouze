@@ -70,12 +70,9 @@ public class Playlist {
         this.titleSongs = new ArrayList<>();
         this.idSongs = new ArrayList<>();
         this.description = description;
-
+        System.out.println(songs);
         for (String song : songs) {
-            String[] parts = song.split("&");
-            this.idSongs.add(parts[0]);
-            this.titleSongs.add(parts[1]);
-
+            this.idSongs.add(song);
         }
         identifiant_playlist++;
     }

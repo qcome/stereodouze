@@ -85,7 +85,7 @@ function researchForSong(inputUser){
     html = '';
     SC.get('/tracks/?q=' + inputUser, function(result) {
         for (i = 0; i < result.length; i++) {
-            var titleTrack=result[i].title;
+            var titleTrack=result[i].title.toUpperCase();
             var idTrack=result[i].id;
             var artworkUrl=result[i].artwork_url;
             html+= '<option id=' + idTrack + '>' + titleTrack + '</option>';
@@ -172,8 +172,8 @@ function updatePlayerUserPlaylist(posSong){
     SC.get('/tracks/' + arraySongs[posSong], function(res){
         //$('#jquery_jplayer_1').jPlayer("setMedia", {mp3 : media}).play();
         //var splitedTitle = res.title.split(" - ");
-        $('#artistSpanTitle').html(res.user.username);
-        $('#titleSong').html(res.title);
+        $('#artistSpanTitle').html(res.user.username.toUpperCase());
+        $('#titleSong').html(res.title.toUpperCase());
         $('#imageSong').attr("src", res.artwork_url);
         if(posSong == 0 && firstTime) {
             playFirstSong(res.stream_url);

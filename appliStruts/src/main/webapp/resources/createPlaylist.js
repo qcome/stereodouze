@@ -48,7 +48,7 @@ $(document).ready(function(){
         var widthWrapperSelect = $('#wrapperSelectMultiple').outerWidth();
         if(!alreadyExists){
             $('#selectAddedSongs').append('<option id='+ idSong + '>' + titleSong + '</option>');
-            $('#'+idSong).val(idSong + "&" + titleSong);
+            $('#'+idSong).val(idSong);
             var lengthAddedSong = $.fn.textWidth(titleSong, '14px Arial')+35;
             var ratio = (lengthAddedSong)/widthWrapperSelect;
             //alert((lengthAddedSong+30)/actualSizeSelect);

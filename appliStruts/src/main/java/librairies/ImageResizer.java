@@ -38,10 +38,10 @@ public class ImageResizer {
 
         //BufferedImage tmp = Thumbnails.of(inputImage).scale(percent).asBufferedImage();
         BufferedImage tmp = Scalr.resize(inputImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_EXACT, newWidth, newHeight);
-        System.out.println("tmp.getWidth() : " + tmp.getWidth());
+        /*System.out.println("tmp.getWidth() : " + tmp.getWidth());
         System.out.println("tmp.getHeight() : " + tmp.getHeight());
         System.out.println("x*percent : " + (int) (x*percent));
-        System.out.println("y*percent : " + (int) (y*percent));
+        System.out.println("y*percent : " + (int) (y*percent));*/
         BufferedImage outputImage = tmp.getSubimage((int) (x*percent), (int) (y*percent), 200, 200);
         //BufferedImage outputImage = tmp.getSubimage((int) (x*percent), (int) (y*percent), 200, 200);
 
