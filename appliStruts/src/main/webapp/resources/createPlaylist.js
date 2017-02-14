@@ -151,6 +151,7 @@ $(document).ready(function(){
             //object already exists
             //$('#selectAddedSongs').wrap("");
         }
+        var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",{}, {cssSelectorAncestor: "#cp_container_1", supplied: "mp3", swfPath: "js", wmode: "window"});
         var parentWrapper = $('#wrapperSelectMultiple').parent();
         $('#deleteSong').detach().appendTo(parentWrapper);
         var widthButtonResearch = $('#searchForSong').outerWidth();
@@ -182,15 +183,29 @@ $(document).ready(function(){
         });
 
         $('#resultsResearch').on('mouseenter', 'option', function (e) {
-            console.log(objectNameImageurl[this.id]);
-            var $image = '<img src=' + objectNameImageurl[this.id] + '>';
-            $("#divImageSong").html($image).show().css({ 'top': mouseY, 'left': mouseX }).fadeIn('slow');
-
-            //console.log(this.id)
+            //console.log(objectNameImageurl[this.id]);
+            //var $image = '<img src=' + objectNameImageurl[this.id] + '>';
+            //$("#divImageSong").html($image).show().css({ 'top': mouseY, 'left': mouseX }).fadeIn('slow');
+        }).change(function () {
+            var idSong = $(this).children(":selected").attr('id');
+            $("#cp_container_1").css("background", 'url("' + objectNameImageurl[idSong] + '") 0 0 no-repeat');
+            //myCirclePlayer.setMedia({m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a"});
+            /*var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
+                {
+                    m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+                    oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+                }, {
+                    cssSelectorAncestor: "#cp_container_1"
+                });*/
+            console.log(objectMediaUrl[idSong] + '/?client_id=' + KEY_API);
+            myCirclePlayer.setMedia({
+                mp3: objectMediaUrl[idSong] + '/?client_id=' + KEY_API
+            })
         });
 
+
         //add resize event to selectmultiple
-        var sizeSelect;
+        //var sizeSelect;
        // $(window).resize(setSelectWidth ());
 
 
@@ -229,25 +244,6 @@ $(document).ready(function(){
     $("#btnValidateSecondPart").click(function () {
         $('#secondPartCreatePlaylist').removeClass().addClass('hidden');
         $('#thirdPartCreatePlaylist').removeClass().addClass('show');
-        //var cw = $('#image-preview').parent().width();
-        //$('#image-preview').css('height',cw+'px').draggable();
-        /*$.uploadPreview({
-            input_field: "#imageUpload",
-            preview_box: "#image-preview",
-            label_field: "#image-label"
-        });*/
-        /*$uploadCrop = $('#wrapperCropper').croppie({
-            enableExif: true,
-            viewport: {
-                width: 200,
-                height: 200,
-                type: 'circle'
-            },
-            boundary: {
-                width: 300,
-                height: 300
-            }
-        });*/
         $("#input").change(function () {
             readFile(this);
         });
@@ -289,53 +285,6 @@ $(document).ready(function(){
             console.log($(this).croppie('get').zoom);
 
         });
-
-
-/*
-         boundary: {
-         width: 300,
-         height: 300
-         },
-            var img = new Image;
-            var file  = this.files[0];
-            img.src = URL.createObjectURL(file);
-            $uploadCrop.croppie('bind', {
-                url: img.src
-            }).then(function(){
-                console.log('jQuery bind complete');
-            });
-
-            var img = new Image;
-            var canvas = document.getElementById('canvas');
-            var file = this.files[0];
-            img.src = URL.createObjectURL(file);
-
-            img.onload = function() {
-                //ctx.drawImage(img, 20,20);
-                var MAX_WIDTH = 200;
-                var MAX_HEIGHT = 200;
-                var width = img.width;
-                var height = img.height;
-                /*
-                if (width > height) {
-                    if (width > MAX_WIDTH) {
-                        height *= MAX_WIDTH / width;
-                        width = MAX_WIDTH;
-                    }
-                } else {
-                    if (height > MAX_HEIGHT) {
-                        width *= MAX_HEIGHT / height;
-                        height = MAX_HEIGHT;
-                    }
-                }
-                //canvas.width = 200;
-                //canvas.height = 200;
-                var ctx = canvas.getContext("2d");
-                //width then height
-                ctx.drawImage(img, 0, 0, 200, 200);
-
-
-        });}*/
     });
 
 

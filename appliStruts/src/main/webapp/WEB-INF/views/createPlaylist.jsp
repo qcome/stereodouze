@@ -24,6 +24,11 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/soundcloud.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.uploadPreview.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/myUploadPreview.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/circleplayer/js/circle.player.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/circleplayer/js/jquery.grab.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/circleplayer/js/jquery.jplayer.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/circleplayer/js/jquery.transform2d.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/circleplayer/js/mod.csstransforms.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/croppie.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
 

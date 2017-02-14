@@ -79,6 +79,7 @@ function updtatePlayerPlaylist(idPlaylist){
  *              CREATE PLAYLIST                  *
  *************************************************/
 var objectNameImageurl={};
+var objectMediaUrl={};
 var html = '';
 function researchForSong(inputUser){
     objectNameImageurl = {};
@@ -90,6 +91,7 @@ function researchForSong(inputUser){
             var artworkUrl=result[i].artwork_url;
             html+= '<option id=' + idTrack + '>' + titleTrack + '</option>';
             objectNameImageurl[idTrack] = artworkUrl;
+            objectMediaUrl[idTrack] = result[i].stream_url
         }
         $('#resultsResearch').html(html)
     });

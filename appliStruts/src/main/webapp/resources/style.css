@@ -118,8 +118,15 @@ a:hover, a:focus{
 #wrapperSelectMultiple{
     min-width: 250px;
 }
-#cp_container_1{
+.cp-container{
+   /* -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);*/
     box-sizing: content-box;
+    float: right;
+    padding: 0 2px 2px 0;
 }
 
 
@@ -129,6 +136,13 @@ a:hover, a:focus{
 /**************************************
  *       CREATE PLAYLIST PART 3       *
  **************************************/
+
+
+
+
+
+
+
 #wrapperContainerPlayer{
     position: fixed;
     bottom: 0;
@@ -182,17 +196,17 @@ input[type="radio"], input[type="checkbox"]{
     opacity: 0.8;
     cursor: pointer;
     background-color: #bdc3c7;
-    width: 220px;
-    height: 50px;
+    width: 204px;
+    height: 40px;
     font-size: 20px;
-    line-height: 50px;
+    line-height: 35px;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     text-align: center;
     border-radius: 10px;
-    margin: 30px auto auto;
+    margin: 45px auto auto;
 }
 #image-preview{
     overflow: hidden;
