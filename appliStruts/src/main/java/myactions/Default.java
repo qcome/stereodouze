@@ -8,6 +8,7 @@ public class Default extends MyCommonEnvironnement {
     @Override
     public String execute(){
         System.out.println(mapSession);
+
         return SUCCESS;
     }
 }

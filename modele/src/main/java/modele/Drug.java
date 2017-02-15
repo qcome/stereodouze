@@ -25,5 +25,9 @@ public enum Drug {
         String valuesStr = Arrays.toString(Drug.values());
         return valuesStr.substring(1, valuesStr.length()-1).replace(" ", "").split(",");
     }
+    public String getName() {return name;}
+
+    public void setName(String name) {this.name = name;}
+
 
 }

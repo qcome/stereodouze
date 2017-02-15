@@ -60,8 +60,9 @@ public class MyCommonEnvironnement extends ActionSupport implements ApplicationA
             al.add("203882029");
             al.add("283785673");
             al.add("220096510");
-            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "user_playlists.playlist_image.bf837bd7f0e08760.68616d6275726765722e6a7067_thumb.jpg", "GHouse oklm", "#yolo");
+            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "ghouse.jpg", "GHouse oklm", "#yolo");
             map.put("playlists", myFacade.getPlaylists());
+            map.put("categories", myFacade.getDrugsList());
         }
         //actualisation playlists
         map.put("playlists", myFacade.getPlaylists());

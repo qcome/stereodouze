@@ -37,6 +37,9 @@ $( window ).load(function() {
             }
         });
     });
+    $('.thumbnail').hover(function () {
+        $(this).toggleClass('show')
+    });
     $('#testbuttton').click(function () {
         $.get( "http://api.soundcloud.com/tracks/?q=lentourloop&client_id=d3bb97412667a7812924715ea66498af", function( data ) {
             alert( "Data Loaded: " + data[0].stream_url );
