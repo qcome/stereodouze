@@ -37,6 +37,37 @@ $( window ).load(function() {
             }
         });
     });
+    var count = 0;
+    $('.carousel-control.right').click(function () {
+            var $container = $(this).parent();
+            var $liElements = $container.find('ul').children('li');
+            var widthThumbnail = $liElements.outerWidth(true);
+
+            $container.find("ul li:nth-child(" + (count + 1) + ")").animate({
+                opacity: '0'
+            }, 500);
+
+            $container.find('ul').animate({
+                marginLeft: '-=' + widthThumbnail + 'px'
+            }, 500);
+            count++;
+    });
+    $('.carousel-control.left').click(function () {
+        if (count > 0) {
+            var $container = $(this).parent();
+            var $liElements = $container.find('ul').children('li');
+            var widthThumbnail = $liElements.outerWidth(true);
+
+            $container.find("ul li:nth-child(" + count + ")").animate({
+                opacity: '1'
+            }, 500);
+
+            $container.find('ul').animate({
+                marginLeft: '+=' + widthThumbnail + 'px'
+            }, 500);
+            count--;
+        }
+    });
     $('.thumbnail').hover(function () {
         $(this).toggleClass('show')
     });

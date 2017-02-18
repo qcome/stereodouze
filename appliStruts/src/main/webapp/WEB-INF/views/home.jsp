@@ -56,16 +56,54 @@
     </div>
 </div>-->
 <!--<button class="btn btn-primary" id="testbuttton">testbutton</button>-->
-<s:iterator var="category" value="#application.categories" status="i">
-
 <div class="container">
+
+<s:iterator var="category" value="#application.categories" status="i">
+<div class="row">
+    <a href="#" class="home-category">
     <div class="well well-sm">
-        <strong><s:property value="#category"/></strong>
+
+            <strong><s:property value="#category"/></strong>
+
     </div>
+    </a>
 
 
-        <s:iterator var="playlist" value="#application.playlists" status="i">
+
+    <div class="wrapper-home-playlists">
+        <a class="left carousel-control" href="#">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <div class="container-playlists" id="<s:property value="#category"/>">
+            <ul>
+                <s:iterator var="playlist" value="#application.playlists" status="i">
+                    <s:if test="%{#category eq #playlist.drug.name}">
+                    <li>
+                        <div class="thumbnail-playlist">
+                            <s:url action="goToPlaylist.action" var="urlTag" escapeAmp="false">
+                                <s:param name="idPlaylist"><s:property value="#playlist.idPlaylist"/></s:param>
+                                <s:param name="userName"><s:property value="#playlist.userName"/></s:param>
+                            </s:url>
+                            <a href="<s:property value="#urlTag" />" >
+                                <!--<div class="playlist-info">
+                                    <div class="playlistDescription"><s:property value="#playlist.description"/></div>
+                                    <div class="playlist-info-creator">Created by: <s:property value="#playlist.userName"/></div>
+                                </div>-->
+
+                                <img class="group list-group-image" src="resources/images/<s:property value="#playlist.imageName"/>" alt="" />
+                            </a>
+                        </div>
+                    </li>
+                    </s:if>
+                </s:iterator>
+            </ul>
+        </div>
+        <a class="right carousel-control" href="#">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+        <%--<s:iterator var="playlist" value="#application.playlists" status="i">
             <s:if test="%{#category eq #playlist.drug.name}">
+
                 <div class="item  col-xs-3 col-lg-3">
                     <div class="thumbnail">
                         <s:url action="goToPlaylist.action" var="urlTag" escapeAmp="false">
@@ -79,44 +117,16 @@
                             </div>
 
                             <img class="group list-group-image" src="resources/images/<s:property value="#playlist.imageName"/>" alt="" />
-
-                            <!--<span class="wrapperImg">-->
-
-                            <!--</span>-->
                         </a>
-                       <%--
-                        <div class="caption">
-                            <h4 class="group inner list-group-item-heading">
-                                <s:property value="#playlist.name"/></h4>
-                            <p class="group inner list-group-item-text">
-                                <s:property value="#playlist.description"/></p>
-                            <div class="row">
-                                <p class="lead">
-                                    <s:property value="#playlist.drug"/>:<s:property value="#playlist.mood"/></p>
-                                <div class="col-xs-12 col-md-6">
-                                    by: <s:property value="#playlist.userName"/>
-                                </div>
-                                <div class="col-xs-12 col-md-6">
-                                    <button class="btn btn-primary pull-right" onclick="playuserplaylist(<s:property value="#playlist.idPlaylist"/>)">Play</button>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        %-->
-                    <%--<tr id="<s:property value="%{#i.index}"/>-playlist">
-                        <td><s:property value="#playlist.name"/></td>
-                        <td><img src="resources/images/<s:property value="#playlist.imageName"/>" width="100" height="100" /></td>
-                    </tr>--%>
                     </div>
                 </div>
             </s:if>
-        </s:iterator>
-
+        </s:iterator>--%>
+    </div>
 
 </div>
 </s:iterator>
-
+</div>
 <!--<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="row">
     <div class="container-fluid" id="containerPlayer">

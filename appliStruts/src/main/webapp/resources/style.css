@@ -7,10 +7,14 @@ body{
     font-family: "Lato";
 }
 a{
+    text-decoration: none !important;
     color: #777;
 }
 a:hover, a:focus{
     color: #1A1A1A;
+}
+.home-category{
+    color: rgba(26, 26, 26, 0.62);
 }
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 768px) {
@@ -32,7 +36,6 @@ a:hover, a:focus{
     margin-left: 0;
     margin-right: 0;
 }
-
 
 .form-inline .form-group
 {
@@ -90,6 +93,70 @@ a:hover, a:focus{
 #dividerLoginForm{
     background-color: #777;
 }
+/**************************************
+ *                 HOME               *
+ **************************************/
+
+.wrapper-home-playlists{
+    position: relative;
+    height: 175px;
+}
+.thumbnail{
+    margin-top: 20px;
+}
+.carousel-control{
+    width: 12%;
+}
+.container-playlists{
+    width: 76%;
+    margin-left: 12%;
+    margin-right: 12%;
+    height: inherit;
+    overflow: hidden;
+    overflow-x: auto;
+}
+.container-playlists ul{
+    list-style: none;
+    padding: 0;
+    height: 0;
+}
+.container-playlists ul li{
+    width: 155px;
+    height: 155px;
+    margin: 7px;
+    float: left;
+    padding-top: 3px;
+}
+.thumbnail-playlist a img{
+    width: 155px;
+    height: 155px;
+}
+.carousel-control .glyphicon-chevron-right{
+    margin-right: -15px;
+}
+.carousel-control .glyphicon-chevron-left{
+    margin-left: -15px;
+}
+.thumbnail .playlist-info{
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    display: none;
+}
+
+.thumbnail.show .playlist-info{
+    display: block;
+}
+.thumbnail.show img{
+    visibility: hidden;
+}
+.well{
+    margin-bottom: 0;
+    background-color: rgba(164, 164, 164, 0.67);
+    border: 3px solid #6C6C6C;
+    text-align: center;
+}
+
 /**************************************
  *       CREATE PLAYLIST PART 1       *
  **************************************/
@@ -217,24 +284,7 @@ input[type="radio"], input[type="checkbox"]{
     background-color: #000;
 }
 
-.thumbnail .playlist-info{
-    width: inherit;
-    height: inherit;
-    position: absolute;
-    display: none;
-}
 
-.thumbnail.show .playlist-info{
-    display: block;
-}
-.thumbnail.show img{
-    visibility: hidden;
-}
-.well{
-    background-color: rgba(164, 164, 164, 0.67);
-    border: 3px solid #6C6C6C;
-    text-align: center;
-}
 
 #image-preview{
     overflow: hidden;
