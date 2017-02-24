@@ -105,6 +105,14 @@ public class GestionApplication implements IGestionApplication{
                 return playlists.get(idPlaylist);
         return null;
     }
+    public ArrayList<Playlist> getPlaylistsFromCategory(String category){
+        ArrayList<Playlist> list = new ArrayList<>();
+        for(Playlist playlist : playlists){
+            if(Objects.equals(category, playlist.getDrug().getName()))
+                list.add(playlist);
+        }
+        return list;
+    }
 
     /*public ArrayList<Playlist> getPlaylistsFromCategory(String category){
         ArrayList<String> list = new ArrayList<>();

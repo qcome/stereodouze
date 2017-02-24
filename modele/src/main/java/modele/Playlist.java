@@ -66,7 +66,7 @@ public class Playlist {
         //this.name = name;
         this.idPlaylist = identifiant_playlist;
         this.songs = songs;
-        this.name = title;
+        this.name = title.toUpperCase();
         this.titleSongs = new ArrayList<>();
         this.idSongs = new ArrayList<>();
         this.description = description;

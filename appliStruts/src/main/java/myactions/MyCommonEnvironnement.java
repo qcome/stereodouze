@@ -61,7 +61,9 @@ public class MyCommonEnvironnement extends ActionSupport implements ApplicationA
             al.add("283785673");
             al.add("220096510");
             this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "ghouse.jpg", "GHouse oklm", "#yolo");
+            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "15727370_1609204502428256_4205101053389477234_n.jpg", "GHouse oklm", "#yolo");
             this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "ghouse.jpg", "GHouse oklm", "#yolo");
+            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "Capture.PNG", "GHouse oklm", "#yolo");
             this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "ghouse.jpg", "GHouse oklm", "#yolo");
             ArrayList<String> aze = new ArrayList<String>();
             aze.add("289036800");

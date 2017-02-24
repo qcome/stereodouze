@@ -13,9 +13,7 @@ a{
 a:hover, a:focus{
     color: #1A1A1A;
 }
-.home-category{
-    color: rgba(26, 26, 26, 0.62);
-}
+
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 768px) {
     .col-xs-2{
@@ -96,16 +94,26 @@ a:hover, a:focus{
 /**************************************
  *                 HOME               *
  **************************************/
-
+.home-category{
+    color: rgba(0, 0, 0, 0.62);
+}
+.home-container{
+    padding: 10px 0 0;
+    box-shadow: 0 0 5px 5px RGBA(108, 108, 108, 0.63);
+}
 .wrapper-home-playlists{
     position: relative;
-    height: 175px;
+    height: 200px;
+}
+.wrapper-ul{
+    width: 133%;
 }
 .thumbnail{
     margin-top: 20px;
 }
 .carousel-control{
     width: 12%;
+    color: #7A7A7A;
 }
 .container-playlists{
     width: 76%;
@@ -113,23 +121,24 @@ a:hover, a:focus{
     margin-right: 12%;
     height: inherit;
     overflow: hidden;
-    overflow-x: auto;
+    /*overflow-x: auto;*/
 }
 .container-playlists ul{
     list-style: none;
+    margin-bottom: 0;
     padding: 0;
     height: 0;
+
 }
 .container-playlists ul li{
-    width: 155px;
-    height: 155px;
-    margin: 7px;
+    width: 150px;
+    height: 200px;
+    margin: 20px 14px 0;
     float: left;
-    padding-top: 3px;
 }
 .thumbnail-playlist a img{
-    width: 155px;
-    height: 155px;
+    width: 145px;
+    height: auto;
 }
 .carousel-control .glyphicon-chevron-right{
     margin-right: -15px;
@@ -150,11 +159,43 @@ a:hover, a:focus{
 .thumbnail.show img{
     visibility: hidden;
 }
+.thumbnail-playlist img{
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+    border: 5px solid #6c6c6c;
+}
+.thumbnail-playlist{
+    width: 150px;
+}
+.name-playlist-home{
+    color: rgba(230, 230, 230, 0.79);
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center;
+}
 .well{
     margin-bottom: 0;
-    background-color: rgba(164, 164, 164, 0.67);
-    border: 3px solid #6C6C6C;
+    background-color: rgba(113, 113, 113, 0.8);
+    border: 0;
+    border-bottom: 4px solid #4B4B4B;
+    border-top: 4px solid #716F6F;
     text-align: center;
+    border-radius: 0;
+}
+/**************************************
+ *          CATEGORY PLAYLIST         *
+ **************************************/
+.wrapper-category-playlist{
+    height: auto;
+}
+.wrapper-playlist{
+    width: 33%;
+    float: left;
+}
+.title-category-playlist{
+    font-weight: bold;
+    font-size: 30px;
+    color: antiquewhite;
 }
 
 /**************************************

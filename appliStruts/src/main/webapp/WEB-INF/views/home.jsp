@@ -40,8 +40,6 @@
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
 <!--<div class="row">
     <div class="container" id="containerFindId">
         <form class="form" id="formFindId" role="form" method="post" accept-charset="UTF-8">
@@ -56,47 +54,49 @@
     </div>
 </div>-->
 <!--<button class="btn btn-primary" id="testbuttton">testbutton</button>-->
-<div class="container">
+<div class="container home-container">
 
 <s:iterator var="category" value="#application.categories" status="i">
 <div class="row">
-    <a href="#" class="home-category">
-    <div class="well well-sm">
-
+    <s:url var="goToCategoryPlaylist" action="categoryPlaylist.action" namespace="/">
+        <s:param name="category"><s:property value="#category"/></s:param>
+    </s:url>
+    <s:a cssClass="home-category" href="%{goToCategoryPlaylist}">
+        <div class="well well-sm">
             <strong><s:property value="#category"/></strong>
-
-    </div>
-    </a>
-
-
+        </div>
+    </s:a>
 
     <div class="wrapper-home-playlists">
         <a class="left carousel-control" href="#">
             <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
         <div class="container-playlists" id="<s:property value="#category"/>">
-            <ul>
-                <s:iterator var="playlist" value="#application.playlists" status="i">
-                    <s:if test="%{#category eq #playlist.drug.name}">
-                    <li>
-                        <div class="thumbnail-playlist">
-                            <s:url action="goToPlaylist.action" var="urlTag" escapeAmp="false">
-                                <s:param name="idPlaylist"><s:property value="#playlist.idPlaylist"/></s:param>
-                                <s:param name="userName"><s:property value="#playlist.userName"/></s:param>
-                            </s:url>
-                            <a href="<s:property value="#urlTag" />" >
-                                <!--<div class="playlist-info">
-                                    <div class="playlistDescription"><s:property value="#playlist.description"/></div>
-                                    <div class="playlist-info-creator">Created by: <s:property value="#playlist.userName"/></div>
-                                </div>-->
+            <div class="wrapper-ul">
+                <ul>
+                    <s:iterator var="playlist" value="#application.playlists" status="i">
+                        <s:if test="%{#category eq #playlist.drug.name}">
+                            <li>
+                                <div class="thumbnail-playlist">
+                                    <s:url action="goToPlaylist.action" var="urlTag" escapeAmp="false">
+                                        <s:param name="idPlaylist"><s:property value="#playlist.idPlaylist"/></s:param>
+                                        <s:param name="userName"><s:property value="#playlist.userName"/></s:param>
+                                    </s:url>
+                                    <a href="<s:property value="#urlTag" />" >
+                                        <%--<div class="playlist-info">
+                                            <div class="playlistDescription"><s:property value="#playlist.description"/></div>
+                                            <div class="playlist-info-creator">Created by: <s:property value="#playlist.userName"/></div>
+                                        </div>--%>
 
-                                <img class="group list-group-image" src="resources/images/<s:property value="#playlist.imageName"/>" alt="" />
-                            </a>
-                        </div>
-                    </li>
-                    </s:if>
-                </s:iterator>
-            </ul>
+                                        <img class="group list-group-image" src="resources/images/<s:property value="#playlist.imageName"/>" alt="" />
+                                            <div class="name-playlist-home"><s:property value="#playlist.name"/></div>
+                                    </a>
+                                </div>
+                            </li>
+                        </s:if>
+                    </s:iterator>
+                </ul>
+            </div>
         </div>
         <a class="right carousel-control" href="#">
             <span class="glyphicon glyphicon-chevron-right"></span>

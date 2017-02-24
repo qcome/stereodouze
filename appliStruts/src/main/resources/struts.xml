@@ -61,6 +61,10 @@
             <result name="input">/WEB-INF/views/registration.jsp</result>
         </action>
 
+        <action name="categoryPlaylist" class="myactions.CategoryPlaylist">
+            <result name="success">/WEB-INF/views/categoryPlaylist.jsp</result>
+        </action>
+
         <action name="createPlaylistAction" class="myactions.CreatePlaylist" method="createPlaylist">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="fileUpload">

@@ -13,7 +13,6 @@
 <head>
     <sj:head/>
     <sb:head/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><s:property value="playlist.name"/></title>
     <script type="text/javascript">
         $(document).ready(function() {
