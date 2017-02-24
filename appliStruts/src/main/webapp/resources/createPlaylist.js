@@ -205,7 +205,7 @@ $(document).ready(function(){
 
 
         //add resize event to selectmultiple
-        //var sizeSelect;
+
        // $(window).resize(setSelectWidth ());
 
 
