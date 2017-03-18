@@ -147,7 +147,7 @@
                     <stopPort>8999</stopPort>
                     <systemProperties>
                         <systemProperty>
-                            <name>xwork.loggerFactory</name>
+                            <playlistName>xwork.loggerFactory</playlistName>
                             <value>com.opensymphony.xwork2.util.logging.log4j2.Log4j2LoggerFactory</value>
                         </systemProperty>
                     </systemProperties>

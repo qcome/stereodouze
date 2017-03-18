@@ -13,7 +13,7 @@
 <head>
     <sj:head/>
     <sb:head/>
-    <title><s:property value="playlist.name"/></title>
+    <title><s:property value="playlist.playlistName"/></title>
     <script type="text/javascript">
         $(document).ready(function() {
             setSongArray(<s:property value="playlist.idSongs"/>);
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/javascript.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/soundcloud.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/listenPlaylist.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/home.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/navbar.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.jplayer.swf"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.jplayer.min.js"></script>
 
@@ -46,19 +46,16 @@
 <br/>
 <br/>
 <br/>
-<br/>
 <div class="container" id="containerListenPlaylist">
     <div class="row">
         <div class="col-md-5 col-xs-12">
             <img src="${pageContext.request.contextPath}/resources/images/<s:property value="playlist.imageName"/>">
         </div>
         <div class="col-md-7 col-xs-12">
-            <div ><s:property value="playlist.name"/></div>
+            <div ><s:property value="playlist.playlistName"/></div>
             <p><s:property value="playlist.description"/></p>
         </div>
     </div>
-</div>
-<div class="container" id="containerSongsList">
 </div>
 <div class="row">
     <div id="wrapperContainerPlayer">

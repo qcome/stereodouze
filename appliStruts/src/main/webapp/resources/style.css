@@ -1,5 +1,6 @@
 body{
-    background: url("images/4238051-background.jpg") no-repeat center center fixed;
+    /*background: url("images/4238051-background.jpg") no-repeat center center fixed;*/
+    background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -72,6 +73,7 @@ a:hover, a:focus{
     max-width: 700px;
     border-radius: 5px;
     background-color: rgba(30, 30, 30, 0.52);
+    box-shadow: 0 0 5px 5px RGBA(108, 108, 108, 0.63);
 }
 .labelForm{
     font-size: 17px;
@@ -91,6 +93,47 @@ a:hover, a:focus{
 #dividerLoginForm{
     background-color: #777;
 }
+/**************************************
+ *               NAVBAR               *
+ **************************************/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /**************************************
  *                 HOME               *
  **************************************/
@@ -131,14 +174,23 @@ a:hover, a:focus{
 
 }
 .container-playlists ul li{
-    width: 150px;
+    width: 145px;
     height: 200px;
-    margin: 20px 14px 0;
+    margin: 20px 16px 0;
     float: left;
 }
 .thumbnail-playlist a img{
-    width: 145px;
-    height: auto;
+    width: 100%;
+}
+.thumbnail-playlist a{
+    position: absolute;
+    width: inherit;
+    color: #9b9b9b;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+    border: 5px solid #6c6c6c;
+}
+.playlist-info{
+    position: absolute;
 }
 .carousel-control .glyphicon-chevron-right{
     margin-right: -15px;
@@ -159,18 +211,15 @@ a:hover, a:focus{
 .thumbnail.show img{
     visibility: hidden;
 }
-.thumbnail-playlist img{
-    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
-    border: 5px solid #6c6c6c;
-}
 .thumbnail-playlist{
-    width: 150px;
+    width: 145px;
+    height: 145px;
 }
 .name-playlist-home{
-    color: rgba(230, 230, 230, 0.79);
+    color: rgba(230, 230, 230, 0.6);
     font-weight: bold;
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
 }
 .well{
@@ -196,6 +245,9 @@ a:hover, a:focus{
     font-weight: bold;
     font-size: 30px;
     color: antiquewhite;
+}
+.nav-tabs > li.active > a{
+    background-color: #3c3c3c;
 }
 
 /**************************************
@@ -324,8 +376,6 @@ input[type="radio"], input[type="checkbox"]{
     height: auto;
     background-color: #000;
 }
-
-
 
 #image-preview{
     overflow: hidden;

@@ -3,7 +3,7 @@
           "-//Apache Struts//XWork Validator 1.0.2//EN"
           "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
 <validators>
-  <field name="username">
+  <field name="userName">
     <field-validator type="requiredstring">
       <message key="requiredstring"/>
     </field-validator>

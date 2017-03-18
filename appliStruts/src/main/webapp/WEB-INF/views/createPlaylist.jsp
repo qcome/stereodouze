@@ -19,6 +19,7 @@
     <link href="${pageContext.request.contextPath}/resources/style.css" rel="stylesheet" type="text/css" >
     <link href="${pageContext.request.contextPath}/resources/croppie.css" rel="stylesheet" type="text/css" >
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/javascript.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/navbar.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/home.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/createPlaylist.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/soundcloud.js"></script>
@@ -51,7 +52,7 @@
 <br/>
 <br/>
 <br/>
-<%--<s:text name="createPlaylistLabel"/>--%>
+<%--<s:text playlistName="createPlaylistLabel"/>--%>
 <div class="container" id="containerCreatePlaylist">
     <s:form cssClass="form-inline" id="formCreatePlaylist" theme="bootstrap" action="createPlaylistAction" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
         <div class="show" id="firstPartCreatePlaylist">
@@ -65,7 +66,7 @@
 
             <div class="row">
                 <div class="col-xs-4 col-sm-4">
-                    <p class="labelForm">Select your drug:</p>
+                    <p class="labelForm">Select your category:</p>
                 </div>
                 <div class="col-xs-8 col-sm-8">
                     <div id="radioDrugs">

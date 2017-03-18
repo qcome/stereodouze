@@ -38,8 +38,8 @@
         <action name="createPlaylist" class="myactions.CreatePlaylist">
             <result>/WEB-INF/views/createPlaylist.jsp</result>
         </action>
-        
-       <!-- <action name="listenPlaylist" class="myactions.ListenPlaylist" method="listenPlaylist">
+
+       <!-- <action playlistName="listenPlaylist" class="myactions.ListenPlaylist" method="listenPlaylist">
             <result>/WEB-INF/views/listenPlaylist.jsp</result>
         </action>-->
 
@@ -63,6 +63,10 @@
 
         <action name="categoryPlaylist" class="myactions.CategoryPlaylist">
             <result name="success">/WEB-INF/views/categoryPlaylist.jsp</result>
+        </action>
+
+        <action name="userAccount" class="myactions.UserAccount">
+            <result name="success">/WEB-INF/views/userAccount.jsp</result>
         </action>
 
         <action name="createPlaylistAction" class="myactions.CreatePlaylist" method="createPlaylist">

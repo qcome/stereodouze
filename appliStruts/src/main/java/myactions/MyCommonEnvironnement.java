@@ -53,24 +53,28 @@ public class MyCommonEnvironnement extends ActionSupport implements ApplicationA
             arrayList.add("224299505");
             arrayList.add("89246569");
             arrayList.add("15658910");
-            this.myFacade.createPlaylist(0, "admin", "DRUG", "RASTA", arrayList, "Bob_Marley.jpg", "Keep skanking", "'Get up, stand up, Stand up for your rights. Get up, stand up, Don't give up the fight. '");
+            this.myFacade.createPlaylist(0, "admin", "DRUG", "RASTA", arrayList, "album-art11.jpg", "Keep skanking", "'Get up, stand up, Stand up for your rights. Get up, stand up, Don't give up the fight. '");
             ArrayList<String> al = new ArrayList<String>();
             al.add("234519715");
             al.add("270169350");
             al.add("203882029");
             al.add("283785673");
             al.add("220096510");
-            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "ghouse.jpg", "GHouse oklm", "#yolo");
-            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "15727370_1609204502428256_4205101053389477234_n.jpg", "GHouse oklm", "#yolo");
-            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "ghouse.jpg", "GHouse oklm", "#yolo");
-            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "Capture.PNG", "GHouse oklm", "#yolo");
-            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "ghouse.jpg", "GHouse oklm", "#yolo");
+            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "album-covers-05.jpg", "GHouse oklm", "#yolo");
+            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "HOPE-1024x1024.jpg", "GHouse oklm", "#yolo");
+            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "insurgency-digital-album-cover-design.jpg", "GHouse oklm", "#yolo");
+            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "Joy-Division-Unknown-Pleasures-album-covers-billboard-1000x1000.jpg", "GHouse oklm", "#yolo");
+            this.myFacade.createPlaylist(0, "admin", "DRUG", "POWER", al, "pusha-t-darkest-before-dawn-album-cover-full-size.jpg", "GHouse oklm", "#yolo");
+            this.myFacade.createPlaylist(0, "admin", "PARTY", "WTF", al, "pusha-t-darkest-before-dawn-album-cover-full-size.jpg", "GHouse oklm", "#yolo");
             ArrayList<String> aze = new ArrayList<String>();
             aze.add("289036800");
             aze.add("202122606");
-            this.myFacade.createPlaylist(0, "admin", "PARTY", "WTF", aze, "wtf.jpg", "Zoubida", "Sacré Lagaf!");
+            this.myFacade.createPlaylist(0, "admin", "MOTIVATION", "WORKOUT", aze, "the-boxer-rebellion-ocean-by-ocean-album-cover-full-size.jpg", "Zoubida", "Sacré Lagaf!");
+            this.myFacade.createPlaylist(0, "admin", "MOTIVATION", "WORKOUT", aze, "Joy-Division-Unknown-Pleasures-album-covers-billboard-1000x1000.jpg", "Zoubida", "Sacré Lagaf!");
+            this.myFacade.createPlaylist(0, "admin", "MOTIVATION", "WORKOUT", aze, "pusha-t-darkest-before-dawn-album-cover-full-size.jpg", "Zoubida", "Sacré Lagaf!");
             map.put("playlists", myFacade.getPlaylists());
             map.put("categories", myFacade.getDrugsList());
+
         }
         //actualisation playlists
         map.put("playlists", myFacade.getPlaylists());

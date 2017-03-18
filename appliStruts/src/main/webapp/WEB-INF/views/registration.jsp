@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="${pageContext.request.contextPath}/resources/style.css" rel="stylesheet" type="text/css" >
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/javascript.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/home.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/navbar.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/registration.js"></script>
 </head>
 <body>

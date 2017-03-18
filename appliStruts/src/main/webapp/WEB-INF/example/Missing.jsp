@@ -5,7 +5,7 @@
 
 <body>
 <p>
-    <s:text name="Missing.message"/>
+    <s:text playlistName="Missing.message"/>
 </p>
 </body>
 </html>

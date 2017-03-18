@@ -4,9 +4,7 @@ import modele.exceptions.ExceptionCoupleLoginPasswordInvalid;
 import modele.exceptions.ExceptionUserNotConnected;
 import modele.exceptions.ExceptionLoginAlreadyTaken;
 import modele.exceptions.ExceptionUserNotRegistered;
-import org.apache.struts2.ServletActionContext;
 
-import javax.servlet.ServletContext;
 import java.util.*;
 
 /**
@@ -22,6 +20,7 @@ public class GestionApplication implements IGestionApplication{
     private List<String> drugsList;
     private Map<Integer, Playlist> usersPlaylists;
 
+
     private ArrayList<Playlist> playlists;
 
 
@@ -31,19 +30,19 @@ public class GestionApplication implements IGestionApplication{
         this.idUsers = new HashMap<>();
         this.usersOnline = new HashMap<>();
         this.playlists = new ArrayList<>();
-        this.drugsList = Arrays.asList(Drug.names());
+        this.drugsList = Arrays.asList(Category.names());
     }
 
     public int registration(String login, String password) throws ExceptionLoginAlreadyTaken {
         for(User user : users.values()){
-            if(user.getLoginUser().equals(login)){
+            if(user.getPseudo().equals(login)){
                 throw new ExceptionLoginAlreadyTaken();
             }
         }
         User user = new User(login, password);
-        this.users.put(user.getIdUser(), user);
-        this.idUsers.put(login, user.getIdUser());
-        return user.getIdUser();
+        this.users.put(user.getUserId(), user);
+        this.idUsers.put(login, user.getUserId());
+        return user.getUserId();
     }
 
     public int connection(String username, String password) throws ExceptionUserNotRegistered, ExceptionCoupleLoginPasswordInvalid {
@@ -67,8 +66,9 @@ public class GestionApplication implements IGestionApplication{
     }
 
     public void createPlaylist(int idUser, String userName, String drug, String mood, ArrayList<String> songs, String imageName, String title, String description){
-        Playlist playlist = new Playlist(idUser, userName, drug, mood, songs, imageName, title, description);
+
         User user = users.get(idUser);
+        Playlist playlist = user.createPlaylist(userName, drug, mood, songs, imageName, title, description);
         user.getUserPlaylists().add(playlist);
         this.playlists.add(playlist);
     }
@@ -78,9 +78,10 @@ public class GestionApplication implements IGestionApplication{
     }
 
     public List<String> getMoodsListOfDrug(String drug){
+
         List<String> list = new ArrayList<>();
-        for(Mood a : Arrays.asList(Mood.values())){
-            if(a.getDrugString().equals(drug))
+        for(Subcategory a : Arrays.asList(Subcategory.values())){
+            if(a.getCategory().toString().equals(drug))
                 list.add(a.toString());
             else
                 list.remove(a.toString());
@@ -108,16 +109,17 @@ public class GestionApplication implements IGestionApplication{
     public ArrayList<Playlist> getPlaylistsFromCategory(String category){
         ArrayList<Playlist> list = new ArrayList<>();
         for(Playlist playlist : playlists){
-            if(Objects.equals(category, playlist.getDrug().getName()))
+            if(Objects.equals(category, playlist.getCategory().getName()))
                 list.add(playlist);
         }
         return list;
     }
 
+
     /*public ArrayList<Playlist> getPlaylistsFromCategory(String category){
         ArrayList<String> list = new ArrayList<>();
         for(Playlist playlist : playlists){
-            if(Objects.equals(category, playlist.getDrug().toString())){
+            if(Objects.equals(category, playlist.getCategory().toString())){
                 list.add()
             }
         }

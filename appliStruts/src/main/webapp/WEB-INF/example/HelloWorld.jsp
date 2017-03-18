@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <title><s:text name="HelloWorld.message"/></title>
+    <title><s:text playlistName="HelloWorld.message"/></title>
 </head>
 
 <body>
@@ -12,13 +12,13 @@
 <ul>
     <li>
         <s:url var="url" action="HelloWorld">
-            <s:param name="request_locale">en</s:param>
+            <s:param playlistName="request_locale">en</s:param>
         </s:url>
         <s:a href="%{url}">English</s:a>
     </li>
     <li>
         <s:url var="url" action="HelloWorld">
-            <s:param name="request_locale">es</s:param>
+            <s:param playlistName="request_locale">es</s:param>
         </s:url>
         <s:a href="%{url}">Espanol</s:a>
     </li>

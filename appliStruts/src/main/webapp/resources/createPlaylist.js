@@ -115,7 +115,7 @@ $(document).ready(function(){
         $('#btnValidateFirstPart').disable(true);
         var drug = $(this).val();
         $.ajax({
-            url: "updateMood.action?drugSelected=" + drug,
+            url: "updateMood.action?selectedCategory=" + drug,
             type: "POST",
             contentType: "application/json: charset=utf-8",
             dataType: "json",

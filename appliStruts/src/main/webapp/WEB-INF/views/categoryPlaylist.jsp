@@ -19,6 +19,7 @@
     <link href="${pageContext.request.contextPath}/resources/style.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/librairies/javascript.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/categoryPlaylist.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/navbar.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/soundcloud.js"></script>
 </head>
 <body>
@@ -41,12 +42,17 @@
 <br/>
 <br/>
 <div class="container">
-
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#">All</a></li>
+        <s:iterator var="subCategory" value="subCategories" status="i">
+            <li><a href="#" class="sub-category-a"><s:property value="#subCategory"/></a></li>
+        </s:iterator>
+    </ul>
     <div class="wrapper-category-playlist">
         <s:iterator var="playlist" value="#application.playlists" status="i">
 
 
-            <s:if test="%{#playlist.drug.name eq category}">
+            <s:if test="%{#playlist.category.playlistName eq category}">
                 <div class="wrapper-playlist">
                     <s:url action="goToPlaylist.action" var="urlTag" escapeAmp="false">
                         <s:param name="idPlaylist"><s:property value="#playlist.idPlaylist"/></s:param>
@@ -59,7 +65,7 @@
                             </div>--%>
 
                         <img class="group list-group-image" src="resources/images/<s:property value="#playlist.imageName"/>" alt="" />
-                                <s:property value="#playlist.name"/>
+                                <s:property value="#playlist.playlistName"/>
                     </a>
 
                 </div>

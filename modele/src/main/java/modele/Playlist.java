@@ -7,28 +7,14 @@ import java.util.ArrayList;
  */
 public class Playlist {
     private int idUser;
-
-
-
     private int idPlaylist;
-    private String name;
-
+    private String playlistName;
     private String imageName;
-    private Drug drug;
-
-
-
+    private Category category;
     private String title;
-
-
     private String userName;
-
-
-
     private String description;
-
-    private Mood mood;
-
+    private Subcategory subcategory;
 
     private ArrayList<String> songs;
 
@@ -56,17 +42,20 @@ public class Playlist {
 
 
     private static int identifiant_playlist = 0;
+    private static int identifiant_playlistImage = 0;
 
     public Playlist(int idUser, String userName, String drug, String mood, ArrayList<String>songs, String imageName, String title, String description){
-        this.drug = Drug.valueOf(drug);
-        this.mood = Mood.valueOf(mood);
+        this.category = Category.valueOf(drug);
+        System.out.println(mood);
+        System.out.println(Subcategory.valueOf(mood));
+
+        this.subcategory = Subcategory.valueOf(mood);
         this.idUser = idUser;
         this.userName = userName;
         this.imageName = imageName;
-        //this.name = name;
         this.idPlaylist = identifiant_playlist;
         this.songs = songs;
-        this.name = title.toUpperCase();
+        this.playlistName = title.toUpperCase();
         this.titleSongs = new ArrayList<>();
         this.idSongs = new ArrayList<>();
         this.description = description;
@@ -75,11 +64,16 @@ public class Playlist {
             this.idSongs.add(song);
         }
         identifiant_playlist++;
+        identifiant_playlistImage++;
     }
 
-    public String getName() {return name;}
+    public int getIdentifiant_playlistImage(){
+        return identifiant_playlistImage;
+    }
 
-    public void setName(String name) {this.name = name;}
+    public String getPlaylistName() {return playlistName;}
+
+    public void setPlaylistName(String playlistName) {this.playlistName = playlistName;}
 
     public String getImageName() {return imageName;}
 
@@ -89,13 +83,13 @@ public class Playlist {
 
     public void setIdPlaylist(int idPlaylist) {this.idPlaylist = idPlaylist;}
 
-    public Drug getDrug() {return drug;}
+    public Category getCategory() {return category;}
 
-    public void setDrug(Drug drug) {this.drug = drug;}
+    public void setCategory(Category category) {this.category = category;}
 
-    public Mood getMood() {return mood;}
+    public Subcategory getSubcategory() {return subcategory;}
 
-    public void setMood(Mood mood) {this.mood = mood;}
+    public void setSubcategory(Subcategory subcategory) {this.subcategory = subcategory;}
 
     public ArrayList<String> getSongs() {
         return songs;
